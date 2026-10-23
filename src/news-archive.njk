@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.news
+  size: 16
+  alias: posts
+permalink: "{{ '/news/' | pageHref(pagination.pageNumber) }}"
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "सभी खबरें{% if pagination.pageNumber > 0 %} — पेज {{ pagination.pageNumber + 1 }}{% endif %}"
+description: "IFC knowledge की सभी ताज़ा खबरें — नई खबरें सबसे ऊपर।"
+---
+{%- from "partials/macros.njk" import card, pager with context -%}
+<div class="layout">
+  <div>
+    <header class="page-head">
+      <h1>सभी खबरें <small>All News</small></h1>
+      <p>नई खबरें सबसे ऊपर।</p>
+    </header>
+    <section class="panel">
+      {%- if posts.length %}
+      <div class="grid grid--2">
+        {%- for p in posts %}{{ card(p) }}{% endfor %}
+      </div>
+      {{ pager(pagination.pageNumber, pagination.pages.length, "/news/") }}
+      {%- else %}
+      <p class="empty">अभी कोई खबर नहीं है।</p>
+      {%- endif %}
+    </section>
+  </div>
+  <aside class="sidebar stack" aria-label="साइडबार">
+    {% include "partials/sidebar.njk" %}
+  </aside>
+</div>

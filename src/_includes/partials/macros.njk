@@ -1,0 +1,65 @@
+{#- Reusable pieces. Import with: {% from "partials/macros.njk" import card, videoCard with context %} -#}
+{%- from "partials/icons.njk" import icon -%}
+
+{#- Picture area of a news card: photo, else YouTube thumbnail, else a coloured box -#}
+{%- macro media(post, cat) -%}
+  {%- set ytid = post.data.youtube | youtubeId -%}
+  {%- if post.data.image -%}
+    <img src="{{ post.data.image }}" alt="" loading="lazy" decoding="async">
+    {%- if ytid %}<span class="play-badge">{{ icon("play") }}</span>{% endif -%}
+  {%- elif ytid -%}
+    <img src="https://i.ytimg.com/vi/{{ ytid }}/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+    <span class="play-badge">{{ icon("play") }}</span>
+  {%- else -%}
+    <span class="card__placeholder" style="--c: {{ cat.color }}"><span>{{ cat.name }}<small>{{ site.name }}</small></span></span>
+  {%- endif -%}
+{%- endmacro -%}
+
+{#- variant: "lead" (big), "" (normal), "row" (small picture left), "text" (headline only) -#}
+{%- macro card(post, variant = "", showSummary = true) -%}
+  {%- set cat = post.data.category | categoryInfo -%}
+  <article class="card{% if variant %} card--{{ variant }}{% endif %}">
+    {%- if variant != "text" %}
+    <a class="card__media" href="{{ post.url }}" tabindex="-1" aria-hidden="true">{{ media(post, cat) }}</a>
+    {%- endif %}
+    <div class="card__body">
+      {%- if variant != "text" %}
+      <a class="cat-label" href="/category/{{ cat.slug }}/" style="--c: {{ cat.color }}">{{ cat.name }}</a>
+      {%- endif %}
+      {%- set hTag = "h2" if variant == "lead" else "h3" %}
+      <{{ hTag }} class="card__title"><a href="{{ post.url }}">{{ post.data.title }}</a></{{ hTag }}>
+      {%- if showSummary and (variant == "" or variant == "lead") and post.data.summary %}
+      <p class="card__summary">{{ post.data.summary }}</p>
+      {%- endif %}
+      <div class="card__meta">{{ icon("clock") }}<time datetime="{{ post.date | isoDate }}" data-relative>{{ post.date | hiDate }}</time></div>
+    </div>
+  </article>
+{%- endmacro -%}
+
+{#- A video from the YouTube channel (opens on YouTube) -#}
+{%- macro videoCard(v, variant = "") -%}
+  <article class="card{% if variant %} card--{{ variant }}{% endif %}">
+    <a class="card__media" href="{{ v.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+      <img src="{{ v.thumb }}" alt="" loading="lazy" decoding="async"><span class="play-badge">{{ icon("play") }}</span>
+    </a>
+    <div class="card__body">
+      <h3 class="card__title"><a href="{{ v.url }}" target="_blank" rel="noopener">{{ v.title }}</a></h3>
+      <div class="card__meta">{{ icon("youtube") }}<time datetime="{{ v.published }}" data-relative>{{ v.published | hiDate }}</time></div>
+    </div>
+  </article>
+{%- endmacro -%}
+
+{%- macro pager(current, total, base) -%}
+  {%- if total > 1 %}
+  <nav class="pagination" aria-label="पेज">
+    {%- if current > 0 %}<a href="{{ base | pageHref(current - 1) }}" rel="prev">← पिछला</a>{% endif %}
+    {%- for n in range(0, total) %}
+      {%- if n == current %}<span aria-current="page">{{ n + 1 }}</span>
+      {%- elif n == 0 or n == total - 1 or (n >= current - 2 and n <= current + 2) %}<a href="{{ base | pageHref(n) }}">{{ n + 1 }}</a>
+      {%- elif n == current - 3 or n == current + 3 %}<span aria-hidden="true">…</span>
+      {%- endif %}
+    {%- endfor %}
+    {%- if current < total - 1 %}<a href="{{ base | pageHref(current + 1) }}" rel="next">अगला →</a>{% endif %}
+  </nav>
+  {%- endif %}
+{%- endmacro -%}

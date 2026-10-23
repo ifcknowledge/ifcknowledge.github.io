@@ -1,0 +1,12 @@
+{%- from "partials/icons.njk" import icon -%}
+{%- set shareUrl = page.url | absUrl -%}
+{%- set shareText = title + " " + shareUrl -%}
+<div class="share" aria-label="यह खबर शेयर करें">
+  <span class="share__label">शेयर करें:</span>
+  <a class="s-wa" href="https://wa.me/?text={{ shareText | urlencode }}" target="_blank" rel="noopener" aria-label="WhatsApp पर शेयर करें">{{ icon("whatsapp") }}<span class="txt">WhatsApp</span></a>
+  <a class="s-fb" href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl | urlencode }}" target="_blank" rel="noopener" aria-label="Facebook पर शेयर करें">{{ icon("facebook") }}<span class="txt">Facebook</span></a>
+  <a class="s-x" href="https://twitter.com/intent/tweet?text={{ title | urlencode }}&amp;url={{ shareUrl | urlencode }}" target="_blank" rel="noopener" aria-label="X पर शेयर करें">{{ icon("x") }}<span class="txt">X</span></a>
+  <a class="s-tg" href="https://t.me/share/url?url={{ shareUrl | urlencode }}&amp;text={{ title | urlencode }}" target="_blank" rel="noopener" aria-label="Telegram पर शेयर करें">{{ icon("telegram") }}<span class="txt">Telegram</span></a>
+  <button class="s-copy" type="button" data-copy="{{ shareUrl }}" aria-label="लिंक कॉपी करें">{{ icon("link") }}<span class="txt">लिंक कॉपी</span></button>
+  <button class="s-native" type="button" data-native-share data-title="{{ title }}" data-url="{{ shareUrl }}" aria-label="और जगह शेयर करें" hidden>{{ icon("share") }}<span class="txt">और</span></button>
+</div>

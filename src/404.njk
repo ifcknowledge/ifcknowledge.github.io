@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+permalink: /404.html
+title: पेज नहीं मिला
+eleventyExcludeFromCollections: true
+noindex: true
+---
+{%- from "partials/macros.njk" import card with context -%}
+<section class="panel" style="text-align:center;padding-block:40px">
+  <h1 style="font-size:3rem;margin:0;color:var(--brand)">404</h1>
+  <p style="font-size:1.2rem">माफ़ करें, यह पेज नहीं मिला। हो सकता है खबर हटा दी गई हो या लिंक गलत हो।</p>
+  <p><a class="btn btn--brand" href="/">होम पेज पर जाएं</a> <a class="btn btn--ghost" href="/search/">खबर खोजें</a></p>
+</section>
+{%- set latest = collections.news | head(6) %}
+{%- if latest.length %}
+<section class="panel" style="margin-top:24px">
+  <div class="section-head"><h2>ताज़ा खबरें</h2></div>
+  <div class="grid grid--3">{% for p in latest %}{{ card(p) }}{% endfor %}</div>
+</section>
+{%- endif %}

@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+eleventyExcludeFromCollections: true
+---
+{%- from "partials/icons.njk" import icon -%}
+{%- from "partials/macros.njk" import card, videoCard with context -%}
+{%- set all = collections.news -%}
+{%- set lead = all | featured -%}
+{%- set rest = all | without(lead) -%}
+
+<h1 class="visually-hidden">{{ site.name }} — {{ site.tagline }}</h1>
+
+{%- if not lead %}
+<section class="panel empty">
+  <p>अभी कोई खबर नहीं है। एडमिन पैनल (<a href="/admin/">/admin/</a>) से पहली खबर डालें।</p>
+</section>
+{%- else %}
+<div class="layout">
+  <div class="stack">
+    <section class="panel hero" aria-label="मुख्य खबर">
+      {{ card(lead, "lead") }}
+      <div class="hero__side">
+        <h2>ताज़ा खबरें</h2>
+        <div>
+          {%- for p in rest | head(5) %}{{ card(p, "text") }}{% endfor %}
+        </div>
+      </div>
+    </section>
+
+    {%- set latest = rest | slice2(5, 14) %}
+    {%- if latest.length %}
+    <section class="panel">
+      <div class="section-head">
+        <h2><a href="/news/">और खबरें</a></h2>
+        <a class="more" href="/news/">सभी खबरें {{ icon("arrow") }}</a>
+      </div>
+      <div class="grid grid--3">
+        {%- for p in latest %}{{ card(p) }}{% endfor %}
+      </div>
+    </section>
+    {%- endif %}
+
+    {%- if site.show_videos and channel.videos.length %}
+    <section class="panel">
+      <div class="section-head" style="--c: #e00">
+        <h2><a href="/videos/">ताज़ा वीडियो</a></h2>
+        <a class="more" href="{{ site.youtube_url }}" target="_blank" rel="noopener">YouTube चैनल {{ icon("arrow") }}</a>
+      </div>
+      <div class="grid grid--3">
+        {%- for v in channel.videos | head(6) %}{{ videoCard(v) }}{% endfor %}
+      </div>
+    </section>
+    {%- endif %}
+
+    {%- for c in categories.list %}
+      {%- set catPosts = all | inCategory(c.slug) | head(5) %}
+      {%- if catPosts.length %}
+      <section class="panel" style="--c: {{ c.color }}">
+        <div class="section-head">
+          <h2><a href="/category/{{ c.slug }}/">{{ c.name }}</a></h2>
+          <a class="more" href="/category/{{ c.slug }}/">और देखें {{ icon("arrow") }}</a>
+        </div>
+        <div class="cat-block">
+          {{ card(catPosts[0]) }}
+          {%- if catPosts.length > 1 %}
+          <div class="list-rows">
+            {%- for p in catPosts | slice2(1, 5) %}{{ card(p, "row") }}{% endfor %}
+          </div>
+          {%- endif %}
+        </div>
+      </section>
+      {%- endif %}
+    {%- endfor %}
+  </div>
+
+  <aside class="sidebar stack" aria-label="साइडबार">
+    {%- set hideSidebarVideos = true %}
+    {% include "partials/sidebar.njk" %}
+  </aside>
+</div>
+{%- endif %}

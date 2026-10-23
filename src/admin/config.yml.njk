@@ -1,0 +1,304 @@
+---
+permalink: /admin/config.yml
+eleventyExcludeFromCollections: true
+---
+{%- set prefixPath = build.pathPrefix | replace("/", "", 1) -%}
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# Admin panel settings (Sveltia CMS). This file is made automatically from
+# src/admin/config.yml.njk when the site is built — change that file, not this one.
+
+app_title: "IFC knowledge — Admin"
+site_url: {{ build.siteUrl | dump | safe }}
+display_url: {{ (build.siteUrl + "/") | dump | safe }}
+logo:
+  src: {{ "/assets/img/icon-512.png" | absUrl | dump | safe }}
+
+backend:
+  name: github
+  repo: {{ (build.repo or "your-github-username/your-repository") | dump | safe }}
+  branch: {{ build.branch | dump | safe }}
+{%- if site.cms_auth_url %}
+  base_url: {{ site.cms_auth_url | dump | safe }}
+  auth_methods: [oauth, token]
+{%- else %}
+  auth_methods: [token]
+{%- endif %}
+
+publish_mode: simple
+
+media_folder: src/images/uploads
+public_folder: /images/uploads
+
+# Photos are shrunk and turned into WebP in the browser before upload, so pages stay fast on phones.
+media_libraries:
+  default:
+    config:
+      max_file_size: 5000000
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+          height: 1600
+
+# Keep Hindi letters intact (never "clean" accents — that breaks Devanagari).
+slug:
+  encoding: unicode
+  clean_accents: false
+  timezone: local
+
+output:
+  omit_empty_optional_fields: true
+
+collections:
+  # ------------------------------------------------------------------ News
+  - name: news
+    label: "खबरें · News"
+    label_singular: "खबर · Story"
+    description: "नई खबर डालने के लिए “New” दबाएं। Press “New” to add a story."
+    icon: newspaper
+    folder: src/news
+    create: true
+    format: yaml-frontmatter
+    extension: md
+    slug:
+      template: "{% raw %}{{year}}-{{month}}-{{day}}-{{fields.slug}}{% endraw %}"
+      editable: false
+    summary: "{% raw %}{{title}}{% endraw %}"
+    sortable_fields:
+      fields: [date, title, category]
+      default:
+        field: date
+        direction: descending
+    view_filters:
+      - label: "ड्राफ्ट · Drafts"
+        field: draft
+        pattern: true
+      - label: "ब्रेकिंग · Breaking"
+        field: breaking
+        pattern: true
+      - label: "हिंदी"
+        field: lang
+        pattern: "^hi$"
+      - label: "English"
+        field: lang
+        pattern: "^en$"
+    preview_path: "{{ prefixPath }}news/{% raw %}{{slug}}{% endraw %}/"
+    fields:
+      - name: title
+        label: "शीर्षक · Headline"
+        widget: string
+        maxlength: 200
+        hint: "खबर का बड़ा शीर्षक। The big headline."
+      - name: slug
+        label: "वेब पता · Web address (English)"
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "सिर्फ़ छोटे अंग्रेज़ी अक्षर, अंक और - · Only a-z, 0-9 and -"]
+        hint: "अंग्रेज़ी में 2-5 शब्द, जैसे **gold-rate-today** या **up-board-result**। तारीख अपने-आप जुड़ जाती है। Cannot be changed after the first save."
+      - name: summary
+        label: "छोटा सार · Short summary"
+        widget: text
+        maxlength: 300
+        hint: "1-2 लाइन। WhatsApp / Facebook पर शेयर करने पर यही दिखती है।"
+      - name: category
+        label: "श्रेणी · Category"
+        widget: select
+        options:
+{%- for c in categories.list %}
+          - { label: {{ (c.name + " · " + c.name_en) | dump | safe }}, value: {{ c.slug | dump | safe }} }
+{%- endfor %}
+        default: {{ categories.list[0].slug | dump | safe }}
+      - name: date
+        label: "छपने का समय · Publish time"
+        widget: datetime
+        default: "{% raw %}{{now}}{% endraw %}"
+        input_timezone: Asia/Kolkata
+        hint: "आगे का समय डालेंगे तो खबर उस समय के बाद अपने-आप छपेगी (हर 3 घंटे में जांच होती है)।"
+      - name: youtube
+        label: "YouTube वीडियो लिंक · Video link"
+        widget: string
+        required: false
+        pattern: ["(youtube\\.com|youtu\\.be)/", "YouTube का लिंक डालें · Paste a YouTube link"]
+        hint: "वीडियो का लिंक चिपकाएं, जैसे https://youtu.be/XXXXXXXXXXX — खबर में वीडियो प्लेयर दिखेगा।"
+      - name: image
+        label: "मुख्य फोटो · Main photo"
+        widget: image
+        required: false
+        hint: "फोटो अपने-आप छोटी (WebP) हो जाती है। वीडियो हो तो फोटो ज़रूरी नहीं।"
+      - name: image_alt
+        label: "फोटो में क्या है · Photo description"
+        widget: string
+        required: false
+      - name: image_caption
+        label: "फोटो कैप्शन / क्रेडिट · Caption & credit"
+        widget: string
+        required: false
+      - name: body
+        label: "पूरी खबर · Full story"
+        widget: richtext
+        required: false
+        editor_components: [image, table, hr]
+        hint: "बीच में YouTube लिंक अकेली लाइन में डालें तो वहां वीडियो प्लेयर बन जाएगा।"
+      - name: author
+        label: "लेखक · Author"
+        widget: string
+        required: false
+        default: {{ site.author | dump | safe }}
+      - name: lang
+        label: "भाषा · Language"
+        widget: select
+        options:
+          - { label: "हिंदी", value: hi }
+          - { label: "English", value: en }
+        default: hi
+      - name: breaking
+        label: "ब्रेकिंग पट्टी में दिखाएं · Show in Breaking ticker"
+        widget: boolean
+        default: false
+        required: false
+      - name: featured
+        label: "होम पेज की सबसे बड़ी खबर · Lead story on home page"
+        widget: boolean
+        default: false
+        required: false
+      - name: draft
+        label: "ड्राफ्ट — अभी न छापें · Draft (don't publish yet)"
+        widget: boolean
+        default: false
+        required: false
+      - name: updated
+        label: "अपडेट का समय · Updated at"
+        widget: datetime
+        required: false
+        input_timezone: Asia/Kolkata
+        hint: "खबर में बदलाव करें तो यहां समय डालें (ज़रूरी नहीं)।"
+
+  # ------------------------------------------------------------------ Gold & silver rates
+  - name: rates
+    label: "सोना-चांदी भाव · Gold rates"
+    icon: paid
+    files:
+      - name: rates
+        label: "आज का भाव · Today's rates"
+        file: src/_data/rates.json
+        fields:
+          - name: enabled
+            label: "वेबसाइट पर दिखाएं · Show on website"
+            widget: boolean
+            default: true
+          - name: title
+            label: "शीर्षक · Title"
+            widget: string
+            default: "आज का सोना-चांदी भाव"
+          - name: place
+            label: "जगह / बाज़ार · City or market"
+            widget: string
+            required: false
+          - name: updated
+            label: "अपडेट का समय · Updated at"
+            widget: datetime
+            input_timezone: Asia/Kolkata
+            auto_now: true
+            hint: "हर बार सेव करने पर अपने-आप अभी का समय लग जाता है।"
+          - name: rows
+            label: "भाव · Rates"
+            label_singular: "भाव · Rate"
+            widget: list
+            summary: "{% raw %}{{label}} — {{price}}{% endraw %}"
+            fields:
+              - { name: label, label: "धातु · Metal", widget: string }
+              - { name: unit, label: "वज़न · Unit", widget: string, required: false, hint: "जैसे 10 ग्राम / 1 किलो" }
+              - { name: price, label: "भाव · Price", widget: string, hint: "जैसे ₹ 1,25,400" }
+              - { name: change, label: "बदलाव · Change", widget: string, required: false, hint: "जैसे +500 या -300 (हरा/लाल तीर दिखेगा)" }
+          - name: note
+            label: "नोट · Note"
+            widget: text
+            required: false
+            hint: "भाव के नीचे छोटा नोट। खाली छोड़ सकते हैं।"
+
+  # ------------------------------------------------------------------ Pages
+  - name: pages
+    label: "पेज · Pages"
+    label_singular: "पेज · Page"
+    description: "हमारे बारे में, संपर्क, प्राइवेसी पॉलिसी जैसे पेज। About, Contact, Privacy…"
+    icon: description
+    folder: src/pages
+    create: true
+    format: yaml-frontmatter
+    extension: md
+    slug:
+      template: "{% raw %}{{fields.slug}}{% endraw %}"
+      editable: false
+    summary: "{% raw %}{{title}}{% endraw %}"
+    preview_path: "{{ prefixPath }}{% raw %}{{slug}}{% endraw %}/"
+    fields:
+      - { name: title, label: "शीर्षक · Title", widget: string }
+      - name: slug
+        label: "वेब पता · Web address (English)"
+        widget: string
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Only a-z, 0-9 and -"]
+      - { name: summary, label: "उप-शीर्षक · Subtitle", widget: string, required: false }
+      - { name: order, label: "फुटर में क्रम · Order in footer", widget: number, required: false, default: 10 }
+      - { name: showContact, label: "संपर्क जानकारी दिखाएं · Show contact details", widget: boolean, required: false, default: false }
+      - { name: body, label: "पेज का लेख · Page text", widget: richtext, required: false }
+
+  # ------------------------------------------------------------------ Settings
+  - name: settings
+    label: "सेटिंग्स · Settings"
+    icon: settings
+    files:
+      - name: site
+        label: "वेबसाइट · Website"
+        file: src/_data/site.json
+        fields:
+          - { name: name, label: "वेबसाइट का नाम · Site name", widget: string }
+          - { name: tagline, label: "टैगलाइन · Tagline", widget: string }
+          - { name: description, label: "विवरण (Google के लिए) · Description", widget: text }
+          - { name: about_short, label: "फुटर में परिचय · Footer about text", widget: text }
+          - { name: author, label: "डिफ़ॉल्ट लेखक · Default author", widget: string }
+          - { name: url, label: "अपना डोमेन (बाद में) · Custom domain", widget: string, required: false, hint: "खाली छोड़ें। Domain खरीदने के बाद, जैसे https://www.ifcknowledge.com" }
+          - name: language
+            label: "मुख्य भाषा · Main language"
+            widget: select
+            options: [{ label: "हिंदी", value: hi }, { label: "English", value: en }]
+            default: hi
+          - { name: youtube_url, label: "YouTube चैनल लिंक · Channel link", widget: string }
+          - { name: youtube_channel_id, label: "YouTube Channel ID", widget: string, required: false, hint: "UC… से शुरू होता है। इससे ताज़ा वीडियो अपने-आप आते हैं।" }
+          - { name: show_videos, label: "ताज़ा वीडियो दिखाएं · Show latest videos", widget: boolean, default: true }
+          - name: ticker
+            label: "ब्रेकिंग पट्टी की अतिरिक्त लाइनें · Extra ticker lines"
+            widget: list
+            required: false
+            hint: "ज़रूरी नहीं। “ब्रेकिंग” मार्क की गई खबरें अपने-आप पट्टी में आती हैं।"
+          - { name: email, label: "ईमेल · Email", widget: string, type: email, required: false }
+          - name: social
+            label: "सोशल मीडिया लिंक · Social links"
+            widget: object
+            fields:
+              - { name: facebook, label: Facebook, widget: string, required: false }
+              - { name: instagram, label: Instagram, widget: string, required: false }
+              - { name: x, label: "X (Twitter)", widget: string, required: false }
+              - { name: telegram, label: Telegram, widget: string, required: false }
+              - { name: whatsapp, label: "WhatsApp चैनल", widget: string, required: false }
+          - { name: cms_auth_url, label: "Admin login server (advanced)", widget: string, required: false, hint: "खाली छोड़ें। Only for the optional “Sign in with GitHub” button." }
+      - name: categories
+        label: "श्रेणियां · Categories"
+        file: src/_data/categories.json
+        fields:
+          - name: list
+            label: "श्रेणियां · Categories"
+            label_singular: "श्रेणी · Category"
+            widget: list
+            summary: "{% raw %}{{name}} · {{name_en}}{% endraw %}"
+            hint: "नई श्रेणी जोड़ने के 2-3 मिनट बाद (वेबसाइट अपडेट होने पर) वह खबर में चुनने के लिए आ जाती है।"
+            fields:
+              - { name: name, label: "नाम (हिंदी) · Name", widget: string }
+              - { name: name_en, label: "Name (English)", widget: string, required: false }
+              - name: slug
+                label: "वेब पता · Web address"
+                widget: string
+                pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "Only a-z, 0-9 and -"]
+                hint: "अंग्रेज़ी में, जैसे sports। बाद में न बदलें।"
+              - { name: color, label: "रंग · Colour", widget: color, default: "#c8102e" }
+              - { name: description, label: "विवरण · Description", widget: text, required: false }

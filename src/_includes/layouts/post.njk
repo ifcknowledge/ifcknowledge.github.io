@@ -1,0 +1,89 @@
+---
+layout: layouts/base.njk
+isArticle: true
+---
+{%- from "partials/icons.njk" import icon -%}
+{%- from "partials/macros.njk" import card with context -%}
+{%- set cat = category | categoryInfo -%}
+{%- set ytid = youtube | youtubeId -%}
+{%- set shareUrl = page.url | absUrl -%}
+<div class="layout">
+  <article class="panel article" lang="{{ lang or site.language or 'hi' }}">
+    <nav class="breadcrumb" aria-label="आप यहां हैं">
+      <a href="/">होम</a><span aria-hidden="true">›</span>
+      <a href="/category/{{ cat.slug }}/">{{ cat.name }}</a>
+    </nav>
+    <a class="cat-label" href="/category/{{ cat.slug }}/" style="--c: {{ cat.color }}">{{ cat.name }}</a>
+    <h1 class="article__title">{{ title }}</h1>
+    {%- if summary %}
+    <p class="article__summary">{{ summary }}</p>
+    {%- endif %}
+
+    <div class="article__meta">
+      <span>{{ icon("user") }}<strong>{{ author or site.author }}</strong></span>
+      <span>{{ icon("clock") }}<time datetime="{{ page.date | isoDate }}">{{ page.date | hiDateTime }}</time></span>
+      {%- if updated %}
+      <span>अपडेट: <time datetime="{{ updated | isoDate }}">{{ updated | hiDateTime }}</time></span>
+      {%- endif %}
+      <span>{{ content | readingTime }} में पढ़ें</span>
+    </div>
+
+    {%- if ytid %}
+    <button class="yt-player" type="button" data-yt="{{ ytid }}" aria-label="वीडियो चलाएं: {{ title }}">
+      <img src="https://i.ytimg.com/vi/{{ ytid }}/hqdefault.jpg" alt="" decoding="async">
+      <span class="play-badge">{{ icon("play") }}</span>
+      <span class="yt-player__label">▶ वीडियो देखें · Watch on YouTube</span>
+    </button>
+    {%- endif %}
+
+    {%- if image %}
+    <figure class="article__figure">
+      <img src="{{ image }}" alt="{{ image_alt or title }}" decoding="async"{% if ytid %} loading="lazy"{% else %} fetchpriority="high"{% endif %}>
+      {%- if image_caption %}<figcaption>{{ image_caption }}</figcaption>{% endif %}
+    </figure>
+    {%- endif %}
+
+    {% include "partials/share.njk" %}
+
+    <div class="prose">
+      {{ content | enhanceContent | safe }}
+    </div>
+
+    {%- if site.youtube_url %}
+    <div class="yt-cta">
+      <p>ऐसी ही ताज़ा खबरों के लिए हमारा YouTube चैनल सब्सक्राइब करें।</p>
+      <a class="btn btn--yt" href="{{ site.youtube_url }}?sub_confirmation=1" target="_blank" rel="noopener">{{ icon("youtube") }} Subscribe करें</a>
+    </div>
+    {%- endif %}
+
+    {% include "partials/share.njk" %}
+
+    <script type="application/ld+json">{{ {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": title | truncate(110, true, ""),
+      "description": summary or "",
+      "inLanguage": lang or site.language or "hi",
+      "datePublished": page.date | isoDate,
+      "dateModified": (updated or page.date) | isoDate,
+      "articleSection": cat.name,
+      "image": [ (image | absUrl) if image else (("https://i.ytimg.com/vi/" + ytid + "/hqdefault.jpg") if ytid else ("/assets/img/og-default.png" | absUrl)) ],
+      "mainEntityOfPage": shareUrl,
+      "author": { "@type": "Organization", "name": author or site.author },
+      "publisher": { "@type": "Organization", "name": site.name, "logo": { "@type": "ImageObject", "url": "/assets/img/icon-512.png" | absUrl } }
+    } | jsonLd | safe }}</script>
+  </article>
+
+  <aside class="sidebar stack" aria-label="और खबरें">
+    {%- set related = collections.news | related(page.url, category, 5) %}
+    {%- if related.length %}
+    <section class="panel widget">
+      <h2>{{ icon("arrow") }} {{ cat.name }} की और खबरें</h2>
+      <div class="list-rows">
+        {%- for p in related %}{{ card(p, "row") }}{% endfor %}
+      </div>
+    </section>
+    {%- endif %}
+    {% include "partials/sidebar.njk" %}
+  </aside>
+</div>

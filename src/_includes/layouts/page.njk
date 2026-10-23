@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+<div class="layout">
+  <article class="panel page-body">
+    <header class="page-head">
+      <h1>{{ title }}</h1>
+      {%- if summary %}<p>{{ summary }}</p>{% endif %}
+    </header>
+    <div class="prose">
+      {{ content | enhanceContent | safe }}
+      {%- if showContact %}
+      <ul>
+        {%- if site.email %}<li>ईमेल / Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>{% endif %}
+        {%- if site.youtube_url %}<li>YouTube: <a href="{{ site.youtube_url }}" target="_blank" rel="noopener">{{ site.youtube_url | replace("https://www.", "") }}</a></li>{% endif %}
+        {%- if site.social.whatsapp %}<li>WhatsApp: <a href="{{ site.social.whatsapp }}" target="_blank" rel="noopener">{{ site.social.whatsapp }}</a></li>{% endif %}
+        {%- if site.social.telegram %}<li>Telegram: <a href="{{ site.social.telegram }}" target="_blank" rel="noopener">{{ site.social.telegram }}</a></li>{% endif %}
+        {%- if site.social.facebook %}<li>Facebook: <a href="{{ site.social.facebook }}" target="_blank" rel="noopener">{{ site.social.facebook }}</a></li>{% endif %}
+        {%- if site.social.instagram %}<li>Instagram: <a href="{{ site.social.instagram }}" target="_blank" rel="noopener">{{ site.social.instagram }}</a></li>{% endif %}
+      </ul>
+      {%- endif %}
+    </div>
+  </article>
+  <aside class="sidebar stack" aria-label="साइडबार">
+    {% include "partials/sidebar.njk" %}
+  </aside>
+</div>

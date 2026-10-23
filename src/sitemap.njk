@@ -1,0 +1,18 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ "/" | absUrl }}</loc>{% if collections.news.length %}<lastmod>{{ collections.news[0].date | isoDate }}</lastmod>{% endif %}<changefreq>hourly</changefreq></url>
+  <url><loc>{{ "/news/" | absUrl }}</loc><changefreq>hourly</changefreq></url>
+  {%- for c in categories.list %}
+  <url><loc>{{ ("/category/" + c.slug + "/") | absUrl }}</loc><changefreq>daily</changefreq></url>
+  {%- endfor %}
+  {%- for p in collections.news %}
+  <url><loc>{{ p.url | absUrl }}</loc><lastmod>{{ (p.data.updated or p.date) | isoDate }}</lastmod></url>
+  {%- endfor %}
+  {%- for p in collections.sitePages %}
+  <url><loc>{{ p.url | absUrl }}</loc></url>
+  {%- endfor %}
+</urlset>

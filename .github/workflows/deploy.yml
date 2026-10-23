@@ -1,0 +1,76 @@
+# Builds the website and publishes it on GitHub Pages — free.
+# Runs when:
+#   • you save a story in the admin panel (every save is a commit to the main branch),
+#   • every 3 hours (to pick up new YouTube videos and publish scheduled stories),
+#   • you click "Run workflow" on the Actions tab.
+name: Publish website
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one publish at a time. A newer save waits for the running one instead of cancelling it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the files
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Read GitHub Pages settings
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Install
+        run: npm ci
+
+      # Keeps the last good YouTube video list, in case YouTube's feed is down during a build.
+      - name: Restore saved data
+        uses: actions/cache@v6
+        with:
+          path: .cache
+          key: site-cache-${{ github.run_id }}
+          restore-keys: site-cache-
+
+      - name: Build the website
+        run: npm run build
+        env:
+          TZ: Asia/Kolkata
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          PATH_PREFIX: ${{ steps.pages.outputs.base_path }}
+          CMS_REPO: ${{ github.repository }}
+          CMS_BRANCH: ${{ github.event.repository.default_branch || github.ref_name }}
+
+      - name: Upload the website
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

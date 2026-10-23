@@ -1,0 +1,9 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+Disallow: {{ "/admin/" | withPrefix }}
+Disallow: {{ "/search/" | withPrefix }}
+
+Sitemap: {{ "/sitemap.xml" | absUrl }}

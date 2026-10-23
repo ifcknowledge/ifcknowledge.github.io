@@ -1,0 +1,67 @@
+{
+  "list": [
+    {
+      "slug": "top-news",
+      "name": "मुख्य समाचार",
+      "name_en": "Top News",
+      "color": "#c8102e",
+      "description": "आज के मुख्य समाचार और ब्रेकिंग न्यूज़ — देश और प्रदेश की बड़ी खबरें।"
+    },
+    {
+      "slug": "gold-silver",
+      "name": "सोना-चांदी",
+      "name_en": "Gold & Silver",
+      "color": "#8a5a00",
+      "description": "आज का सोने का भाव, चांदी का भाव — 22K, 24K गोल्ड रेट और सिल्वर रेट।"
+    },
+    {
+      "slug": "cricket",
+      "name": "क्रिकेट",
+      "name_en": "Cricket",
+      "color": "#1b7a3a",
+      "description": "टीम इंडिया, IPL और क्रिकेट मैच की ताज़ा खबरें और स्कोर अपडेट।"
+    },
+    {
+      "slug": "new-rules",
+      "name": "नए नियम",
+      "name_en": "New Rules",
+      "color": "#6a1b9a",
+      "description": "1 तारीख से बदलने वाले नियम — बैंक, मोबाइल, ड्राइविंग लाइसेंस, गैस सिलेंडर और भी बहुत कुछ।"
+    },
+    {
+      "slug": "sarkari-yojana",
+      "name": "सरकारी योजना",
+      "name_en": "Govt Schemes",
+      "color": "#b23c00",
+      "description": "केंद्र और राज्य सरकार की योजनाओं की पूरी जानकारी — कौन ले सकता है फायदा, कैसे करें आवेदन।"
+    },
+    {
+      "slug": "bank-money",
+      "name": "बैंक और पैसा",
+      "name_en": "Bank & Money",
+      "color": "#0d47a1",
+      "description": "बैंक, UPI, पेंशन, टैक्स और आपकी जेब से जुड़ी खबरें।"
+    },
+    {
+      "slug": "tech",
+      "name": "टेक और मोबाइल",
+      "name_en": "Tech & Mobile",
+      "color": "#00695c",
+      "description": "मोबाइल, रिचार्ज, इंटरनेट और टेक्नोलॉजी की खबरें।"
+    },
+    {
+      "slug": "weather",
+      "name": "मौसम",
+      "name_en": "Weather",
+      "color": "#01579b",
+      "description": "बारिश, ठंड, गर्मी और मौसम विभाग का अलर्ट।"
+    },
+    {
+      "slug": "states",
+      "name": "राज्य",
+      "name_en": "UP · Bihar · Delhi",
+      "color": "#ad1457",
+      "description": "उत्तर प्रदेश, बिहार, दिल्ली और दूसरे राज्यों की खबरें।"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{%- from "partials/icons.njk" import icon -%}
+{%- from "partials/macros.njk" import videoCard with context -%}
+
+{%- if site.youtube_url %}
+<section class="panel widget subscribe-box">
+  <h2>{{ icon("youtube") }} YouTube पर देखें</h2>
+  <p>रोज़ की ताज़ा खबरें वीडियो में — {{ site.name }} चैनल सब्सक्राइब करें और बेल आइकन दबाएं।</p>
+  <a class="btn" href="{{ site.youtube_url }}?sub_confirmation=1" target="_blank" rel="noopener">Subscribe करें</a>
+</section>
+{%- endif %}
+
+{%- if rates.enabled and rates.rows.length %}
+<section class="panel widget" aria-labelledby="rates-title">
+  <h2 id="rates-title">{{ icon("clock") }} {{ rates.title or "सोना-चांदी भाव" }}</h2>
+  <table class="rates-table">
+    <thead><tr><th scope="col">धातु</th><th scope="col">भाव</th></tr></thead>
+    <tbody>
+      {%- for r in rates.rows %}
+      <tr>
+        <td>{{ r.label }}{% if r.unit %}<span class="unit">{{ r.unit }}</span>{% endif %}</td>
+        <td><span class="price">{{ r.price }}</span>
+          {%- if r.change %}{% set down = (r.change | string).trim().startsWith("-") %}
+          <span class="chg {{ 'chg--down' if down else 'chg--up' }}">{{ '▼' if down else '▲' }} {{ r.change }}</span>
+          {%- endif %}
+        </td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+  <p class="rates-foot">{% if rates.place %}{{ rates.place }} · {% endif %}अपडेट: {{ rates.updated | hiDateTime }}</p>
+  {%- if rates.note %}<p class="rates-note">{{ rates.note }}</p>{% endif %}
+</section>
+{%- endif %}
+
+{%- if site.show_videos and channel.videos.length and not hideSidebarVideos %}
+<section class="panel widget">
+  <h2>{{ icon("youtube") }} ताज़ा वीडियो</h2>
+  <div class="list-rows">
+    {%- for v in channel.videos | head(4) %}{{ videoCard(v, "row") }}{% endfor %}
+  </div>
+  <p style="margin:14px 0 0"><a class="btn btn--ghost" href="/videos/">सभी वीडियो देखें {{ icon("arrow") }}</a></p>
+</section>
+{%- endif %}

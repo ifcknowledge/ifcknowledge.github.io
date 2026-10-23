@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.categoryPages
+  size: 1
+  alias: cp
+  addAllPagesToCollections: false
+permalink: "{{ cp.base | pageHref(cp.pageNumber) }}"
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "{{ cp.cat.name }}{% if cp.pageNumber > 0 %} — पेज {{ cp.pageNumber + 1 }}{% endif %}"
+  description: "{{ cp.cat.description }}"
+---
+{%- from "partials/macros.njk" import card, pager with context -%}
+<div class="layout">
+  <div>
+    <header class="page-head" style="--c: {{ cp.cat.color }}">
+      <h1>{{ cp.cat.name }} {% if cp.cat.name_en %}<small>{{ cp.cat.name_en }}</small>{% endif %}</h1>
+      {%- if cp.cat.description %}<p>{{ cp.cat.description }}</p>{% endif %}
+    </header>
+    <section class="panel">
+      {%- if cp.posts.length %}
+      <div class="grid grid--2">
+        {%- for p in cp.posts %}{{ card(p, "lead" if (loop.first and cp.pageNumber == 0) else "") }}{% endfor %}
+      </div>
+      {{ pager(cp.pageNumber, cp.totalPages, cp.base) }}
+      {%- else %}
+      <p class="empty">इस श्रेणी में अभी कोई खबर नहीं है।</p>
+      {%- endif %}
+    </section>
+  </div>
+  <aside class="sidebar stack" aria-label="साइडबार">
+    {% include "partials/sidebar.njk" %}
+  </aside>
+</div>

@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+permalink: /videos/
+title: ताज़ा वीडियो
+description: "IFC knowledge YouTube चैनल के ताज़ा वीडियो — आज के मुख्य समाचार, सोना-चांदी भाव, क्रिकेट और नए नियम।"
+eleventyExcludeFromCollections: true
+hideSidebarVideos: true
+---
+{%- from "partials/icons.njk" import icon -%}
+{%- from "partials/macros.njk" import videoCard with context -%}
+<div class="layout">
+  <div>
+    <header class="page-head" style="--c: #e00">
+      <h1>ताज़ा वीडियो <small>Latest Videos</small></h1>
+      <p>हमारे YouTube चैनल के सबसे नए वीडियो। वीडियो पर टैप करें — YouTube पर खुलेगा।</p>
+    </header>
+    <section class="panel">
+      {%- if channel.videos.length %}
+      <div class="grid grid--3">
+        {%- for v in channel.videos %}{{ videoCard(v) }}{% endfor %}
+      </div>
+      {%- else %}
+      <p class="empty">वीडियो अभी लोड नहीं हो पाए।</p>
+      {%- endif %}
+      {%- if site.youtube_url %}
+      <p style="text-align:center;margin:24px 0 0"><a class="btn btn--yt" href="{{ site.youtube_url }}/videos" target="_blank" rel="noopener">{{ icon("youtube") }} YouTube पर सभी वीडियो देखें</a></p>
+      {%- endif %}
+    </section>
+  </div>
+  <aside class="sidebar stack" aria-label="साइडबार">
+    {% include "partials/sidebar.njk" %}
+  </aside>
+</div>

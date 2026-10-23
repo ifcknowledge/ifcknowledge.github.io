@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+permalink: /search/
+title: खबर खोजें
+description: "IFC knowledge पर कोई भी खबर खोजें।"
+eleventyExcludeFromCollections: true
+noindex: true
+---
+{%- from "partials/icons.njk" import icon -%}
+<div class="layout">
+  <div>
+    <header class="page-head">
+      <h1>खबर खोजें <small>Search</small></h1>
+    </header>
+    <section class="panel">
+      <form class="search-form" action="./" method="get" role="search" data-search data-index="index.json">
+        <label class="visually-hidden" for="q">खोजने के लिए शब्द</label>
+        <input id="q" type="search" name="q" placeholder="जैसे: सोना, IPL, नया नियम…" autocomplete="off" autofocus>
+        <button class="btn btn--brand" type="submit">{{ icon("search") }} खोजें</button>
+      </form>
+      <p class="search-status" data-search-status aria-live="polite"></p>
+      <div class="list-rows" data-search-results></div>
+      <noscript><p>खोज के लिए JavaScript चालू करें।</p></noscript>
+    </section>
+  </div>
+  <aside class="sidebar stack" aria-label="साइडबार">
+    {% include "partials/sidebar.njk" %}
+  </aside>
+</div>
