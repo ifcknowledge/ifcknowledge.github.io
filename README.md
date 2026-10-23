@@ -95,7 +95,8 @@ title, text, the video player, and three pictures from the video. Shorts are ski
 
 From then on Gemini watches and listens to each new video and writes the story in Hindi. Older automatic
 stories are rewritten the same way, a few each time, unless you edited them. Without the key, or if
-Gemini's free daily limit is used up, the video's description is used as the text.
+Gemini's free daily limit is used up, the video's description is used as the text. When Google's free
+service is busy ("high demand"), nothing is lost: the next update (3 hours later) tries again.
 
 ### Gold & silver rates box
 

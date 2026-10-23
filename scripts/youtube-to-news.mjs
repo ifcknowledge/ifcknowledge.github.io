@@ -13,6 +13,8 @@
 //   node scripts/youtube-to-news.mjs feed.xml   use a saved feed (for testing)
 import crypto from "node:crypto";
 import fs from "node:fs";
+import http from "node:http";
+import https from "node:https";
 import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
@@ -145,7 +147,7 @@ export function storySummary(description, title) {
 // ---------- story written by Google Gemini from the video itself ----------
 const GEMINI_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_BASE = process.env.GEMINI_BASE || "https://generativelanguage.googleapis.com/v1beta";
-const GEMINI_MODELS = (process.env.GEMINI_MODEL || "gemini-3.8-flash,gemini-flash-latest").split(",").map((m) => m.trim());
+const GEMINI_MODELS = (process.env.GEMINI_MODEL || "gemini-3.8-flash,gemini-flash-latest,gemini-flash-lite-latest").split(",").map((m) => m.trim());
 const GEMINI_PAUSE = Number(process.env.GEMINI_PAUSE_MS ?? 12000); // stay under the free per-minute limit
 const AI_PER_RUN = Number(process.env.GEMINI_PER_RUN || 3);
 
@@ -170,12 +172,26 @@ JSON में जवाब दो:
 - body: पूरी खबर Markdown में (150-700 शब्द; पैराग्राफ़, "## " उपशीर्षक और "- " सूची चल सकती है; लिंक नहीं)
 - category: इनमें से एक: ${categories.join(", ")}`;
 
+// POST that may wait up to 10 minutes for the answer (fetch() gives up after 5 minutes of waiting
+// for the first byte, and Gemini can take longer for a long video).
+function postJSON(url, headers, body, timeoutMs = 600000) {
+  const u = new URL(url);
+  return new Promise((resolve, reject) => {
+    const req = (u.protocol === "http:" ? http : https).request(u, { method: "POST", headers: { ...headers, "content-length": Buffer.byteLength(body) } }, (res) => {
+      let text = "";
+      res.setEncoding("utf8");
+      res.on("data", (c) => (text += c));
+      res.on("end", () => resolve({ status: res.statusCode, ok: res.statusCode < 300, text }));
+    });
+    req.setTimeout(timeoutMs, () => req.destroy(new Error(`no answer after ${timeoutMs / 60000} minutes`)));
+    req.on("error", reject);
+    req.end(body);
+  });
+}
+
 async function geminiOnce(model, video, retry = true) {
-  const res = await fetch(`${GEMINI_BASE}/models/${encodeURIComponent(model)}:generateContent`, {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-goog-api-key": GEMINI_KEY },
-    signal: AbortSignal.timeout(360000),
-    body: JSON.stringify({
+  const res = await postJSON(`${GEMINI_BASE}/models/${encodeURIComponent(model)}:generateContent`, { "content-type": "application/json", "x-goog-api-key": GEMINI_KEY },
+    JSON.stringify({
       contents: [
         {
           role: "user",
@@ -202,8 +218,8 @@ async function geminiOnce(model, video, retry = true) {
         },
       },
     }),
-  });
-  const text = await res.text();
+  );
+  const text = res.text;
   if (res.status === 429) throw new QuotaError(`${model}: free limit reached (429)`);
   if (res.status === 503 && retry) {
     // "high demand" at Google: wait a little and try once more
@@ -306,11 +322,18 @@ async function main() {
     .sort((a, b) => Date.parse(a.published) - Date.parse(b.published));
 
   state.hashes ||= {};
+  const save = () => {
+    state.imported = [...known].sort();
+    fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
+    fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2) + "\n");
+  };
+  // Gemini can take minutes per video: start no new request after this long, so the run ends in time
+  const aiUntil = Date.now() + Number(process.env.GEMINI_BUDGET_MS ?? 20 * 60e3);
   let aiLeft = GEMINI_KEY ? AI_PER_RUN : 0;
   let failures = 0;
   let calls = 0;
   const tryAI = async (video) => {
-    if (aiLeft <= 0) return null;
+    if (aiLeft <= 0 || Date.now() > aiUntil) return null;
     if (calls++ > 0) await new Promise((r) => setTimeout(r, GEMINI_PAUSE));
     try {
       const story = await writeWithGemini(video);
@@ -341,6 +364,7 @@ async function main() {
     }
     known.add(v.id);
     state.hashes[v.id] = hash(body);
+    save();
     added++;
     console.log(`[youtube-news] + ${name}${ai ? " (written from the video)" : ""}`);
   }
@@ -369,13 +393,12 @@ async function main() {
       const { text: newText, body } = storyFile(video, ai, fm("slug") || makeSlug(video.title, id));
       fs.writeFileSync(path.join(NEWS_DIR, f), newText);
       state.hashes[id] = hash(body);
+      save();
       console.log(`[youtube-news] rewritten from the video: ${f}`);
     }
   }
 
-  state.imported = [...known].sort();
-  fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
-  fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2) + "\n");
+  save();
   console.log(`[youtube-news] ${added} new stories from ${videos.length} videos in the feed${GEMINI_KEY ? "" : " (no Gemini key: text from descriptions)"}`);
 }
 

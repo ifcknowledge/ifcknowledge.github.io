@@ -47,7 +47,7 @@ jobs:
       # With the GEMINI_API_KEY secret, Gemini writes each story from what is said in the video.
       - name: Turn new YouTube videos into stories
         continue-on-error: true
-        timeout-minutes: 25
+        timeout-minutes: 45
         run: node scripts/youtube-to-news.mjs
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
