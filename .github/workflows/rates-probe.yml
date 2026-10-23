@@ -31,15 +31,14 @@ jobs:
           const show = (label, arr) => { console.log(`-- ${label} (${arr.length})`); for (const s of arr.slice(0, 40)) console.log("   " + s.replace(/\s+/g, " ").slice(0, 300)); };
 
           const html = await get("https://ibjarates.com/");
-          show("elements with id containing Rate/Gold/Silver/999/916", [...html.matchAll(/<[^>]+id="[^"]*(?:rate|Rate|RATE|gold|Gold|silver|Silver|999|995|916|750|585)[^"]*"[^>]*>[^<]{0,80}/g)].map(m => m[0]));
-          show("text around 999 / 916 / silver", [...html.matchAll(/.{0,160}(?:\b999\b|\b916\b|Silver 999|SILVER).{0,160}/g)].map(m => m[0]));
-          show("date / session text", [...html.matchAll(/.{0,80}(?:AM|PM|Rates as on|Date)[^<]{0,80}/g)].map(m => m[0]));
-          show("script src / ajax urls", [...html.matchAll(/(?:src|href|url)\s*[:=]\s*["']([^"']*(?:\.ashx|\.asmx|api|json|Rate|rate)[^"']*)["']/g)].map(m => m[1]));
-          show("tables", [...html.matchAll(/<table[^>]*>/g)].map(m => m[0]));
-
-          for (const sym of ["GC=F", "SI=F", "INR=X"]) {
-            const j = await get(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?range=5d&interval=1d`);
-            try { const m = JSON.parse(j).chart.result[0].meta; console.log(`   ${sym}: price ${m.regularMarketPrice} ${m.currency} time ${new Date(m.regularMarketTime * 1000).toISOString()} prev ${m.chartPreviousClose}`); } catch (e) { console.log("   parse failed: " + j.slice(0, 200)); }
+          const dec = (v) => v.replace(/&quot;/g, '"').replace(/&amp;/g, "&");
+          for (const id of ["HdnGold", "HdnSilver", "HdnRatesAvaliable"]) {
+            const m = html.match(new RegExp(`id="${id}" value="([^"]*)"`));
+            console.log(`-- ${id}: ` + (m ? dec(m[1]).slice(0, 600) + " ... " + dec(m[1]).slice(-900) : "not found"));
           }
+          const cut = (from, len) => { const i = html.indexOf(from); return i < 0 ? `(${from} not found)` : html.slice(i, i + len).replace(/\s+/g, " "); };
+          console.log("-- today table:\n" + cut('id="TodayRatesTableDataYes"', 3500));
+          console.log("-- previous dates:\n" + cut("Previous Dates Rate", 5000));
+          console.log("-- dates on page: " + [...new Set(html.match(/\b\d{2}[\/-]\d{2}[\/-]20\d{2}\b/g) || [])].slice(-12).join(", "));
           EOF
           node probe.mjs
