@@ -81,7 +81,15 @@ function parseIbja(html, today = todayIST()) {
     g24 > 10000 && g24 < 1000000 && g22 < g24 && g22 > g24 * 0.85 && silver > 10000 && silver < 5000000;
   if (!sane) throw new Error(`rates look wrong: ${g24} / ${g22} / ${silver}`);
 
-  return { date, session, rows, source: "IBJA", fetched: new Date().toISOString() };
+  // Daily PM rates behind IBJA's charts (about the last 4 months), used by the 5-year chart (metals.js)
+  const hist = (id, key) => {
+    const c = chart(html, id) || {};
+    const v = c[key] || [];
+    return (c.labels || []).map((d, i) => [isoDay(d), Number(v[i])]).filter(([d, x]) => d && x > 0);
+  };
+  const history = { gold22: hist("HdnGold", "purity916"), silver: hist("HdnSilver", "silverRate") };
+
+  return { date, session, rows, history, source: "IBJA", fetched: new Date().toISOString() };
 }
 
 async function load() {
@@ -101,7 +109,13 @@ function readLastGood() {
   }
 }
 
-export default async function () {
+// metals.js uses these rates too; both share one download.
+let running;
+export default function () {
+  return (running ||= load_());
+}
+
+async function load_() {
   if (rates.auto === false) return null;
 
   for (let attempt = 1; attempt <= 2; attempt++) {

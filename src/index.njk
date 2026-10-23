@@ -83,7 +83,10 @@ eleventyExcludeFromCollections: true
   </aside>
 </div>
 
-{#- 4. Short videos (vertical), only when the channel has some #}
+{#- 4. Gold 22K and silver: today, 1 month / 1 year / 5 years ago, 5-year chart #}
+{% include "partials/metals.njk" %}
+
+{#- 5. Short videos (vertical), only when the channel has some #}
 {%- if shorts.length >= 3 %}
 <section class="home-sec" aria-labelledby="shorts" data-scroller>
   <div class="section-head">
@@ -99,7 +102,7 @@ eleventyExcludeFromCollections: true
 </section>
 {%- endif %}
 
-{#- 5. Full-width navy video band: one big video in the middle #}
+{#- 6. Full-width navy video band: one big video in the middle #}
 {%- set bandVids = vids | slice2(10, 15) %}
 {%- if bandVids.length < 3 %}{% set bandVids = vids | head(5) %}{% endif %}
 {%- if bandVids.length >= 3 %}
@@ -116,7 +119,7 @@ eleventyExcludeFromCollections: true
 </section>
 {%- endif %}
 
-{#- 6. One block per category #}
+{#- 7. One block per category #}
 <div class="cat-grid">
   {%- for c in categories.list %}
     {%- set catPosts = all | inCategory(c.slug) | head(4) %}

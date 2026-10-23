@@ -1,0 +1,64 @@
+{#- "सोना-चांदी: 5 साल" box on the home page. Data: src/_data/metals.js -#}
+{%- from "partials/icons.njk" import icon -%}
+{%- macro metalCard(m, key, title, unit) -%}
+{%- set c = m.chart %}
+<article class="metal metal--{{ key }}">
+  <header class="metal__head">
+    <h3>{{ title }}<small>{{ unit }}</small></h3>
+    <div class="metal__now">
+      <span class="metal__price">{{ m.today.price }}</span>
+      <span class="metal__date">आज · {{ m.today.day | hiDate }}</span>
+    </div>
+  </header>
+  <div class="metal__plot" role="img" aria-label="{{ title }}, पिछले 5 साल: {{ m.rows[2].price }} से {{ m.today.price }}">
+    <svg viewBox="0 0 {{ c.W }} {{ c.H }}" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="fill-{{ key }}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" class="metal__stop1"/><stop offset="1" class="metal__stop2"/>
+        </linearGradient>
+      </defs>
+      {%- for t in c.yTicks %}<line class="metal__grid" x1="0" x2="{{ c.W }}" y1="{{ t.y }}" y2="{{ t.y }}"/>{% endfor %}
+      {%- for t in c.xTicks %}<line class="metal__grid metal__grid--x" x1="{{ t.x }}" x2="{{ t.x }}" y1="0" y2="{{ c.H }}"/>{% endfor %}
+      <path class="metal__area" d="{{ c.area }}" fill="url(#fill-{{ key }})"/>
+      <path class="metal__line" d="{{ c.line }}"/>
+    </svg>
+    {%- for t in c.yTicks %}<span class="metal__ylab" style="top: {{ t.pct }}%">{{ t.label }}</span>{% endfor %}
+    <span class="metal__dot" style="left: {{ c.end.xp }}%; top: {{ c.end.yp }}%"></span>
+  </div>
+  <div class="metal__xaxis" aria-hidden="true">
+    {%- for t in c.xTicks %}<span style="left: {{ t.pct }}%">{{ t.label }}</span>{% endfor %}
+  </div>
+  <table class="metal__table">
+    <thead><tr><th scope="col">कब</th><th scope="col">भाव</th><th scope="col">तब से अब तक</th></tr></thead>
+    <tbody>
+      {%- for r in m.rows %}
+      <tr>
+        <td>{{ r.label }}{% if not r.missing %}<span class="metal__day">{{ r.day | hiDate }}</span>{% endif %}</td>
+        <td class="metal__val">{% if r.missing %}—{% else %}{{ r.price }}{% if r.estimated %}<sup title="अनुमानित">*</sup>{% endif %}{% endif %}</td>
+        <td class="metal__chg {{ 'chg--up' if r.up else 'chg--down' }}">{{ r.change }}</td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</article>
+{%- endmacro -%}
+
+{%- if metals %}
+<section class="home-sec metals" aria-labelledby="metals-title">
+  <div class="section-head">
+    <h2 id="metals-title"><a href="/category/gold-silver/">सोना-चांदी: 5 साल का भाव</a></h2>
+    <a class="more" href="/category/gold-silver/">सोना-चांदी की खबरें {{ icon("chev-right") }}</a>
+  </div>
+  <div class="metals__grid">
+    {%- if metals.gold22 %}{{ metalCard(metals.gold22, "gold", "सोना 22 कैरेट (916)", "10 ग्राम") }}{% endif %}
+    {%- if metals.silver %}{{ metalCard(metals.silver, "silver", "चांदी (999)", "1 किलो") }}{% endif %}
+  </div>
+  <p class="metals__note">
+    आज और पिछले कुछ महीनों के भाव: <a href="https://ibjarates.com/" rel="noopener">IBJA</a> (शाम का भाव)।
+    {%- if (metals.gold22 and metals.gold22.hasEstimates) or (metals.silver and metals.silver.hasEstimates) %}
+    <sup>*</sup>उससे पुराने भाव और चार्ट का पुराना हिस्सा अनुमानित हैं: अंतरराष्ट्रीय भाव (COMEX) × डॉलर-रुपया दर, IBJA के हाल के भावों से मिलाकर — असली भाव से थोड़ा अलग हो सकते हैं।
+    {%- endif %}
+    GST और मेकिंग चार्ज अलग।
+  </p>
+</section>
+{%- endif %}
