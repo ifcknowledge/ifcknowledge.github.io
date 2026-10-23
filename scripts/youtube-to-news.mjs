@@ -147,7 +147,7 @@ const GEMINI_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_BASE = process.env.GEMINI_BASE || "https://generativelanguage.googleapis.com/v1beta";
 const GEMINI_MODELS = (process.env.GEMINI_MODEL || "gemini-3.8-flash,gemini-flash-latest").split(",").map((m) => m.trim());
 const GEMINI_PAUSE = Number(process.env.GEMINI_PAUSE_MS ?? 12000); // stay under the free per-minute limit
-const AI_PER_RUN = Number(process.env.GEMINI_PER_RUN || 4);
+const AI_PER_RUN = Number(process.env.GEMINI_PER_RUN || 3);
 
 class QuotaError extends Error {}
 
@@ -170,14 +170,24 @@ JSON में जवाब दो:
 - body: पूरी खबर Markdown में (150-700 शब्द; पैराग्राफ़, "## " उपशीर्षक और "- " सूची चल सकती है; लिंक नहीं)
 - category: इनमें से एक: ${categories.join(", ")}`;
 
-async function geminiOnce(model, video) {
+async function geminiOnce(model, video, retry = true) {
   const res = await fetch(`${GEMINI_BASE}/models/${encodeURIComponent(model)}:generateContent`, {
     method: "POST",
     headers: { "content-type": "application/json", "x-goog-api-key": GEMINI_KEY },
-    signal: AbortSignal.timeout(240000),
+    signal: AbortSignal.timeout(360000),
     body: JSON.stringify({
-      contents: [{ role: "user", parts: [{ file_data: { file_uri: `https://www.youtube.com/watch?v=${video.id}` } }, { text: PROMPT(video) }] }],
+      contents: [
+        {
+          role: "user",
+          parts: [
+            // One frame every 5 seconds at low resolution, full audio: long bulletins stay quick and within the free limits
+            { file_data: { file_uri: `https://www.youtube.com/watch?v=${video.id}` }, video_metadata: { fps: 0.2 } },
+            { text: PROMPT(video) },
+          ],
+        },
+      ],
       generationConfig: {
+        mediaResolution: "MEDIA_RESOLUTION_LOW",
         temperature: 0.3,
         responseMimeType: "application/json",
         responseSchema: {
@@ -195,6 +205,11 @@ async function geminiOnce(model, video) {
   });
   const text = await res.text();
   if (res.status === 429) throw new QuotaError(`${model}: free limit reached (429)`);
+  if (res.status === 503 && retry) {
+    // "high demand" at Google: wait a little and try once more
+    await new Promise((r) => setTimeout(r, Number(process.env.GEMINI_RETRY_MS ?? 30000)));
+    return geminiOnce(model, video, false);
+  }
   if (!res.ok) throw new Error(`${model}: HTTP ${res.status} ${text.slice(0, 200)}`);
   const json = JSON.parse(text);
   const out = JSON.parse(json.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "{}");
