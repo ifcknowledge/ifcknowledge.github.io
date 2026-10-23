@@ -1,7 +1,6 @@
-# TEMPORARY: looks at aajtak.in's page layout (menus, section titles, screenshots) as a design reference.
-# Runs only on the claude/ working branch. Screenshots go to the ref refs/tmp/design-shots, never to a branch.
-# Will be removed before anything goes to main.
-name: Design probe
+# TEMPORARY: deletes the temporary screenshot ref refs/tmp/design-shots left by the design probe.
+# Runs only on the claude/ working branch. Will be removed before anything goes to main.
+name: Design probe cleanup
 
 on:
   push:
@@ -11,64 +10,10 @@ permissions:
   contents: write
 
 jobs:
-  probe:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-      - name: Install browser
+      - name: Delete the temporary screenshot ref
         run: |
-          mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm i --no-save playwright >/dev/null
-          npx playwright install --with-deps chromium >/dev/null
-      - name: Look at the page
-        working-directory: /tmp/pw
-        run: |
-          cat > probe.cjs <<'EOF'
-          const { chromium } = require("playwright");
-          const fs = require("fs");
-          (async () => {
-            fs.mkdirSync("shots", { recursive: true });
-            const b = await chromium.launch();
-            for (const [name, vp, mobile] of [["desktop", { width: 1366, height: 900 }, false], ["phone", { width: 412, height: 915 }, true]]) {
-              const ctx = await b.newContext({ viewport: vp, isMobile: mobile, hasTouch: mobile, locale: "hi-IN",
-                userAgent: mobile ? "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Mobile Safari/537.36"
-                                  : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36" });
-              const p = await ctx.newPage();
-              try {
-                await p.goto("https://www.aajtak.in/", { waitUntil: "domcontentloaded", timeout: 60000 });
-                await p.waitForTimeout(6000);
-                for (let y = 0; y < 9000; y += 800) { await p.mouse.wheel(0, 800); await p.waitForTimeout(250); }
-                await p.evaluate(() => window.scrollTo(0, 0)); await p.waitForTimeout(1500);
-                const h = await p.evaluate(() => document.documentElement.scrollHeight);
-                console.log(`\n===== ${name}: page height ${h}px, title: ${await p.title()}`);
-                const info = await p.evaluate(() => {
-                  const txt = (e) => (e.innerText || "").replace(/\s+/g, " ").trim();
-                  const nav = [...document.querySelectorAll("header a, nav a")].map(txt).filter(Boolean).slice(0, 60);
-                  const heads = [...document.querySelectorAll("h1,h2,h3")].map((e) => `${e.tagName} ${txt(e).slice(0, 70)}`).slice(0, 120);
-                  const color = (sel) => { const e = document.querySelector(sel); if (!e) return ""; const s = getComputedStyle(e); return `${sel}: bg ${s.backgroundColor} color ${s.color} font ${s.fontFamily.slice(0, 60)} ${s.fontSize}`; };
-                  return { nav, heads, colors: ["body", "header", "nav", "h1", "h2", "a", "footer"].map(color) };
-                });
-                console.log("-- nav:", info.nav.join(" | "));
-                console.log("-- headings:\n   " + info.heads.join("\n   "));
-                console.log("-- styles:\n   " + info.colors.join("\n   "));
-                const max = mobile ? 6000 : 7000;
-                for (let top = 0, i = 1; top < Math.min(h, max); top += 1400, i++) {
-                  await p.screenshot({ path: `shots/${name}-${i}.jpg`, type: "jpeg", quality: 55, fullPage: true,
-                    clip: { x: 0, y: top, width: vp.width, height: Math.min(1400, h - top) } });
-                }
-              } catch (e) { console.log(`${name} failed: ${e.message}`); }
-              await ctx.close();
-            }
-            await b.close();
-          })();
-          EOF
-          node probe.cjs
-          ls -la shots
-      - name: Save screenshots to a temporary ref
-        working-directory: /tmp/pw/shots
-        run: |
-          git init -q && git checkout -q -b shots
-          git config user.name "design-probe" && git config user.email "design-probe@users.noreply.github.com"
-          git add -A && git commit -q -m "aajtak.in screenshots (temporary design reference)"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:refs/tmp/design-shots
+          git init -q .
+          git push "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" --delete refs/tmp/design-shots || echo "already gone"
