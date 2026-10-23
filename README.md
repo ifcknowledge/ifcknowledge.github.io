@@ -80,6 +80,23 @@ Useful switches on each story:
 
 The 7 stories already on the site are **samples** (each one says so at the top). Edit or delete them from the admin panel.
 
+### News from your YouTube videos (automatic)
+
+Every time the website updates (every 3 hours), each **new video** on the channel becomes a story:
+title, text, the video player, and three pictures from the video. Shorts are skipped (switch:
+सेटिंग्स → वेबसाइट → "Shorts से भी खबर बनाएं"). You can edit or delete these stories like any other.
+
+**Story text written from what is said in the video (free, Google Gemini):**
+
+1. Open <https://aistudio.google.com/apikey> and sign in with a Google account.
+2. **Create API key** → copy it.
+3. Open <https://github.com/ifcknowledge/ifcknowledge.github.io/settings/secrets/actions> →
+   **New repository secret** → Name: `GEMINI_API_KEY` → Secret: paste the key → **Add secret**.
+
+From then on Gemini watches and listens to each new video and writes the story in Hindi. Older automatic
+stories are rewritten the same way, a few each time, unless you edited them. Without the key, or if
+Gemini's free daily limit is used up, the video's description is used as the text.
+
 ### Gold & silver rates box
 
 The box fills itself. Every time the website updates (every 3 hours), it reads the official

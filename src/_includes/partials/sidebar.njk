@@ -12,7 +12,9 @@
 {#- Gold box: automatic IBJA rates (src/_data/ibja.js), or the rates typed in the admin panel when "auto" is off -#}
 {%- set autoRates = rates.auto != false %}
 {%- set rateRows = ((ibja.rows if ibja else []) if autoRates else rates.rows) %}
-{%- if rates.enabled and rateRows.length %}
+{%- if rates.enabled and autoRates and metals and (metals.gold22 or metals.silver) %}
+{% include "partials/metals-box.njk" %}
+{%- elif rates.enabled and rateRows.length %}
 <section class="panel widget" aria-labelledby="rates-title">
   <h2 id="rates-title">{{ icon("clock") }} {{ rates.title or "सोना-चांदी भाव" }}</h2>
   <table class="rates-table">

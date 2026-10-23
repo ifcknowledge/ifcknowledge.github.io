@@ -4,8 +4,14 @@
 // that can be edited or deleted in the admin panel (a deleted story is not added again).
 // Settings (admin panel → सेटिंग्स → वेबसाइट): "YouTube वीडियो से अपने-आप खबर" and "Shorts से भी".
 //
+// With a Google Gemini API key (GitHub secret GEMINI_API_KEY), Gemini watches and listens to each
+// video and writes the story from what is said in it. Without a key, or when Gemini fails, the
+// video's own description is used as the text. Stories made from a description are rewritten by
+// Gemini later, a few per run, as long as nobody has edited them.
+//
 //   node scripts/youtube-to-news.mjs            fetch the channel's feed
 //   node scripts/youtube-to-news.mjs feed.xml   use a saved feed (for testing)
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -136,17 +142,94 @@ export function storySummary(description, title) {
   return s.length > 240 ? s.slice(0, 240).replace(/\s+\S*$/, "") + "…" : s;
 }
 
+// ---------- story written by Google Gemini from the video itself ----------
+const GEMINI_KEY = process.env.GEMINI_API_KEY || "";
+const GEMINI_BASE = process.env.GEMINI_BASE || "https://generativelanguage.googleapis.com/v1beta";
+const GEMINI_MODELS = (process.env.GEMINI_MODEL || "gemini-flash-latest,gemini-2.5-flash").split(",").map((m) => m.trim());
+const AI_PER_RUN = Number(process.env.GEMINI_PER_RUN || 4);
+
+class QuotaError extends Error {}
+
+const PROMPT = (video) => `तुम "${site.name || "IFC knowledge"}" न्यूज़ वेबसाइट के हिंदी पत्रकार हो। यह हमारे YouTube चैनल का वीडियो है।
+वीडियो को देखो और सुनो, और उसमें जो बोला और दिखाया गया है उसी के आधार पर एक हिंदी समाचार लेख लिखो।
+
+नियम:
+- सिर्फ़ वही तथ्य लिखो जो वीडियो में बोले या दिखाए गए हैं। अपनी तरफ़ से कोई नया तथ्य, आंकड़ा, नाम या तारीख मत जोड़ो।
+- आसान, साफ़ हिंदी (देवनागरी) में लिखो, जैसे अख़बार की खबर। अंग्रेज़ी शब्द जैसे IPL, GST, UPI चल सकते हैं।
+- "इस वीडियो में", "सब्सक्राइब करें", "लाइक करें", "बेल आइकन" जैसी बातें मत लिखो।
+- अगर वीडियो में कई अलग खबरें हैं (जैसे बुलेटिन), तो हर खबर के लिए "## " से छोटा शीर्षक और 1-3 वाक्य लिखो।
+- अगर वीडियो में सोना-चांदी के भाव, तारीखें या नियम बताए गए हैं, तो उन्हें सही-सही लिखो।
+
+वीडियो का YouTube शीर्षक: ${video.title}
+वीडियो के विवरण की शुरुआत: ${(video.description || "").slice(0, 600)}
+
+JSON में जवाब दो:
+- title: खबर का साफ़ हिंदी शीर्षक (100 अक्षरों तक, | या # के बिना)
+- summary: 1-2 वाक्य का सार (220 अक्षरों तक)
+- body: पूरी खबर Markdown में (150-700 शब्द; पैराग्राफ़, "## " उपशीर्षक और "- " सूची चल सकती है; लिंक नहीं)
+- category: इनमें से एक: ${categories.join(", ")}`;
+
+async function geminiOnce(model, video) {
+  const res = await fetch(`${GEMINI_BASE}/models/${encodeURIComponent(model)}:generateContent`, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-goog-api-key": GEMINI_KEY },
+    signal: AbortSignal.timeout(240000),
+    body: JSON.stringify({
+      contents: [{ role: "user", parts: [{ file_data: { file_uri: `https://www.youtube.com/watch?v=${video.id}` } }, { text: PROMPT(video) }] }],
+      generationConfig: {
+        temperature: 0.3,
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "OBJECT",
+          properties: {
+            title: { type: "STRING" },
+            summary: { type: "STRING" },
+            body: { type: "STRING" },
+            category: { type: "STRING", enum: categories.length ? categories : ["top-news"] },
+          },
+          required: ["title", "summary", "body", "category"],
+        },
+      },
+    }),
+  });
+  const text = await res.text();
+  if (res.status === 429) throw new QuotaError(`${model}: free limit reached (429)`);
+  if (!res.ok) throw new Error(`${model}: HTTP ${res.status} ${text.slice(0, 200)}`);
+  const json = JSON.parse(text);
+  const out = JSON.parse(json.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "{}");
+  const clean = (v) => String(v || "").replace(/\s+/g, " ").trim();
+  const story = { title: clean(out.title).replace(/[|#]/g, " ").replace(/\s+/g, " "), summary: clean(out.summary), body: String(out.body || "").trim(), category: out.category };
+  if (story.title.length < 8 || story.body.length < 200) throw new Error(`${model}: answer too short`);
+  return story;
+}
+
+export async function writeWithGemini(video) {
+  let lastErr;
+  for (const model of GEMINI_MODELS) {
+    try {
+      return await geminiOnce(model, video);
+    } catch (err) {
+      if (err instanceof QuotaError) throw err;
+      lastErr = err;
+    }
+  }
+  throw lastErr;
+}
+
+const aiBody = (md) =>
+  escapeText(md.replace(/\r/g, "").replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/https?:\/\/\S+/g, "").replace(/\n{3,}/g, "\n\n").trim().slice(0, 9000));
+
 const istDay = (iso) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata" }).format(new Date(iso));
 const yaml = (s) => JSON.stringify(String(s));
 
-export function storyFile(video) {
-  const slug = makeSlug(video.title, video.id);
+export function storyFile(video, ai = null, slug = makeSlug(video.title, video.id)) {
+  const category = ai && categories.includes(ai.category) ? ai.category : guessCategory(video.title);
   const fields = [
-    ["title", yaml(video.title.replace(/\s+/g, " ").trim())],
+    ["title", yaml(ai ? ai.title : video.title.replace(/\s+/g, " ").trim())],
     ["slug", slug],
     ["date", video.published],
-    ["category", guessCategory(video.title)],
-    ["summary", yaml(storySummary(video.description, video.title))],
+    ["category", category],
+    ["summary", yaml(ai ? ai.summary : storySummary(video.description, video.title))],
     ["youtube", `https://www.youtube.com/watch?v=${video.id}`],
     ["author", yaml(site.author || site.name || "")],
     ["lang", "hi"],
@@ -154,11 +237,15 @@ export function storyFile(video) {
     ["breaking", "false"],
     ["draft", "false"],
     ["source", "youtube"],
+    ["text_from", ai ? "video" : "description"],
   ];
   const front = fields.map(([k, v]) => `${k}: ${v}`).join("\n");
-  const body = storyBody(video.description);
-  return { name: `${istDay(video.published)}-${slug}.md`, text: `---\n${front}\n---\n${body}\n` };
+  const body = ai ? aiBody(ai.body) : storyBody(video.description);
+  return { name: `${istDay(video.published)}-${slug}.md`, text: `---\n${front}\n---\n${body}\n`, body };
 }
+
+const hash = (s) => crypto.createHash("sha1").update(s.trim()).digest("hex").slice(0, 16);
+const bodyOf = (text) => text.replace(/^---\n[\s\S]*?\n---\n/, "");
 
 // ---------- run ----------
 const ytId = (s = "") => (s.match(/(?:v=|youtu\.be\/|shorts\/|embed\/|live\/)([\w-]{11})/) || [])[1];
@@ -201,20 +288,73 @@ async function main() {
     .filter((v) => !known.has(v.id) && (site.youtube_news_shorts || !v.isShort))
     .sort((a, b) => Date.parse(a.published) - Date.parse(b.published));
 
+  state.hashes ||= {};
+  let aiLeft = GEMINI_KEY ? AI_PER_RUN : 0;
+  const tryAI = async (video) => {
+    if (aiLeft <= 0) return null;
+    try {
+      const story = await writeWithGemini(video);
+      aiLeft--;
+      return story;
+    } catch (err) {
+      console.warn(`[youtube-news] Gemini could not write ${video.id}: ${err.message}`);
+      if (err instanceof QuotaError) aiLeft = 0;
+      return null;
+    }
+  };
+
+  let added = 0;
   for (const v of fresh) {
-    const { name, text } = storyFile(v);
+    const ai = await tryAI(v);
+    // Without Gemini's text, wait for a later run while the video is new; after a day use the description.
+    if (!ai && GEMINI_KEY && Date.now() - Date.parse(v.published) < 24 * 3600e3) {
+      console.log(`[youtube-news] later: ${v.id} (waiting for Gemini)`);
+      continue;
+    }
+    const { name, text, body } = storyFile(v, ai);
     fs.writeFileSync(path.join(NEWS_DIR, name), text);
     if (samples.has(v.id)) {
       fs.rmSync(path.join(NEWS_DIR, samples.get(v.id)));
       console.log(`[youtube-news] replaced sample story ${samples.get(v.id)}`);
     }
     known.add(v.id);
-    console.log(`[youtube-news] + ${name}`);
+    state.hashes[v.id] = hash(body);
+    added++;
+    console.log(`[youtube-news] + ${name}${ai ? " (written from the video)" : ""}`);
   }
 
+  // Rewrite stories that still have the description as text (newest first), if nobody edited them.
+  if (aiLeft > 0) {
+    const feedById = new Map(videos.map((v) => [v.id, v]));
+    const candidates = fs
+      .readdirSync(NEWS_DIR)
+      .filter((f) => f.endsWith(".md"))
+      .map((f) => ({ f, text: fs.readFileSync(path.join(NEWS_DIR, f), "utf8") }))
+      .filter(({ text }) => /^source: youtube$/m.test(text) && !/^text_from: video$/m.test(text))
+      .sort((a, b) => b.f.localeCompare(a.f));
+    for (const { f, text } of candidates) {
+      if (aiLeft <= 0) break;
+      const id = ytId(text.match(/^youtube:\s*(.+)$/m)?.[1]);
+      const saved = state.hashes[id];
+      const untouched = saved ? saved === hash(bodyOf(text)) : !/^text_from:/m.test(text); // stories made before hashes were kept
+      if (!id || !untouched) continue;
+      const fm = (k) => (text.match(new RegExp(`^${k}:\\s*(.+)$`, "m")) || [])[1] || "";
+      const unq = (v) => (v.startsWith('"') ? JSON.parse(v) : v);
+      const video = feedById.get(id) || { id, title: unq(fm("title")), description: "", published: fm("date") };
+      video.published = fm("date") || video.published;
+      const ai = await tryAI(video);
+      if (!ai) continue;
+      const { text: newText, body } = storyFile(video, ai, fm("slug") || makeSlug(video.title, id));
+      fs.writeFileSync(path.join(NEWS_DIR, f), newText);
+      state.hashes[id] = hash(body);
+      console.log(`[youtube-news] rewritten from the video: ${f}`);
+    }
+  }
+
+  state.imported = [...known].sort();
   fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
-  fs.writeFileSync(STATE_FILE, JSON.stringify({ imported: [...known].sort() }, null, 2) + "\n");
-  console.log(`[youtube-news] ${fresh.length} new stories from ${videos.length} videos in the feed`);
+  fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2) + "\n");
+  console.log(`[youtube-news] ${added} new stories from ${videos.length} videos in the feed${GEMINI_KEY ? "" : " (no Gemini key: text from descriptions)"}`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

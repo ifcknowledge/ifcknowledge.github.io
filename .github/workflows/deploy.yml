@@ -44,9 +44,13 @@ jobs:
 
       # Each new video on the YouTube channel becomes a story (scripts/youtube-to-news.mjs).
       # A problem with YouTube never stops the website from being published.
+      # With the GEMINI_API_KEY secret, Gemini writes each story from what is said in the video.
       - name: Turn new YouTube videos into stories
         continue-on-error: true
+        timeout-minutes: 20
         run: node scripts/youtube-to-news.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Save the new stories
         continue-on-error: true

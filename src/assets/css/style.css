@@ -289,7 +289,6 @@ main { display: block; padding-block: 8px 48px; }
 .layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
 @media (min-width: 1000px) {
   .layout { grid-template-columns: minmax(0, 1fr) 330px; align-items: start; }
-  .sidebar { position: sticky; top: calc(var(--masthead-h) + 16px); }
 }
 .stack > * + * { margin-top: 24px; }
 
@@ -443,7 +442,7 @@ main { display: block; padding-block: 8px 48px; }
 @media (min-width: 760px) { .home-top { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); } .home-top__side { grid-column: 1 / -1; } }
 @media (min-width: 1100px) {
   .home-top { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr) 320px; }
-  .home-top__side { grid-column: auto; position: sticky; top: calc(var(--masthead-h) + 16px); }
+  .home-top__side { grid-column: auto; }
 }
 .lead { position: relative; display: flex; flex-direction: column; }
 .lead__title {
@@ -499,6 +498,30 @@ main { display: block; padding-block: 8px 48px; }
 .metal__val sup { color: var(--muted); }
 .metal__chg { font-weight: 800; white-space: nowrap; }
 .metals__note { margin: 10px 0 0; font-size: .8rem; color: var(--muted); line-height: 1.5; }
+
+/* Sidebar gold & silver box with charts */
+.metals-box .chg { font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.mbox__g24 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: 0 0 4px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-size: .92rem; }
+.mbox__g24 small { color: var(--muted); }
+.mbox__g24 b { margin-left: auto; font-size: 1rem; }
+.mbox { --metal: #b8860b; --metal-soft: rgb(212 160 23 / 28%); padding: 10px 0 8px; border-bottom: 1px solid var(--line); }
+.mbox.metal--silver { --metal: #6b7a90; --metal-soft: rgb(120 135 160 / 26%); }
+.mbox__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.mbox__name { display: flex; flex-direction: column; font-weight: 800; font-size: .98rem; line-height: 1.3; }
+.mbox__name::before { content: ""; width: 26px; height: 3px; border-radius: 2px; background: var(--metal); margin-bottom: 4px; }
+.mbox__name small { color: var(--muted); font-weight: 500; font-size: .76rem; }
+.mbox__now { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.25; }
+.mbox__now b { font-size: 1.2rem; font-weight: 800; white-space: nowrap; }
+.mbox__plot { aspect-ratio: 2 / 1; margin-top: 6px; }
+.mbox__plot .metal__ylab { font-size: .66rem; }
+.mbox__xaxis { height: 18px; font-size: .68rem; margin-bottom: 2px; }
+.mbox__then { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 4px 0 0; }
+.mbox__then div { background: var(--bg-soft); border-radius: var(--radius-sm); padding: 5px 6px; text-align: center; }
+.mbox__then dt { font-size: .7rem; color: var(--muted); line-height: 1.3; }
+.mbox__then dd { margin: 0; font-size: .82rem; font-weight: 800; line-height: 1.35; white-space: nowrap; }
+.mbox__then dd sup { color: var(--muted); }
+.mbox__then .chg { display: block; font-size: .74rem; }
+.metals-box .rates-foot { line-height: 1.45; }
 .metals__note a { color: var(--brand); font-weight: 700; }
 
 /* Generic home section */
