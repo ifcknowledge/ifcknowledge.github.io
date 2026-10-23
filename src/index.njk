@@ -3,79 +3,137 @@ layout: layouts/base.njk
 eleventyExcludeFromCollections: true
 ---
 {%- from "partials/icons.njk" import icon -%}
-{%- from "partials/macros.njk" import card, videoCard with context -%}
+{%- from "partials/macros.njk" import card, videoCard, media with context -%}
 {%- set all = collections.news -%}
 {%- set lead = all | featured -%}
 {%- set rest = all | without(lead) -%}
+{%- set vids = (channel.videos | rejectattr("isShort")) if site.show_videos else [] -%}
+{%- set shorts = (channel.videos | selectattr("isShort")) if site.show_videos else [] -%}
 
 <h1 class="visually-hidden">{{ site.name }} — {{ site.tagline }}</h1>
 
+{#- 1. Latest videos: a swipeable row of cards on a navy panel #}
+{%- set topVids = vids | head(10) %}
+{%- if topVids.length %}
+<section class="navy-panel" aria-labelledby="top-videos" data-scroller>
+  <div class="section-head section-head--light">
+    <h2 id="top-videos"><a href="/videos/">ताज़ा वीडियो</a></h2>
+    <div class="section-head__tools">
+      <button class="scroll-btn" type="button" data-scroll="-1" aria-label="पीछे" hidden>{{ icon("chev-left") }}</button>
+      <button class="scroll-btn" type="button" data-scroll="1" aria-label="आगे" hidden>{{ icon("chev-right") }}</button>
+    </div>
+  </div>
+  <div class="hscroll" data-scroll-track>
+    {%- for v in topVids %}{{ videoCard(v, "tile") }}{% endfor %}
+  </div>
+</section>
+{%- endif %}
+
+{#- 2. Quick links strip #}
+<nav class="specials" aria-label="खास आपके लिए">
+  <span class="specials__label">खास आपके लिए</span>
+  <ul>
+    {%- for c in categories.list | head(4) %}<li><a href="/category/{{ c.slug }}/">{{ c.name }}</a></li>{% endfor %}
+  </ul>
+</nav>
+
 {%- if not lead %}
-<section class="panel empty">
+<section class="empty">
   <p>अभी कोई खबर नहीं है। एडमिन पैनल (<a href="/admin/">/admin/</a>) से पहली खबर डालें।</p>
 </section>
 {%- else %}
-<div class="layout">
-  <div class="stack">
-    <section class="panel hero" aria-label="मुख्य खबर">
-      {{ card(lead, "lead") }}
-      <div class="hero__side">
-        <h2>ताज़ा खबरें</h2>
-        <div>
-          {%- for p in rest | head(5) %}{{ card(p, "text") }}{% endfor %}
-        </div>
-      </div>
-    </section>
 
-    {%- set latest = rest | slice2(5, 14) %}
-    {%- if latest.length %}
-    <section class="panel">
-      <div class="section-head">
-        <h2><a href="/news/">और खबरें</a></h2>
-        <a class="more" href="/news/">सभी खबरें {{ icon("arrow") }}</a>
+{#- 3. Lead story + quick headlines + sidebar #}
+{%- set leadCat = lead.data.category | categoryInfo %}
+<div class="home-top">
+  <div class="home-top__main">
+    <article class="lead">
+      <h2 class="lead__title"><a href="{{ lead.url }}">{{ lead.data.title }}</a></h2>
+      <a class="lead__media card__media" href="{{ lead.url }}" tabindex="-1" aria-hidden="true">{{ media(lead, leadCat) }}</a>
+      {%- if lead.data.summary %}<p class="lead__summary">{{ lead.data.summary }}</p>{% endif %}
+      <div class="lead__meta">
+        <a class="kicker" href="/category/{{ leadCat.slug }}/">{{ leadCat.name }}</a>
+        <span>{{ icon("clock") }}<time datetime="{{ lead.date | isoDate }}" data-relative>{{ lead.date | hiDate }}</time></span>
       </div>
-      <div class="grid grid--3">
-        {%- for p in latest %}{{ card(p) }}{% endfor %}
-      </div>
-    </section>
+    </article>
+    {%- set more = rest | slice2(7, 15) %}
+    {%- if more.length %}
+    <div class="row-grid">
+      {%- for p in more %}{{ card(p, "row") }}{% endfor %}
+    </div>
     {%- endif %}
-
-    {%- if site.show_videos and channel.videos.length %}
-    <section class="panel">
-      <div class="section-head" style="--c: #e00">
-        <h2><a href="/videos/">ताज़ा वीडियो</a></h2>
-        <a class="more" href="{{ site.youtube_url }}" target="_blank" rel="noopener">YouTube चैनल {{ icon("arrow") }}</a>
-      </div>
-      <div class="grid grid--3">
-        {%- for v in channel.videos | head(6) %}{{ videoCard(v) }}{% endfor %}
-      </div>
-    </section>
-    {%- endif %}
-
-    {%- for c in categories.list %}
-      {%- set catPosts = all | inCategory(c.slug) | head(5) %}
-      {%- if catPosts.length %}
-      <section class="panel" style="--c: {{ c.color }}">
-        <div class="section-head">
-          <h2><a href="/category/{{ c.slug }}/">{{ c.name }}</a></h2>
-          <a class="more" href="/category/{{ c.slug }}/">और देखें {{ icon("arrow") }}</a>
-        </div>
-        <div class="cat-block">
-          {{ card(catPosts[0]) }}
-          {%- if catPosts.length > 1 %}
-          <div class="list-rows">
-            {%- for p in catPosts | slice2(1, 5) %}{{ card(p, "row") }}{% endfor %}
-          </div>
-          {%- endif %}
-        </div>
-      </section>
-      {%- endif %}
-    {%- endfor %}
   </div>
 
-  <aside class="sidebar stack" aria-label="साइडबार">
+  {%- set quick = rest | head(7) %}
+  {%- if quick.length %}
+  <section class="home-top__list" aria-labelledby="quick-news">
+    <div class="section-head">
+      <h2 id="quick-news"><a href="/news/">फटाफट खबरें</a></h2>
+      <a class="more" href="/news/">और भी {{ icon("chev-right") }}</a>
+    </div>
+    <div class="list-rows">
+      {%- for p in quick %}{{ card(p, "row") }}{% endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  <aside class="home-top__side sidebar stack" aria-label="साइडबार">
     {%- set hideSidebarVideos = true %}
     {% include "partials/sidebar.njk" %}
   </aside>
+</div>
+
+{#- 4. Short videos (vertical), only when the channel has some #}
+{%- if shorts.length >= 3 %}
+<section class="home-sec" aria-labelledby="shorts" data-scroller>
+  <div class="section-head">
+    <h2 id="shorts">शॉर्ट वीडियो</h2>
+    <div class="section-head__tools">
+      <button class="scroll-btn" type="button" data-scroll="-1" aria-label="पीछे" hidden>{{ icon("chev-left") }}</button>
+      <button class="scroll-btn" type="button" data-scroll="1" aria-label="आगे" hidden>{{ icon("chev-right") }}</button>
+    </div>
+  </div>
+  <div class="hscroll hscroll--shorts" data-scroll-track>
+    {%- for v in shorts | head(12) %}{{ videoCard(v, "short") }}{% endfor %}
+  </div>
+</section>
+{%- endif %}
+
+{#- 5. Full-width navy video band: one big video in the middle #}
+{%- set bandVids = vids | slice2(10, 15) %}
+{%- if bandVids.length < 3 %}{% set bandVids = vids | head(5) %}{% endif %}
+{%- if bandVids.length >= 3 %}
+<section class="video-band" aria-labelledby="video-band">
+  <div class="section-head section-head--light">
+    <h2 id="video-band"><a href="/videos/">वीडियो</a></h2>
+    <a class="more" href="/videos/">और भी {{ icon("chev-right") }}</a>
+  </div>
+  <div class="video-band__grid">
+    <div class="video-band__main">{{ videoCard(bandVids[0], "feature") }}</div>
+    <div class="video-band__col">{% for v in bandVids | slice2(1, 3) %}{{ videoCard(v, "band") }}{% endfor %}</div>
+    <div class="video-band__col">{% for v in bandVids | slice2(3, 5) %}{{ videoCard(v, "band") }}{% endfor %}</div>
+  </div>
+</section>
+{%- endif %}
+
+{#- 6. One block per category #}
+<div class="cat-grid">
+  {%- for c in categories.list %}
+    {%- set catPosts = all | inCategory(c.slug) | head(4) %}
+    {%- if catPosts.length %}
+    <section class="home-sec" aria-labelledby="cat-{{ c.slug }}">
+      <div class="section-head">
+        <h2 id="cat-{{ c.slug }}"><a href="/category/{{ c.slug }}/">{{ c.name }}</a></h2>
+        <a class="more" href="/category/{{ c.slug }}/">और भी {{ icon("chev-right") }}</a>
+      </div>
+      {{ card(catPosts[0], "", false) }}
+      {%- if catPosts.length > 1 %}
+      <div class="list-rows">
+        {%- for p in catPosts | slice2(1, 4) %}{{ card(p, "row") }}{% endfor %}
+      </div>
+      {%- endif %}
+    </section>
+    {%- endif %}
+  {%- endfor %}
 </div>
 {%- endif %}

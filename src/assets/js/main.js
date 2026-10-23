@@ -25,6 +25,83 @@
     document.querySelectorAll("[data-today]").forEach(function (el) { el.textContent = today; });
   } catch (e) {}
 
+  // Clock next to the date: "10:49 pm IST"
+  var clocks = document.querySelectorAll("[data-clock]");
+  if (clocks.length) {
+    var tick = function () {
+      try {
+        var t = new Intl.DateTimeFormat("en-IN", { hour: "numeric", minute: "2-digit", hour12: true, timeZone: TZ }).format(new Date());
+        clocks.forEach(function (el) { el.textContent = t + " IST"; });
+      } catch (e) {}
+    };
+    tick();
+    setInterval(tick, 30000);
+  }
+
+  // Side menu: ☰ in the header and "मेन्यू" in the bottom bar (without JavaScript they jump to the footer links)
+  var menu = document.querySelector("[data-menu]");
+  if (menu) {
+    var openers = document.querySelectorAll("[data-menu-open]");
+    var lastFocus = null;
+    var setOpen = function (open) {
+      menu.hidden = !open;
+      document.body.classList.toggle("menu-open", open);
+      openers.forEach(function (b) { b.setAttribute("aria-expanded", open ? "true" : "false"); });
+      if (open) {
+        lastFocus = document.activeElement;
+        var first = menu.querySelector(".drawer__close");
+        if (first) first.focus();
+      } else if (lastFocus) {
+        lastFocus.focus();
+      }
+    };
+    openers.forEach(function (b) {
+      b.addEventListener("click", function (e) { e.preventDefault(); setOpen(true); });
+    });
+    menu.querySelectorAll("[data-menu-close]").forEach(function (b) {
+      b.addEventListener("click", function () { setOpen(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !menu.hidden) setOpen(false);
+    });
+  }
+
+  // Breaking news strip: the × hides it for this visit
+  var breaking = document.querySelector("[data-breaking]");
+  if (breaking) {
+    try { if (sessionStorage.getItem("hideBreaking") === "1") breaking.hidden = true; } catch (e) {}
+    var closeBtn = breaking.querySelector("[data-breaking-close]");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        breaking.hidden = true;
+        try { sessionStorage.setItem("hideBreaking", "1"); } catch (e) {}
+      });
+    }
+  }
+
+  // Sideways-scrolling rows (videos, topics): ‹ › buttons, shown only when the row overflows
+  document.querySelectorAll("[data-scroller]").forEach(function (box) {
+    var track = box.querySelector("[data-scroll-track]");
+    var btns = box.querySelectorAll("[data-scroll]");
+    if (!track || !btns.length) return;
+    var update = function () {
+      var max = track.scrollWidth - track.clientWidth;
+      btns.forEach(function (b) {
+        var dir = Number(b.getAttribute("data-scroll"));
+        b.hidden = max <= 4;
+        b.disabled = dir < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max - 2;
+      });
+    };
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        track.scrollBy({ left: Number(b.getAttribute("data-scroll")) * track.clientWidth * 0.8, behavior: "smooth" });
+      });
+    });
+    track.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  });
+
   // "3 घंटे पहले" for news published in the last 24 hours
   try {
     var rtf = new Intl.RelativeTimeFormat("hi", { numeric: "auto" });

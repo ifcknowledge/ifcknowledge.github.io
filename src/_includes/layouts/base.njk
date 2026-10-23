@@ -18,7 +18,7 @@
   <meta name="robots" content="max-image-preview:large">
   {%- endif %}
   <link rel="canonical" href="{{ page.url | absUrl }}">
-  <meta name="theme-color" content="#c8102e">
+  <meta name="theme-color" content="#002665">
 
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:type" content="{{ 'article' if isArticle else 'website' }}">
@@ -48,68 +48,88 @@
 </head>
 <body>
   <a class="skip-link" href="#main">मुख्य खबर पर जाएं</a>
+  {%- set hasVideos = site.show_videos and channel.videos.length %}
+  {%- set liveUrl = (site.youtube_url | replace("?sub_confirmation=1", "")) + "/live" if site.youtube_url else "" %}
 
-  <div class="topbar">
-    <div class="container topbar__inner">
-      <span class="topbar__date" data-today>{{ build.now | hiWeekdayDate }}</span>
-      <div class="topbar__right">
-        {%- if site.youtube_url %}
-        <a class="yt-sub" href="{{ site.youtube_url }}?sub_confirmation=1" target="_blank" rel="noopener">{{ icon("youtube") }} Subscribe</a>
-        {%- endif %}
+  <div class="utility">
+    <div class="container utility__inner">
+      <span class="utility__date"><span data-today>{{ build.now | hiWeekdayDate }}</span><span class="utility__clock" data-clock></span></span>
+      <nav class="utility__links" aria-label="जल्दी पहुंचें">
+        <a href="/news/">ताज़ा खबरें</a>
+        {%- if hasVideos %}<a href="/videos/">वीडियो</a>{% endif %}
+        {%- for p in collections.sitePages | head(2) %}<a href="{{ p.url }}">{{ p.data.title }}</a>{% endfor %}
+      </nav>
+      <div class="utility__right">
         <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="लाइट / डार्क मोड बदलें">{{ icon("sun", "icon-sun") }}{{ icon("moon", "icon-moon") }}</button>
+        {%- if site.youtube_url %}
+        <a class="sub-btn" href="{{ site.youtube_url }}?sub_confirmation=1" target="_blank" rel="noopener">{{ icon("youtube") }} Subscribe</a>
+        {%- endif %}
       </div>
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header__inner">
+  {%- set activeCat = category if isArticle else (cp.cat.slug if cp else "") %}
+  <header class="masthead">
+    <div class="container masthead__inner">
+      <a class="masthead__menu" href="#site-footer" data-menu-open aria-controls="site-menu" aria-expanded="false" aria-label="मेन्यू खोलें">{{ icon("menu") }}</a>
       {% include "partials/logo.njk" %}
-      <form class="header-search" action="/search/" method="get" role="search">
-        <label class="visually-hidden" for="header-q">खबर खोजें</label>
-        <input id="header-q" type="search" name="q" placeholder="खबर खोजें… Search news" autocomplete="off">
-        <button type="submit" aria-label="खोजें">{{ icon("search") }}</button>
-      </form>
-      <a class="search-link" href="/search/" aria-label="खबर खोजें">{{ icon("search") }}</a>
+      <nav class="main-nav" aria-label="खबरों की श्रेणियां">
+        <ul>
+          <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>होम</a></li>
+          {%- for c in categories.list %}
+          <li><a href="/category/{{ c.slug }}/"{% if activeCat == c.slug %} class="is-active"{% if cp and cp.pageNumber == 0 %} aria-current="page"{% endif %}{% endif %}>{{ c.name }}</a></li>
+          {%- endfor %}
+          {%- if hasVideos %}
+          <li><a href="/videos/"{% if page.url == "/videos/" %} aria-current="page"{% endif %}>वीडियो</a></li>
+          {%- endif %}
+        </ul>
+      </nav>
+      <div class="masthead__tools">
+        {%- if liveUrl %}
+        <a class="live-btn" href="{{ liveUrl }}" target="_blank" rel="noopener" aria-label="YouTube पर लाइव देखें">LIVE</a>
+        {%- endif %}
+        <a class="masthead__search" href="/search/" aria-label="खबर खोजें">{{ icon("search") }}</a>
+      </div>
     </div>
   </header>
 
-  {%- set activeCat = category if isArticle else (cp.cat.slug if cp else "") %}
-  <nav class="site-nav" aria-label="खबरों की श्रेणियां">
-    <div class="container">
-      <ul>
-        <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>होम</a></li>
-        {%- for c in categories.list %}
-        <li><a href="/category/{{ c.slug }}/"{% if activeCat == c.slug %} class="is-active"{% if cp and cp.pageNumber == 0 %} aria-current="page"{% endif %}{% endif %}>{{ c.name }}</a></li>
-        {%- endfor %}
-        {%- if site.show_videos and channel.videos.length %}
-        <li><a href="/videos/"{% if page.url == "/videos/" %} aria-current="page"{% endif %}>वीडियो</a></li>
-        {%- endif %}
-      </ul>
-    </div>
-  </nav>
-
   {%- set tickerItems = collections.news | breaking(6) %}
   {%- if tickerItems.length or site.ticker.length %}
-  <div class="ticker" aria-label="ब्रेकिंग न्यूज़">
-    <div class="container ticker__inner">
-      <span class="ticker__label">ब्रेकिंग</span>
-      <div class="ticker__track">
-        <ul class="ticker__list">
-          {%- for loopNo in [1, 2] %}
-          {%- for line in site.ticker %}<li{% if loopNo == 2 %} aria-hidden="true"{% endif %}>{{ line }}</li>{% endfor %}
-          {%- for p in tickerItems %}<li{% if loopNo == 2 %} aria-hidden="true"{% endif %}><a href="{{ p.url }}"{% if loopNo == 2 %} tabindex="-1"{% endif %}>{{ p.data.title }}</a></li>{% endfor %}
-          {%- endfor %}
-        </ul>
+  <div class="breaking-wrap" data-breaking>
+    <div class="container">
+      <div class="breaking" role="region" aria-label="ब्रेकिंग न्यूज़">
+        <span class="breaking__label" lang="en">BREAKING NEWS</span>
+        <div class="breaking__track">
+          <ul class="breaking__list">
+            {%- for loopNo in [1, 2] %}
+            {%- for line in site.ticker %}<li{% if loopNo == 2 %} aria-hidden="true"{% endif %}>{{ line }}</li>{% endfor %}
+            {%- for p in tickerItems %}<li{% if loopNo == 2 %} aria-hidden="true"{% endif %}><a href="{{ p.url }}"{% if loopNo == 2 %} tabindex="-1"{% endif %}>{{ p.data.title }}</a></li>{% endfor %}
+            {%- endfor %}
+          </ul>
+        </div>
+        <button class="breaking__close" type="button" data-breaking-close aria-label="ब्रेकिंग पट्टी बंद करें">{{ icon("close") }}</button>
       </div>
     </div>
   </div>
   {%- endif %}
 
+  <div class="chips-wrap">
+    <div class="container chips" data-scroller>
+      <span class="chips__title">ट्रेंडिंग</span>
+      <button class="scroll-btn" type="button" data-scroll="-1" aria-label="पीछे" hidden>{{ icon("chev-left") }}</button>
+      <ul class="chips__list" data-scroll-track>
+        {%- for c in categories.list %}<li><a class="chip{% if activeCat == c.slug %} is-active{% endif %}" href="/category/{{ c.slug }}/">{{ c.name }}</a></li>{% endfor %}
+        {%- if hasVideos %}<li><a class="chip" href="/videos/">वीडियो</a></li>{% endif %}
+      </ul>
+      <button class="scroll-btn" type="button" data-scroll="1" aria-label="आगे" hidden>{{ icon("chev-right") }}</button>
+    </div>
+  </div>
+
   <main id="main" class="container">
     {{ content | safe }}
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="site-footer">
     <div class="container">
       <div class="footer__grid">
         <div>
@@ -128,7 +148,7 @@
         </div>
         <div>
           <h2>श्रेणियां</h2>
-          <ul>
+          <ul class="footer__cats">
             {%- for c in categories.list %}<li><a href="/category/{{ c.slug }}/">{{ c.name }}</a></li>{% endfor %}
           </ul>
         </div>
@@ -137,7 +157,7 @@
           <ul>
             {%- for p in collections.sitePages %}<li><a href="{{ p.url }}">{{ p.data.title }}</a></li>{% endfor %}
             <li><a href="/news/">सभी खबरें</a></li>
-            {%- if site.show_videos and channel.videos.length %}<li><a href="/videos/">वीडियो</a></li>{% endif %}
+            {%- if hasVideos %}<li><a href="/videos/">वीडियो</a></li>{% endif %}
             <li><a href="/search/">खोजें</a></li>
           </ul>
         </div>
@@ -148,6 +168,36 @@
       </div>
     </div>
   </footer>
+
+  {#- Side menu (opened by ☰ and the bottom "मेन्यू" tab; without JavaScript those links jump to the footer) #}
+  <div class="drawer" id="site-menu" data-menu hidden>
+    <div class="drawer__backdrop" data-menu-close></div>
+    <nav class="drawer__panel" aria-label="मेन्यू">
+      <div class="drawer__head">
+        {% include "partials/logo.njk" %}
+        <button class="drawer__close" type="button" data-menu-close aria-label="मेन्यू बंद करें">{{ icon("close") }}</button>
+      </div>
+      <ul class="drawer__list">
+        <li><a href="/">{{ icon("home") }} होम</a></li>
+        <li><a href="/news/">{{ icon("clock") }} ताज़ा खबरें</a></li>
+        {%- for c in categories.list %}<li><a href="/category/{{ c.slug }}/"><span class="drawer__dot" style="--c: {{ c.color }}"></span>{{ c.name }}</a></li>{% endfor %}
+        {%- if hasVideos %}<li><a href="/videos/">{{ icon("play") }} वीडियो</a></li>{% endif %}
+        <li><a href="/search/">{{ icon("search") }} खोजें</a></li>
+      </ul>
+      <ul class="drawer__list drawer__list--small">
+        {%- for p in collections.sitePages %}<li><a href="{{ p.url }}">{{ p.data.title }}</a></li>{% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+  {#- Bottom tab bar on phones #}
+  <nav class="tabbar" aria-label="मुख्य मेन्यू">
+    <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>{{ icon("home") }}<span>होम</span></a>
+    {%- if hasVideos %}<a href="/videos/"{% if page.url == "/videos/" %} aria-current="page"{% endif %}>{{ icon("play") }}<span>वीडियो</span></a>{% endif %}
+    {%- if liveUrl %}<a class="tabbar__live" href="{{ liveUrl }}" target="_blank" rel="noopener"><span class="live-btn">LIVE</span><span>लाइव टीवी</span></a>{% endif %}
+    <a href="/search/"{% if page.url == "/search/" %} aria-current="page"{% endif %}>{{ icon("search") }}<span>खोजें</span></a>
+    <a href="#site-footer" data-menu-open aria-controls="site-menu" aria-expanded="false">{{ icon("grid") }}<span>मेन्यू</span></a>
+  </nav>
 
   <script src="/assets/js/main.js?v={{ build.version }}" defer></script>
 </body>
