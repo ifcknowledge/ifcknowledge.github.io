@@ -1,0 +1,50 @@
+# TEMPORARY: looks for 5-year gold/silver price history sources from GitHub's servers.
+# Runs only on the claude/ working branch. Will be removed before anything goes to main.
+name: Data probe
+
+on:
+  push:
+    branches: [claude/trusting-pascal-h8hmhx]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Probe
+        run: |
+          cat > probe.mjs <<'EOF'
+          const UA = { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36" };
+          async function get(url, opts = {}) {
+            try {
+              const r = await fetch(url, { headers: { ...UA, ...(opts.headers || {}) }, method: opts.method || "GET", body: opts.body, redirect: "follow", signal: AbortSignal.timeout(30000) });
+              const t = await r.text();
+              console.log(`\n===== ${url} -> ${r.status} ${r.url} ${t.length} chars, ${r.headers.get("content-type")}`);
+              return t;
+            } catch (e) { console.log(`\n===== ${url} -> ERROR ${e.message}`); return ""; }
+          }
+          const uniq = (a) => [...new Set(a)];
+          const html = await get("https://ibjarates.com/");
+          console.log("-- links:\n   " + uniq([...html.matchAll(/href="([^"#]+)"/g)].map(m => m[1])).filter(h => !/\.(css|png|jpg|ico|svg)(\?|$)/i.test(h)).join("\n   "));
+          console.log("-- forms: " + [...html.matchAll(/<form[^>]*>/g)].map(m => m[0]).join(" "));
+          console.log("-- selects/options: " + [...html.matchAll(/<(select|option)[^>]*>[^<]{0,40}/g)].map(m => m[0].replace(/\s+/g, " ")).slice(0, 40).join(" | "));
+          console.log("-- postback targets: " + uniq([...html.matchAll(/__doPostBack\('([^']+)'/g)].map(m => m[1])).join(", "));
+          console.log("-- ajax/fetch in scripts: " + uniq([...html.matchAll(/(?:url\s*:\s*|fetch\(|\.post\(|\.get\(|ajax\()\s*["'`]([^"'`]+)["'`]/g)].map(m => m[1])).join(", "));
+          console.log("-- text mentioning history: " + uniq([...html.matchAll(/[^<>]{0,60}(?:Histor|histor|Archive|archive|Previous Year|Yearly|Monthly)[^<>]{0,60}/g)].map(m => m[0].replace(/\s+/g, " "))).slice(0, 20).join(" | "));
+          for (const p of ["HistoricalRates", "Historical-Rates", "History", "historical-data", "HistoricalRate.aspx", "historicalrates.aspx", "PreviousRates"]) {
+            const t = await get("https://ibjarates.com/" + p);
+            if (t) console.log("   title: " + (t.match(/<title>([^<]*)/) || [])[1]);
+          }
+          // International prices (5 years) as a fallback shape
+          for (const sym of ["GC=F", "SI=F", "INR=X"]) {
+            const j = await get(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?range=5y&interval=1d`);
+            try { const r = JSON.parse(j).chart.result[0]; const ts = r.timestamp; const c = r.indicators.quote[0].close;
+              console.log(`   ${sym}: ${ts.length} points, first ${new Date(ts[0]*1000).toISOString().slice(0,10)} ${c[0]}, last ${new Date(ts.at(-1)*1000).toISOString().slice(0,10)} ${c.at(-1)}`); } catch (e) { console.log("   parse failed " + j.slice(0, 150)); }
+          }
+          EOF
+          node probe.mjs
