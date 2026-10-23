@@ -1,0 +1,45 @@
+# TEMPORARY: looks at gold-rate sources from GitHub's servers so the rates loader can be written.
+# Runs only on the claude/ working branch. Will be removed before anything goes to main.
+name: Rates probe
+
+on:
+  push:
+    branches: [claude/trusting-pascal-h8hmhx]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Probe sources
+        run: |
+          cat > probe.mjs <<'EOF'
+          const UA = { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36" };
+          async function get(url) {
+            try {
+              const r = await fetch(url, { headers: UA, redirect: "follow", signal: AbortSignal.timeout(30000) });
+              const t = await r.text();
+              console.log(`\n===== ${url} -> ${r.status} ${r.url} ${t.length} chars, type ${r.headers.get("content-type")}`);
+              return t;
+            } catch (e) { console.log(`\n===== ${url} -> ERROR ${e.message}`); return ""; }
+          }
+          const show = (label, arr) => { console.log(`-- ${label} (${arr.length})`); for (const s of arr.slice(0, 40)) console.log("   " + s.replace(/\s+/g, " ").slice(0, 300)); };
+
+          const html = await get("https://ibjarates.com/");
+          show("elements with id containing Rate/Gold/Silver/999/916", [...html.matchAll(/<[^>]+id="[^"]*(?:rate|Rate|RATE|gold|Gold|silver|Silver|999|995|916|750|585)[^"]*"[^>]*>[^<]{0,80}/g)].map(m => m[0]));
+          show("text around 999 / 916 / silver", [...html.matchAll(/.{0,160}(?:\b999\b|\b916\b|Silver 999|SILVER).{0,160}/g)].map(m => m[0]));
+          show("date / session text", [...html.matchAll(/.{0,80}(?:AM|PM|Rates as on|Date)[^<]{0,80}/g)].map(m => m[0]));
+          show("script src / ajax urls", [...html.matchAll(/(?:src|href|url)\s*[:=]\s*["']([^"']*(?:\.ashx|\.asmx|api|json|Rate|rate)[^"']*)["']/g)].map(m => m[1]));
+          show("tables", [...html.matchAll(/<table[^>]*>/g)].map(m => m[0]));
+
+          for (const sym of ["GC=F", "SI=F", "INR=X"]) {
+            const j = await get(`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?range=5d&interval=1d`);
+            try { const m = JSON.parse(j).chart.result[0].meta; console.log(`   ${sym}: price ${m.regularMarketPrice} ${m.currency} time ${new Date(m.regularMarketTime * 1000).toISOString()} prev ${m.chartPreviousClose}`); } catch (e) { console.log("   parse failed: " + j.slice(0, 200)); }
+          }
+          EOF
+          node probe.mjs
