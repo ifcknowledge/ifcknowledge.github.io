@@ -133,6 +133,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("isoDate", (d) => (validDate(d) ? toDate(d).toISOString() : ""));
 
   eleventyConfig.addFilter("absUrl", absUrl);
+  // The same page translated to English by Google Translate (the "English" button at the top).
+  // ifcknowledge.github.io -> ifcknowledge-github-io.translate.goog
+  eleventyConfig.addFilter("englishUrl", (url) => {
+    const u = new URL(absUrl(url));
+    if (!/\./.test(u.hostname) || u.hostname === "localhost") return u.toString();
+    u.hostname = u.hostname.replace(/-/g, "--").replace(/\./g, "-") + ".translate.goog";
+    for (const [k, v] of [["_x_tr_sl", "hi"], ["_x_tr_tl", "en"], ["_x_tr_hl", "en"], ["_x_tr_pto", "wapp"]]) u.searchParams.set(k, v);
+    return u.toString();
+  });
   eleventyConfig.addFilter("withPrefix", withPrefix);
   eleventyConfig.addFilter("pageHref", (base, n) => (n > 0 ? `${base}page/${n + 1}/` : base));
   eleventyConfig.addFilter("youtubeId", youtubeId);

@@ -25,6 +25,24 @@
     document.querySelectorAll("[data-today]").forEach(function (el) { el.textContent = today; });
   } catch (e) {}
 
+  // हिंदी | English: "English" is the same page through Google Translate (*.translate.goog).
+  if (/\.translate\.goog$/.test(location.hostname)) {
+    var original = location.hostname.replace(/\.translate\.goog$/, "").replace(/--/g, "\u0000").replace(/-/g, ".").replace(/\u0000/g, "-");
+    var params = new URLSearchParams(location.search);
+    Array.from(params.keys()).forEach(function (k) { if (k.indexOf("_x_tr_") === 0) params.delete(k); });
+    var back = "https://" + original + location.pathname + (params.toString() ? "?" + params : "") + location.hash;
+    document.querySelectorAll("[data-lang-switch]").forEach(function (box) {
+      var hi = box.querySelector('[data-lang="hi"]');
+      var en = box.querySelector('[data-lang="en"]');
+      if (en) en.setAttribute("aria-current", "true");
+      if (hi) {
+        hi.removeAttribute("aria-current");
+        hi.href = back;
+        hi.addEventListener("click", function (e) { e.preventDefault(); window.location.href = back; });
+      }
+    });
+  }
+
   // Clock next to the date: "10:49 pm IST"
   var clocks = document.querySelectorAll("[data-clock]");
   if (clocks.length) {

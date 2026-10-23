@@ -60,6 +60,10 @@
         {%- for p in collections.sitePages | head(2) %}<a href="{{ p.url }}">{{ p.data.title }}</a>{% endfor %}
       </nav>
       <div class="utility__right">
+        <div class="lang-switch notranslate" translate="no" role="group" aria-label="भाषा · Language" data-lang-switch>
+          <a href="{{ page.url | absUrl }}" data-lang="hi" lang="hi" aria-current="true">हिंदी</a>
+          <a href="{{ page.url | englishUrl }}" data-lang="en" lang="en">English</a>
+        </div>
         <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="लाइट / डार्क मोड बदलें">{{ icon("sun", "icon-sun") }}{{ icon("moon", "icon-moon") }}</button>
         {%- if site.youtube_url %}
         <a class="sub-btn" href="{{ site.youtube_url }}?sub_confirmation=1" target="_blank" rel="noopener">{{ icon("youtube") }} Subscribe</a>
@@ -73,7 +77,15 @@
     <div class="container masthead__inner">
       <a class="masthead__menu" href="#site-footer" data-menu-open aria-controls="site-menu" aria-expanded="false" aria-label="मेन्यू खोलें">{{ icon("menu") }}</a>
       {% include "partials/logo.njk" %}
-      <nav class="main-nav" aria-label="खबरों की श्रेणियां">
+      <div class="masthead__tools">
+        {%- if liveUrl %}
+        <a class="live-btn" href="{{ liveUrl }}" target="_blank" rel="noopener" aria-label="YouTube पर लाइव देखें">LIVE</a>
+        {%- endif %}
+        <a class="masthead__search" href="/search/" aria-label="खबर खोजें">{{ icon("search") }}</a>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="खबरों की श्रेणियां">
+      <div class="container">
         <ul>
           <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>होम</a></li>
           {%- for c in categories.list %}
@@ -83,14 +95,8 @@
           <li><a href="/videos/"{% if page.url == "/videos/" %} aria-current="page"{% endif %}>वीडियो</a></li>
           {%- endif %}
         </ul>
-      </nav>
-      <div class="masthead__tools">
-        {%- if liveUrl %}
-        <a class="live-btn" href="{{ liveUrl }}" target="_blank" rel="noopener" aria-label="YouTube पर लाइव देखें">LIVE</a>
-        {%- endif %}
-        <a class="masthead__search" href="/search/" aria-label="खबर खोजें">{{ icon("search") }}</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   {%- set tickerItems = collections.news | breaking(6) %}
@@ -184,6 +190,13 @@
         {%- if hasVideos %}<li><a href="/videos/">{{ icon("play") }} वीडियो</a></li>{% endif %}
         <li><a href="/search/">{{ icon("search") }} खोजें</a></li>
       </ul>
+      <div class="drawer__lang">
+        <span>भाषा · Language</span>
+        <div class="lang-switch notranslate" translate="no" role="group" aria-label="भाषा · Language" data-lang-switch>
+          <a href="{{ page.url | absUrl }}" data-lang="hi" lang="hi" aria-current="true">हिंदी</a>
+          <a href="{{ page.url | englishUrl }}" data-lang="en" lang="en">English</a>
+        </div>
+      </div>
       <ul class="drawer__list drawer__list--small">
         {%- for p in collections.sitePages %}<li><a href="{{ p.url }}">{{ p.data.title }}</a></li>{% endfor %}
       </ul>
