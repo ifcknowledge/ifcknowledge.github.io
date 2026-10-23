@@ -9,43 +9,24 @@ A Hindi + English news website for the **IFC knowledge** YouTube channel
 
 ---
 
-## 1. Put the website online (one time, about 10 minutes)
+## 1. Where everything is
 
-All of this is done on github.com, in the browser. A phone works too, but a computer is easier.
+| What | Link |
+| --- | --- |
+| Website | <https://ifcknowledge.github.io/> |
+| Admin panel (post news) | <https://ifcknowledge.github.io/admin/> |
+| Website files (GitHub repository) | <https://github.com/ifcknowledge/ifcknowledge.github.io> |
+| Publish runs (green ✔ = published) | <https://github.com/ifcknowledge/ifcknowledge.github.io/actions> |
+| GitHub Pages settings | <https://github.com/ifcknowledge/ifcknowledge.github.io/settings/pages> |
 
-"Settings" below always means the **repository's** Settings tab (top of the repository page,
-<https://github.com/omkrishna89/om/settings>), **not** your account settings
-(the menu under your photo, `github.com/settings/...`).
+The files live in the free GitHub organization **ifcknowledge**, in a public repository named
+`ifcknowledge.github.io`. That name is what gives the website the address `https://ifcknowledge.github.io/`.
+Pages is set to **Source: GitHub Actions**, and the website is built from the `main` branch.
 
-1. **Make the repository public.** Free GitHub Pages only works for public repositories.
-   Repository → **Settings** → scroll to the bottom (**Danger Zone**) →
-   **Change visibility** → **Make public**.
-   Only website files are in here, so nothing private is exposed.
+**Publish by hand** (normally not needed): open the publish runs link above → **Publish website** (left side) →
+**Run workflow** (right side) → green **Run workflow**. Wait 2–3 minutes for the green ✔.
 
-2. **(Optional) Give the repository a nicer name.** The repository name is part of the web address:
-
-   | Repository name | Website address |
-   | --- | --- |
-   | `om` | `https://omkrishna89.github.io/om/` |
-   | `ifc-knowledge` | `https://omkrishna89.github.io/ifc-knowledge/` |
-
-   To rename: **Settings** → **General** → **Repository name** → type the new name → **Rename**.
-
-3. **Make `main` the default branch.** The website lives on the `main` branch.
-   **Settings** → **General** → **Default branch** → click the ⇄ (switch) button →
-   pick `main` → **Update** → confirm.
-
-4. **Turn on GitHub Pages.** **Settings** → **Pages** (left menu, under *Code and automation*) →
-   under **Build and deployment**, set **Source** to **GitHub Actions**.
-   (If GitHub asks you to upgrade instead, the repository is still private — do step 1 first.)
-
-5. **Publish for the first time.** **Actions** tab (top of the repository page) →
-   **Publish website** (left side) → **Run workflow** button (right side) → green **Run workflow**.
-   Wait 2–3 minutes until it shows a green ✔.
-   The website address is shown on **Settings** → **Pages**.
-   (A red ✘ run from before step 4 is normal — it ran before Pages was turned on.)
-
-After this, the website updates by itself:
+The website updates by itself:
 
 - every time you save a story in the admin panel (1–3 minutes later),
 - every 3 hours (new YouTube videos, and stories you scheduled for a later time).
@@ -54,19 +35,24 @@ After this, the website updates by itself:
 
 ## 2. Log in to the admin panel
 
-The admin panel is your website address + `/admin/`, for example
-`https://omkrishna89.github.io/om/admin/`. It logs in with a GitHub **access token**
+The admin panel is <https://ifcknowledge.github.io/admin/>. It logs in with a GitHub **access token**
 (a long password that only works for this one repository).
 
-**Make the token (one time):**
+**Make the token (one time, and again when it expires):**
 
 1. Open <https://github.com/settings/personal-access-tokens/new>
    (this one *is* in your account settings: your photo → **Settings** → **Developer settings**
    at the bottom of the left menu → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**).
-2. **Token name:** `IFC knowledge admin`. **Expiration:** pick the longest allowed, and make a new token when it runs out.
-3. **Repository access:** **Only select repositories** → pick this website's repository.
-4. **Permissions** → **Repository permissions** (or **Add permissions**) → **Contents** → **Read and write**.
-5. **Generate token** and copy it. GitHub shows it only once, so keep it somewhere safe and **never share it**.
+2. **Token name:** any name you haven't used before, e.g. `IFC knowledge admin 2`.
+3. **Resource owner:** `ifcknowledge`. **Expiration:** the longest allowed (366 days).
+4. **Repository access:** **Only select repositories** → `ifcknowledge/ifcknowledge.github.io`.
+5. **Permissions** → **Add permissions** → **Contents** → **Read and write**.
+6. **Generate token** and copy it. GitHub shows it only once, so keep it somewhere safe and **never share it**
+   (not in screenshots or WhatsApp).
+7. If GitHub says the token is **pending approval**, approve it at
+   <https://github.com/organizations/ifcknowledge/settings/personal-access-token-requests>.
+
+GitHub emails you before a token expires. Then make a new one the same way and sign in again with it.
 
 **Log in:** open `/admin/` → **Sign In Using Access Token** → paste the token → sign in.
 The phone or computer remembers you, so you only do this once per device.
@@ -115,11 +101,22 @@ On 23 Oct 2026, `ifcknowledge.com` was not registered yet.
 
 After buying it:
 
-1. On GitHub: **Settings** → **Pages** → **Custom domain** → `www.ifcknowledge.com` → **Save**.
-   GitHub shows the DNS records to add at the domain seller.
+1. At the domain seller, add these DNS records (and delete any other `A` records for `@`):
+
+   | Type | Name / Host | Value |
+   | --- | --- | --- |
+   | A | `@` | `185.199.108.153` |
+   | A | `@` | `185.199.109.153` |
+   | A | `@` | `185.199.110.153` |
+   | A | `@` | `185.199.111.153` |
+   | CNAME | `www` | `ifcknowledge.github.io` |
+
+2. Open <https://github.com/ifcknowledge/ifcknowledge.github.io/settings/pages> →
+   **Custom domain** → `ifcknowledge.com` → **Save**. The DNS check can take up to 24 hours.
    Guide: <https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site>
-2. When the check turns green, tick **Enforce HTTPS**.
-3. **Actions** → **Publish website** → **Run workflow**, so every link switches to the new address.
+3. When the check turns green, tick **Enforce HTTPS**.
+4. Run **Publish website** once by hand (see section 1), so every link switches to the new address.
+   The admin panel moves to `https://ifcknowledge.com/admin/`; sign in there once more.
 
 ---
 
