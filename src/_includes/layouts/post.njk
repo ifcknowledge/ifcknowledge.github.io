@@ -49,6 +49,20 @@ isArticle: true
       {{ content | enhanceContent | safe }}
     </div>
 
+    {%- if ytid %}
+    {#- Three still frames YouTube saves from every video (beginning, middle, end) #}
+    <section class="frames" aria-label="वीडियो से तस्वीरें">
+      <h2 class="frames__title">वीडियो से तस्वीरें</h2>
+      <div class="frames__grid">
+        {%- for n in [1, 2, 3] %}
+        <a href="https://www.youtube.com/watch?v={{ ytid }}" target="_blank" rel="noopener" data-frame>
+          <img src="https://i.ytimg.com/vi/{{ ytid }}/hq{{ n }}.jpg" alt="वीडियो का दृश्य {{ n }}: {{ title }}" loading="lazy" decoding="async">
+        </a>
+        {%- endfor %}
+      </div>
+    </section>
+    {%- endif %}
+
     {%- if site.youtube_url %}
     <div class="yt-cta">
       <p>ऐसी ही ताज़ा खबरों के लिए हमारा YouTube चैनल सब्सक्राइब करें।</p>

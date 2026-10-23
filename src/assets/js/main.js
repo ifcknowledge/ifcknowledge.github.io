@@ -152,6 +152,17 @@
     });
   });
 
+  // Video frames: hide a frame YouTube doesn't have (and the whole strip if none load)
+  document.querySelectorAll("[data-frame] img").forEach(function (img) {
+    var hide = function () {
+      var link = img.closest("[data-frame]");
+      var box = link.closest(".frames");
+      link.remove();
+      if (box && !box.querySelector("[data-frame]")) box.remove();
+    };
+    img.addEventListener("error", hide);
+  });
+
   // Share buttons
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {
