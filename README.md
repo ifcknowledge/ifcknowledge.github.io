@@ -82,8 +82,13 @@ The 7 stories already on the site are **samples** (each one says so at the top).
 
 ### Gold & silver rates box
 
-Admin panel → **सोना-चांदी भाव · Gold rates** → type today's prices (e.g. `₹ 1,25,400`), and for
-change something like `+500` or `-300` → **Save**. Until you do this, the box shows `₹ 0`.
+The box fills itself. Every time the website updates (every 3 hours), it reads the official
+**IBJA** rates from <https://ibjarates.com>: gold 999 (24 carat) and 916 (22 carat) per 10 g, and
+silver 999 per kg. It shows the newest rate of the day — AM (around noon) or PM (evening) — with
+▲/▼ for the change from the previous day's evening rate. If IBJA is down, the last good rates stay.
+
+To type rates by hand instead: admin panel → **सोना-चांदी भाव · Gold rates** → switch off
+**अपने-आप भाव (IBJA)** → fill in the rates (e.g. `₹ 1,25,400`, change `+500` or `-300`) → **Save**.
 To hide the box, switch off **वेबसाइट पर दिखाएं**.
 
 ### Settings

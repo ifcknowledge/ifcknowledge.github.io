@@ -187,6 +187,12 @@ collections:
             label: "वेबसाइट पर दिखाएं · Show on website"
             widget: boolean
             default: true
+          - name: auto
+            label: "अपने-आप भाव (IBJA) · Automatic rates from IBJA"
+            widget: boolean
+            default: true
+            required: false
+            hint: "चालू: भाव हर 3 घंटे में ibjarates.com से अपने-आप आते हैं, नीचे कुछ भरने की ज़रूरत नहीं। बंद करें तो नीचे भरे भाव दिखेंगे।"
           - name: title
             label: "शीर्षक · Title"
             widget: string

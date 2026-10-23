@@ -9,13 +9,16 @@
 </section>
 {%- endif %}
 
-{%- if rates.enabled and rates.rows.length %}
+{#- Gold box: automatic IBJA rates (src/_data/ibja.js), or the rates typed in the admin panel when "auto" is off -#}
+{%- set autoRates = rates.auto != false %}
+{%- set rateRows = ((ibja.rows if ibja else []) if autoRates else rates.rows) %}
+{%- if rates.enabled and rateRows.length %}
 <section class="panel widget" aria-labelledby="rates-title">
   <h2 id="rates-title">{{ icon("clock") }} {{ rates.title or "सोना-चांदी भाव" }}</h2>
   <table class="rates-table">
     <thead><tr><th scope="col">धातु</th><th scope="col">भाव</th></tr></thead>
     <tbody>
-      {%- for r in rates.rows %}
+      {%- for r in rateRows %}
       <tr>
         <td>{{ r.label }}{% if r.unit %}<span class="unit">{{ r.unit }}</span>{% endif %}</td>
         <td><span class="price">{{ r.price }}</span>
@@ -27,7 +30,12 @@
       {%- endfor %}
     </tbody>
   </table>
+  {%- if autoRates %}
+  <p class="rates-foot">स्रोत: <a href="https://ibjarates.com/" rel="noopener">IBJA</a> · {{ ibja.date | hiDate }}, {{ "शाम (PM)" if ibja.session == "PM" else "दोपहर (AM)" }} का भाव</p>
+  <p class="rates-foot">GST और मेकिंग चार्ज अलग। ▲▼ = पिछले दिन के शाम के भाव से बदलाव।</p>
+  {%- else %}
   <p class="rates-foot">{% if rates.place %}{{ rates.place }} · {% endif %}अपडेट: {{ rates.updated | hiDateTime }}</p>
+  {%- endif %}
   {%- if rates.note %}<p class="rates-note">{{ rates.note }}</p>{% endif %}
 </section>
 {%- endif %}
