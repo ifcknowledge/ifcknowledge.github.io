@@ -220,7 +220,7 @@ async function geminiOnce(model, video, retry = true) {
     }),
   );
   const text = res.text;
-  if (res.status === 429) throw new QuotaError(`${model}: free limit reached (429)`);
+  if (res.status === 429) throw new QuotaError(`${model}: free limit reached (429) ${text.slice(0, 300)}`);
   if (res.status === 503 && retry) {
     // "high demand" at Google: wait a little and try once more
     await new Promise((r) => setTimeout(r, Number(process.env.GEMINI_RETRY_MS ?? 30000)));
@@ -235,17 +235,22 @@ async function geminiOnce(model, video, retry = true) {
   return story;
 }
 
+// Each model has its own free limit: a model that hit it is skipped for the rest of the run.
+const outOfQuota = new Set();
+
 export async function writeWithGemini(video) {
   let lastErr;
   for (const model of GEMINI_MODELS) {
+    if (outOfQuota.has(model)) continue;
     try {
       return await geminiOnce(model, video);
     } catch (err) {
-      if (err instanceof QuotaError) throw err;
-      console.warn(`[youtube-news]   ${err.message.replace(/\s+/g, " ").slice(0, 300)}`);
+      if (err instanceof QuotaError) outOfQuota.add(model);
+      console.warn(`[youtube-news]   ${err.message.replace(/\s+/g, " ").slice(0, 400)}`);
       lastErr = err;
     }
   }
+  if (GEMINI_MODELS.every((m) => outOfQuota.has(m))) throw new QuotaError("every model reached its free limit");
   throw lastErr;
 }
 
