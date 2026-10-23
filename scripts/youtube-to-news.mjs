@@ -145,7 +145,8 @@ export function storySummary(description, title) {
 // ---------- story written by Google Gemini from the video itself ----------
 const GEMINI_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_BASE = process.env.GEMINI_BASE || "https://generativelanguage.googleapis.com/v1beta";
-const GEMINI_MODELS = (process.env.GEMINI_MODEL || "gemini-flash-latest,gemini-2.5-flash").split(",").map((m) => m.trim());
+const GEMINI_MODELS = (process.env.GEMINI_MODEL || "gemini-3.8-flash,gemini-flash-latest").split(",").map((m) => m.trim());
+const GEMINI_PAUSE = Number(process.env.GEMINI_PAUSE_MS ?? 12000); // stay under the free per-minute limit
 const AI_PER_RUN = Number(process.env.GEMINI_PER_RUN || 4);
 
 class QuotaError extends Error {}
@@ -210,6 +211,7 @@ export async function writeWithGemini(video) {
       return await geminiOnce(model, video);
     } catch (err) {
       if (err instanceof QuotaError) throw err;
+      console.warn(`[youtube-news]   ${err.message.replace(/\s+/g, " ").slice(0, 300)}`);
       lastErr = err;
     }
   }
@@ -290,15 +292,20 @@ async function main() {
 
   state.hashes ||= {};
   let aiLeft = GEMINI_KEY ? AI_PER_RUN : 0;
+  let failures = 0;
+  let calls = 0;
   const tryAI = async (video) => {
     if (aiLeft <= 0) return null;
+    if (calls++ > 0) await new Promise((r) => setTimeout(r, GEMINI_PAUSE));
     try {
       const story = await writeWithGemini(video);
       aiLeft--;
+      failures = 0;
       return story;
     } catch (err) {
-      console.warn(`[youtube-news] Gemini could not write ${video.id}: ${err.message}`);
-      if (err instanceof QuotaError) aiLeft = 0;
+      console.warn(`[youtube-news] Gemini could not write ${video.id}: ${err.message.replace(/\s+/g, " ").slice(0, 200)}`);
+      // On the free limit, or after two failures in a row, stop asking Gemini in this run.
+      if (err instanceof QuotaError || ++failures >= 2) aiLeft = 0;
       return null;
     }
   };
