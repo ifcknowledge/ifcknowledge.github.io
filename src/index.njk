@@ -56,6 +56,13 @@ eleventyExcludeFromCollections: true
         <span>{{ icon("clock") }}<time datetime="{{ lead.date | isoDate }}" data-relative>{{ lead.date | hiDate }}</time></span>
       </div>
     </article>
+    {#- Phones and tablets: the gold box right after the top story (on wide screens it is in the sidebar) #}
+    {%- set metalsHere = rates.enabled and rates.auto != false and metals and (metals.gold22 or metals.silver) %}
+    {%- if metalsHere %}
+    {%- set mid = "top-" %}{% set metalsClass = "metals-box--top" %}
+    {% include "partials/metals-box.njk" %}
+    {%- set mid = "" %}{% set metalsClass = "metals-box--side" %}
+    {%- endif %}
     {%- set more = rest | slice2(7, 15) %}
     {%- if more.length %}
     <div class="row-grid">

@@ -1,6 +1,7 @@
-{#- Sidebar box: today's gold & silver rates with 5-year charts (data: ibja.js + metals.js) -#}
+{#- Sidebar box: today's gold & silver rates with 5-year charts (data: ibja.js + metals.js).
+    "mid" gives each copy on a page its own ids (the home page shows a second copy for phones). -#}
 {%- from "partials/icons.njk" import icon -%}
-{%- macro mini(m, key, title, unit, daily) -%}
+{%- macro mini(m, key, title, unit, daily, pre) -%}
 {%- set c = m.chart %}
 <div class="mbox metal--{{ key }}">
   <div class="mbox__head">
@@ -15,13 +16,13 @@
   <div class="metal__plot mbox__plot" role="img" aria-label="{{ title }}, पिछले 5 साल: {{ m.rows[2].price }} से {{ m.today.price }}">
     <svg viewBox="0 0 {{ c.W }} {{ c.H }}" preserveAspectRatio="none" aria-hidden="true">
       <defs>
-        <linearGradient id="mfill-{{ key }}" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id="{{ pre }}mfill-{{ key }}" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" class="metal__stop1"/><stop offset="1" class="metal__stop2"/>
         </linearGradient>
       </defs>
       {%- for t in c.yTicks %}<line class="metal__grid" x1="0" x2="{{ c.W }}" y1="{{ t.y }}" y2="{{ t.y }}"/>{% endfor %}
       {%- for t in c.xTicks %}<line class="metal__grid metal__grid--x" x1="{{ t.x }}" x2="{{ t.x }}" y1="0" y2="{{ c.H }}"/>{% endfor %}
-      <path d="{{ c.area }}" fill="url(#mfill-{{ key }})"/>
+      <path d="{{ c.area }}" fill="url(#{{ pre }}mfill-{{ key }})"/>
       <path class="metal__line" d="{{ c.line }}"/>
     </svg>
     {%- for t in c.yTicks %}{% if not loop.first %}<span class="metal__ylab" style="top: {{ t.pct }}%">{{ t.label }}</span>{% endif %}{% endfor %}
@@ -42,14 +43,14 @@
 {%- endmacro -%}
 
 {%- set g24 = ibja.rows[0] if (ibja and ibja.rows) else null %}
-<section class="panel widget metals-box" aria-labelledby="rates-title">
-  <h2 id="rates-title">{{ icon("clock") }} {{ rates.title or "आज का सोना-चांदी भाव" }}</h2>
+<section class="panel widget metals-box{{ ' ' + metalsClass if metalsClass }}" aria-labelledby="{{ mid }}rates-title">
+  <h2 id="{{ mid }}rates-title">{{ icon("clock") }} {{ rates.title or "आज का सोना-चांदी भाव" }}</h2>
   {%- if g24 %}
   <p class="mbox__g24">{{ g24.label }} <small>{{ g24.unit }}</small> <b>{{ g24.price }}</b>
     {%- if g24.change %}{% set down = (g24.change | string).trim().startsWith("-") %} <span class="chg {{ 'chg--down' if down else 'chg--up' }}">{{ '▼' if down else '▲' }} {{ g24.change }}</span>{% endif %}</p>
   {%- endif %}
-  {%- if metals.gold22 %}{{ mini(metals.gold22, "gold", "सोना 22 कैरेट (916)", "10 ग्राम", ibja.rows[1].change if ibja else "") }}{% endif %}
-  {%- if metals.silver %}{{ mini(metals.silver, "silver", "चांदी (999)", "1 किलो", ibja.rows[2].change if ibja else "") }}{% endif %}
+  {%- if metals.gold22 %}{{ mini(metals.gold22, "gold", "सोना 22 कैरेट (916)", "10 ग्राम", ibja.rows[1].change if ibja else "", mid) }}{% endif %}
+  {%- if metals.silver %}{{ mini(metals.silver, "silver", "चांदी (999)", "1 किलो", ibja.rows[2].change if ibja else "", mid) }}{% endif %}
   <p class="rates-foot">स्रोत: <a href="https://ibjarates.com/" rel="noopener">IBJA</a>{% if ibja %} · {{ ibja.date | hiDate }}, {{ "शाम (PM)" if ibja.session == "PM" else "दोपहर (AM)" }} का भाव{% endif %}। ▲▼ = पिछले दिन से बदलाव। GST और मेकिंग चार्ज अलग।
     {%- if (metals.gold22 and metals.gold22.hasEstimates) or (metals.silver and metals.silver.hasEstimates) %}
     <sup>*</sup>पुराने भाव अनुमानित: अंतरराष्ट्रीय भाव × डॉलर-रुपया दर, IBJA के हाल के भावों से मिलाकर।
