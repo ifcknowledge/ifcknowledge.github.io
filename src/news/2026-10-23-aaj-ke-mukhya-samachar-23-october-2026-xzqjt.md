@@ -1,9 +1,9 @@
 ---
-title: "Aaj ke mukhya samachar 23 October 2026 | aaj ka taaja khabar |Today Breaking news UP, Bihar, Delhi"
+title: "24 अक्टूबर 2026 के मुख्य समाचार और बड़ी खबरें"
 slug: aaj-ke-mukhya-samachar-23-october-2026-xzqjt
 date: 2026-10-22T22:51:33+00:00
 category: top-news
-summary: "Aaj ke mukhya samachar 23 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews"
+summary: "देखिए 24 अक्टूबर 2026 की सभी बड़ी खबरें, जिनमें राजनीति, अपराध, मौसम और खेल से जुड़े मुख्य अपडेट शामिल हैं।"
 youtube: https://www.youtube.com/watch?v=XzqjtM5Atu4
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,49 +11,34 @@ featured: false
 breaking: false
 draft: false
 source: youtube
+text_from: video
 ---
-Aaj ke mukhya samachar 23 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews
-  
-Aaj ke mukhya samachar 23 October 2026, aaj ka taaja khabar, Today Breaking news, Mausam ki jankari  
-din bhar ki khabar | news of the day, hindi news india | Rahul Bharat jodo nyay yatra News
-  
-Aaj ke mukhya samachar | aaj ka taaja khabar | आज के मुख्य समाचार |samachar |  
-Aaj Ka Mausam  
-aaj ka Mausam samachar  
-Election Results 2026 LIVE Update; UP Rajasthan Maharashtra | MP Haryana Karnataka West Bengal Bihar Delhi BJP Congress JDU RJD SP AAP Winner Candidate List  
-India Vs Sri Lanka 2323st T2323 LIVE Score Update; Suryakumar Yadav Shubman Gill | Rinku Singh
-  
-aadhar news 23:23  
-राजस्थान में पारा 23° गिरा, माउंट आबू में माइनस 23°:UP-MP समेत 23 राज्यों में बारिश, उत्तरकाशी-चमोली में 232 घंटे से रुक-रुककर बर्फबारी  
-Google Gemini Buy Button: Agentic Shopping With Walmart
-  
-aaj ke taaja khabar | समाचार | aaj ke taaja samachar , आज की ताजा खबर , aaj ka taaja khabar news 2026 | aaj ka samachara  
-आज का ताजा समाचार , mukhya samachar  
-aaj ka taaja samachar | aaj ke samachar  
-aaj ka mukhya samachar , मुख्य समाचार |  
-आज का मुख्य समाचार | aaj ka taaja khabar samachar , 232300 | aaj ka news taaja khabar  
-aaj ki taaja khabar , aaj ke taaja khabar news | pm kisan | आज के ताजा समाचार | आज का ताजा खबर #मुख्य_समाचार  
-aaj ka taaja news | news aaj ka taaja khabar,  
-aaj ke taaja khabar samachar | aaj ki taaja samachar | aaj ka taaja news khabar , samachar aaj ka taaja khabar  
-pm kisan yojna ka paisa kab aayega  
-pm kisan yojana
-  
-news, breaking news, hindi news, news portal, politics, db live, current affairs, news live, news today, news2323, news india, news aaj tak, hindi newspaper, dblive, db news, hindi news live, hindi news bulletin, latest news, todays news bulletin, db live rajiv, db live ki report, news of the day, rahul gandhi, bjp news, bihar news, supreme court, congress bharat jodo yatra, rahul in america, priyanka gandhi in jabalpur, madhya pradesh election, live, nitish kumar, us visit
-  
-Today Breaking News 23 October 2026 आज के मुख्य समाचार बड़ी खबरें भारत Omicron Delta+ Weather News,  
-Today Breaking News, आज 23 अक्टूबर  2026 के मुख्य समाचार, ताजा खबरें, taja khabre, taja samachar, sarkari khabre, किसान बिल, PM Modi news, GST, sbi, petrol, gas, Jio, 23 October 2026, aaj ki news, मुख्य समाचार, बडी़ खबरें, kisan andolan live, आज के मुख्य समाचार, आज का मौसम, Today_breaking_news, kisan khabar, भारत बंद, News Headlines, आज की ताजा ख़बरें, Nonstop News, बड़ी खबरें, Weather News, trending news, aaj tak live, modi, Rajasthan election 2026, IPL 2026, BageshwarDham
-  
-23 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार 23 October 2026 taza khabre PM #Modi  
-news, breaking news, hindi news, politics, current affairs, news live, news india, hindi newspaper, hindi news video, hindi news live, hindi news bulletin, latest news, todays news bulletin, mamata banerjee, hindi news india, din bhar ki badi khabar, latest news in hindi
-  
-nonstop news #nonstop_news kisan andolan live #kisan_andolan  
-Nonstop News ! आज 23 अक्टूबर  2026  के मुख्य #समाचार, PM Modi news, #Today_Breaking_News, Headlines #sarkaraibabu #lockdownnewsdelhi
-  
-Today Breaking News ! आज 23 अक्टूबर  2026  के मुख्य समाचार, PM #Modi_news, GST, sbi, petrol, gas, Jio, Today Breaking News ! आज 23 अक्टूबर  2026 के मुख्य समाचार, PM Modi news, GST, sbi, petrol, gas, Jio, #Today_Breaking_News 23 अक्टूबर  2026  #मुख्य_समाचार  
-PM meeting news
-  
-23 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार | 23 October 2026 taza khabre PM #Modi  
-Nonstop News| आज की ताजा खबरें | News Headlines | | mausam vibhag aaj weather news,  Nonstop News | आज की ताजा खबरें  || News Headlines 23 अक्टूबर  2026 | today news | Fatafat khabren | News in hindi | govnews 23 अक्टूबर  2026  | #Today_Breaking_News | #मुख्य_समाचार | #Today_News_headlines | 23 अक्टूबर  2026  #modi #video #watch #मौसम #विभाग #weather आज 23 अक्टूबर  2026  का मौसम  
-Aaj ke mukhya samachar
-  
-Today Breaking News, आज 23 अक्टूबर  2026  के मुख्य समाचार, बड़ी खबर
+## अमित शाह का कांग्रेस पर हमला
+केंद्रीय गृह मंत्री अमित शाह ने कांग्रेस पर निशाना साधते हुए कहा कि कांग्रेस अगले 30 साल तक सत्ता में नहीं आएगी। उन्होंने कहा कि प्रदर्शन और धरने से कुछ नहीं होगा, बल्कि जनता के बीच जाकर उनकी समस्याएं समझनी होंगी।
+
+## दिल्ली में आप और कांग्रेस पार्षदों की झड़प
+दिल्ली नगर निगम के सदन की बैठक में सफाई व्यवस्था और प्रदूषण पर चर्चा के दौरान आम आदमी पार्टी और कांग्रेस के पार्षद आपस में भिड़ गए। इस दौरान महापौर की कुर्सी तक पहुंचने और माइक छीनने के आरोप लगे।
+
+## केदारनाथ में बर्फबारी और तापमान में गिरावट
+उत्तराखंड के केदारनाथ धाम में बुधवार को बर्फबारी हुई, जिससे तापमान माइनस 8 डिग्री तक पहुंच गया। पानी की पाइपलाइन जम गई और कड़ाके की ठंड से लोगों को परेशानी का सामना करना पड़ा।
+
+## साइबर दुनिया में हलचल
+साइबर दुनिया में पिछले 24 घंटों में पीएचपी, ई-मुद्रा और एआई सॉफ्टवेयर में गंभीर खामियां और सुरक्षा से जुड़ी घटनाएं सामने आई हैं।
+
+## प्रधानमंत्री मोदी और पोलैंड के प्रधानमंत्री की मुलाकात
+पोलैंड के प्रधानमंत्री डोनाल्ड टस्क ने दिल्ली में प्रधानमंत्री नरेंद्र मोदी से मुलाकात की। इस दौरान दोनों नेताओं ने दूसरे विश्व युद्ध के दौरान पोलैंड के बच्चों को भारत में दी गई शरण का जिक्र किया।
+
+## संजू सैमसन का टी20 रिकॉर्ड
+संजू सैमसन ने न्यूजीलैंड के खिलाफ पहले टी20 मुकाबले में महज 23 गेंदों में अर्धशतक पूरा कर शानदार बल्लेबाजी का प्रदर्शन किया।
+
+## सोनिया गांधी का इंस्टाग्राम अकाउंट
+कांग्रेस नेता सोनिया गांधी ने पहली बार सोशल मीडिया पर कदम रखते हुए इंस्टाग्राम अकाउंट बनाया और अपनी किताब का वीडियो शेयर किया।
+
+## पीएनबी बैंक में नकली नोट का मामला
+एनआईए ने उत्तर प्रदेश के सहारनपुर में पंजाब नेशनल बैंक की करेंसी चेस्ट से 17.29 करोड़ रुपये के नकली नोट मिलने के मामले में दो मुख्य साजिशकर्ताओं को गिरफ्तार किया।
+
+## टाइगर श्रॉफ के मामले में खुलासे
+मुंबई एक्टर टाइगर श्रॉफ पर फायरिंग मामले में पुलिस ने तीन राज्यों से 10 आरोपियों को गिरफ्तार किया है, जिन्होंने वारदात से पहले प्रैक्टिस की थी।
+
+## ड्राइविंग लाइसेंस के नए नियम
+सड़क परिवहन मंत्रालय ने ड्राइविंग लाइसेंस बनवाने के नियमों का ड्राफ्ट तैयार किया है, जिसके तहत टेस्ट में 75% अंक लाना अनिवार्य कर दिया गया है।
