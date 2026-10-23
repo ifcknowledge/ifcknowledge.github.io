@@ -13,6 +13,10 @@ A Hindi + English news website for the **IFC knowledge** YouTube channel
 
 All of this is done on github.com, in the browser. A phone works too, but a computer is easier.
 
+"Settings" below always means the **repository's** Settings tab (top of the repository page,
+<https://github.com/omkrishna89/om/settings>), **not** your account settings
+(the menu under your photo, `github.com/settings/...`).
+
 1. **Make the repository public.** Free GitHub Pages only works for public repositories.
    Repository → **Settings** → scroll to the bottom (**Danger Zone**) →
    **Change visibility** → **Make public**.
@@ -27,16 +31,19 @@ All of this is done on github.com, in the browser. A phone works too, but a comp
 
    To rename: **Settings** → **General** → **Repository name** → type the new name → **Rename**.
 
-3. **Make the website branch the main branch.** The website must live on a branch called `main`.
-   Open the **branches** page (`Code` tab → the branch drop-down → **View all branches**),
-   click the ✏️ pencil next to the branch that holds these files, rename it to `main`, and confirm.
+3. **Make `main` the default branch.** The website lives on the `main` branch.
+   **Settings** → **General** → **Default branch** → click the ⇄ (switch) button →
+   pick `main` → **Update** → confirm.
 
-4. **Turn on GitHub Pages.** **Settings** → **Pages** → under **Build and deployment**,
-   set **Source** to **GitHub Actions**.
+4. **Turn on GitHub Pages.** **Settings** → **Pages** (left menu, under *Code and automation*) →
+   under **Build and deployment**, set **Source** to **GitHub Actions**.
+   (If GitHub asks you to upgrade instead, the repository is still private — do step 1 first.)
 
-5. **Publish for the first time.** **Actions** tab → **Publish website** (left side) →
-   **Run workflow** → **Run workflow**. Wait 2–3 minutes until it shows a green ✔.
+5. **Publish for the first time.** **Actions** tab (top of the repository page) →
+   **Publish website** (left side) → **Run workflow** button (right side) → green **Run workflow**.
+   Wait 2–3 minutes until it shows a green ✔.
    The website address is shown on **Settings** → **Pages**.
+   (A red ✘ run from before step 4 is normal — it ran before Pages was turned on.)
 
 After this, the website updates by itself:
 
@@ -53,11 +60,12 @@ The admin panel is your website address + `/admin/`, for example
 
 **Make the token (one time):**
 
-1. On GitHub: your photo (top right) → **Settings** → **Developer settings** (at the bottom of the left menu) →
-   **Personal access tokens** → **Fine-grained tokens** → **Generate new token**.
+1. Open <https://github.com/settings/personal-access-tokens/new>
+   (this one *is* in your account settings: your photo → **Settings** → **Developer settings**
+   at the bottom of the left menu → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**).
 2. **Token name:** `IFC knowledge admin`. **Expiration:** pick the longest allowed, and make a new token when it runs out.
 3. **Repository access:** **Only select repositories** → pick this website's repository.
-4. **Permissions** → **Repository permissions** → **Contents** → **Read and write**.
+4. **Permissions** → **Repository permissions** (or **Add permissions**) → **Contents** → **Read and write**.
 5. **Generate token** and copy it. GitHub shows it only once, so keep it somewhere safe and **never share it**.
 
 **Log in:** open `/admin/` → **Sign In Using Access Token** → paste the token → sign in.
