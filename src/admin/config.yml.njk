@@ -272,6 +272,8 @@ collections:
           - { name: youtube_url, label: "YouTube चैनल लिंक · Channel link", widget: string }
           - { name: youtube_channel_id, label: "YouTube Channel ID", widget: string, required: false, hint: "UC… से शुरू होता है। इससे ताज़ा वीडियो अपने-आप आते हैं।" }
           - { name: show_videos, label: "ताज़ा वीडियो दिखाएं · Show latest videos", widget: boolean, default: true }
+          - { name: youtube_news, label: "YouTube वीडियो से अपने-आप खबर · Auto stories from new videos", widget: boolean, default: true, required: false, hint: "चालू: चैनल का हर नया वीडियो कुछ घंटों में अपने-आप खबर बन जाता है (शीर्षक, विवरण, वीडियो)। उसे बाद में बदल या हटा सकते हैं।" }
+          - { name: youtube_news_shorts, label: "Shorts से भी खबर बनाएं · Also from Shorts", widget: boolean, default: false, required: false }
           - name: ticker
             label: "ब्रेकिंग पट्टी की अतिरिक्त लाइनें · Extra ticker lines"
             widget: list

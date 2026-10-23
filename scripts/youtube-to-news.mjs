@@ -59,6 +59,7 @@ export function parseFeed(xml) {
 
 // ---------- category from the title ----------
 const RULES = [
+  ["top-news", /mukhya samachar|मुख्य समाचार|bulletin|बुलेटिन|headlines|सुर्खियां|taaja khabar|ताज़ा खबर|ताजा खबर|breaking news|ब्रेकिंग न्यूज़/i],
   ["gold-silver", /सोन[ाे]|चांदी|चाँदी|gold|silver|sone|sona|chandi|chaandi|bullion/i],
   ["cricket", /क्रिकेट|cricket|\bipl\b|\bt20\b|\bodi\b|ind\s*vs|टीम इंडिया|team india|world cup|वर्ल्ड कप/i],
   ["weather", /मौसम|बारिश|mausam|weather|\bimd\b|ठंड|गर्मी|आंधी|तूफान|cyclone|baarish|barish/i],

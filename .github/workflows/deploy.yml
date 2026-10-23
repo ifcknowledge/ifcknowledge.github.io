@@ -1,7 +1,7 @@
 # Builds the website and publishes it on GitHub Pages — free.
 # Runs when:
 #   • you save a story in the admin panel (every save is a commit to the main branch),
-#   • every 3 hours (to pick up new YouTube videos and publish scheduled stories),
+#   • every 3 hours (new YouTube videos become stories, gold rates update, scheduled stories go live),
 #   • you click "Run workflow" on the Actions tab.
 name: Publish website
 
@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write # saves the stories made from new YouTube videos
   pages: write
   id-token: write
 
@@ -41,6 +41,23 @@ jobs:
 
       - name: Install
         run: npm ci
+
+      # Each new video on the YouTube channel becomes a story (scripts/youtube-to-news.mjs).
+      # A problem with YouTube never stops the website from being published.
+      - name: Turn new YouTube videos into stories
+        continue-on-error: true
+        run: node scripts/youtube-to-news.mjs
+
+      - name: Save the new stories
+        continue-on-error: true
+        run: |
+          if [ -n "$(git status --porcelain -- src/news data)" ]; then
+            git config user.name "IFC knowledge bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A -- src/news data
+            git commit -q -m "News from new YouTube videos"
+            git pull -q --rebase origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME"
+          fi
 
       # Keeps the last good YouTube video list, in case YouTube's feed is down during a build.
       - name: Restore saved data

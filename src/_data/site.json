@@ -8,6 +8,8 @@
   "youtube_url": "https://www.youtube.com/@ifcknowledge1",
   "youtube_channel_id": "UCFoMTYk_nJfpxckD8MKrdZA",
   "show_videos": true,
+  "youtube_news": true,
+  "youtube_news_shorts": false,
   "ticker": [],
   "about_short": "IFC knowledge पर पढ़ें देश-प्रदेश की ताज़ा खबरें, सोना-चांदी के भाव, क्रिकेट, सरकारी योजनाएं और आपके काम के नए नियम — आसान भाषा में।",
   "email": "",
