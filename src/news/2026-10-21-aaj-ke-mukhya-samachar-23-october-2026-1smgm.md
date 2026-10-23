@@ -1,9 +1,9 @@
 ---
-title: "Aaj ke mukhya samachar 23 October 2026 | aaj ka taaja khabar | Today Breaking news UP, Bihar, Delhi"
+title: "आज के मुख्य समाचार 24 अक्टूबर 2026"
 slug: aaj-ke-mukhya-samachar-23-october-2026-1smgm
 date: 2026-10-20T22:37:16+00:00
 category: top-news
-summary: "Aaj ke mukhya samachar 21 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews"
+summary: "भारत-न्यूजीलैंड फ्री ट्रेड एग्रीमेंट लागू, स्मार्टफोन बिक्री में गिरावट, रावण दहन और मौसम से जुड़ी बड़ी खबरें।"
 youtube: https://www.youtube.com/watch?v=_1SMgmApn4M
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,47 +11,22 @@ featured: false
 breaking: false
 draft: false
 source: youtube
+text_from: video
 ---
-Aaj ke mukhya samachar 21 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews
-  
-Aaj ke mukhya samachar 21 October 2026, aaj ka taaja khabar, Today Breaking news, Mausam ki jankari  
-din bhar ki khabar | news of the day, hindi news india | Rahul Bharat jodo nyay yatra News
-  
-Aaj ke mukhya samachar | aaj ka taaja khabar | आज के मुख्य समाचार |samachar |  
-Aaj Ka Mausam  
-aaj ka Mausam samachar  
-Election Results 2026 LIVE Update; UP Rajasthan Maharashtra | MP Haryana Karnataka West Bengal Bihar Delhi BJP Congress JDU RJD SP AAP Winner Candidate List  
-India Vs Sri Lanka 2121st T2121 LIVE Score Update; Suryakumar Yadav Shubman Gill | Rinku Singh
-  
-aadhar news 21:21  
-Rahul Gandhi Gyanesh Kumar | INDIA Bloc Protest LIVE Photos Update SP TMC Congress Supreme Court March | Delhi Police  
-पहली बार विपक्ष का सुप्रीम कोर्ट तक मार्च:SIR और ज्ञानेश कुमार के खिलाफ याचिका लगाई, राहुल ने कल विपक्षी सांसदों को चाय पर बुलाया  
-Google Gemini Buy Button: Agentic Shopping With Walmart
-  
-aaj ke taaja khabar | समाचार | aaj ke taaja samachar , आज की ताजा खबर , aaj ka taaja khabar news 2026 | aaj ka samachara  
-आज का ताजा समाचार , mukhya samachar  
-aaj ka taaja samachar | aaj ke samachar  
-aaj ka mukhya samachar , मुख्य समाचार |  
-आज का मुख्य समाचार | aaj ka taaja khabar samachar , 212100 | aaj ka news taaja khabar  
-aaj ki taaja khabar , aaj ke taaja khabar news | pm kisan | आज के ताजा समाचार | आज का ताजा खबर #मुख्य_समाचार  
-aaj ka taaja news | news aaj ka taaja khabar,  
-aaj ke taaja khabar samachar | aaj ki taaja samachar | aaj ka taaja news khabar , samachar aaj ka taaja khabar  
-pm kisan yojna ka paisa kab aayega  
-pm kisan yojana
-  
-news, breaking news, hindi news, news portal, politics, db live, current affairs, news live, news today, news2121, news india, news aaj tak, hindi newspaper, dblive, db news, hindi news live, hindi news bulletin, latest news, todays news bulletin, db live rajiv, db live ki report, news of the day, rahul gandhi, bjp news, bihar news, supreme court, congress bharat jodo yatra, rahul in america, priyanka gandhi in jabalpur, madhya pradesh election, live, nitish kumar, us visit
-  
-Today Breaking News 21 October 2026 आज के मुख्य समाचार बड़ी खबरें भारत Omicron Delta+ Weather News,  
-Today Breaking News, आज 21 अक्टूबर  2026 के मुख्य समाचार, ताजा खबरें, taja khabre, taja samachar, sarkari khabre, किसान बिल, PM Modi news, GST, sbi, petrol, gas, Jio, 21 October 2026, aaj ki news, मुख्य समाचार, बडी़ खबरें, kisan andolan live, आज के मुख्य समाचार, आज का मौसम, Today_breaking_news, kisan khabar, भारत बंद, News Headlines, आज की ताजा ख़बरें, Nonstop News, बड़ी खबरें, Weather News, trending news, aaj tak live, modi, Rajasthan election 2026, IPL 2026, BageshwarDham
-  
-21 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार 21 October 2026 taza khabre PM #Modi  
-news, breaking news, hindi news, politics, current affairs, news live, news india, hindi newspaper, hindi news video, hindi news live, hindi news bulletin, latest news, todays news bulletin, mamata banerjee, hindi news india, din bhar ki badi khabar, latest news in hindi
-  
-nonstop news #nonstop_news kisan andolan live #kisan_andolan  
-Nonstop News ! आज 21 अक्टूबर  2026  के मुख्य #समाचार, PM Modi news, #Today_Breaking_News, Headlines #sarkaraibabu #lockdownnewsdelhi
-  
-Today Breaking News ! आज 21 अक्टूबर  2026  के मुख्य समाचार, PM #Modi_news, GST, sbi, petrol, gas, Jio, Today Breaking News ! आज 21 अक्टूबर  2026 के मुख्य समाचार, PM Modi news, GST, sbi, petrol, gas, Jio, #Today_Breaking_News 21 अक्टूबर  2026  #मुख्य_समाचार  
-PM meeting news
-  
-21 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार | 21 October 2026 taza khabre PM #Modi  
-Nonstop News| आज की ताजा खबरें | News Headlines | | mausam vibhag aaj weather news,  Nonstop News | आज की ताजा खबरें  || News Headlines 21 अक्टूबर  2026 | today news | Fatafat khabren | News in hindi | govnews 21 अक्टूबर  2026  | #Today_Breaking_News | #मुख्य_समाचार | #Today_News_headlines | 21 अक्टूबर  2026  #modi #video #watch #मौसम #विभाग #weather आज 21 अक
+## भारत-न्यूजीलैंड फ्री ट्रेड एग्रीमेंट लागू
+भारत और न्यूजीलैंड के बीच फ्री ट्रेड एग्रीमेंट आज से लागू हो गया है, जिसके तहत न्यूजीलैंड में सभी भारतीय सामानों को 100% ड्यूटी-फ्री एंट्री मिल जाएगी। इस समझौते के तहत न्यूजीलैंड अगले 15 सालों में भारत में 20 बिलियन डॉलर का निवेश करेगा। पीयूष गोयल ने बताया कि इस समझौते का मकसद दोनों देशों के बीच व्यापार को बढ़ाना है।
+
+## स्मार्टफोन की बिक्री में 26% की गिरावट
+त्योहारों के बावजूद भारत में स्मार्टफोन की बिक्री 26% घट गई है और केवल 3.58 करोड़ फोन बिके हैं, जो पिछले 10 साल में सबसे कम है। मार्केट रिसर्च फर्म ओमडिया के अनुसार, महंगे चिप और डिस्प्ले के कारण फोन के दाम बढ़ने से यह गिरावट आई है।
+
+## राष्ट्रपति ने दिल्ली में किया रावण दहन
+राष्ट्रपति ने तीर चलाकर दिल्ली में रावण दहन किया। इस अवसर पर प्रधानमंत्री नरेंद्र मोदी और अन्य गणमान्य व्यक्ति उपस्थित रहे। देश के विभिन्न हिस्सों में भी रावण दहन के कार्यक्रम आयोजित किए गए।
+
+## साइबर ठगी को लेकर गृह मंत्रालय की एडवाइजरी
+केंद्रीय गृह मंत्रालय ने पाकिस्तानी +92 नंबर से आने वाले कॉल्स और मैसेज से सतर्क रहने की चेतावनी दी है। प्रधानमंत्री और मुख्यमंत्रियों के नाम और डीप फेक वीडियो का इस्तेमाल कर लोगों को निशाना बनाया जा रहा है।
+
+## मौसम और बारिश का अलर्ट
+राजस्थान, उत्तराखंड, मध्य प्रदेश और उत्तर प्रदेश के कई जिलों में बेमौसम बारिश और आंधी का अलर्ट जारी किया गया है। मौसम में बदलाव से तापमान में गिरावट आई है और ठंडक बढ़ गई है।
+
+## ट्रेन के खाने की होगी डिजिटल निगरानी
+भारतीय रेलवे ने IRCTC के साथ मिलकर खाने की क्वालिटी सुधारने के लिए नई निगरानी व्यवस्था शुरू की है। इसके तहत खाने की फोटो, लोकेशन और समय का डिजिटल रिकॉर्ड तैयार किया जाएगा।
