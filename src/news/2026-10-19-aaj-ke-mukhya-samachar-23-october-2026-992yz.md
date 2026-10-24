@@ -1,9 +1,9 @@
 ---
-title: "Aaj ke mukhya samachar 23 October 2026 | aaj ka taaja khabar | Today Breaking news UP, Bihar, Delhi"
+title: "देश और दुनिया की आज की बड़ी खबरें: कैंसर दवाओं पर फैसला, मौसम का हाल और प्रमुख राजनीतिक हलचल"
 slug: aaj-ke-mukhya-samachar-23-october-2026-992yz
 date: 2026-10-18T22:39:31+00:00
 category: top-news
-summary: "Aaj ke mukhya samachar 19 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews"
+summary: "कैंसर दवाओं की कीमतों में कमी का फैसला, कोलकाता में पंडाल हादसा, सुप्रीम कोर्ट का बच्चों के इंटरनेट उपयोग पर निर्देश और देश भर की प्रमुख खबरें।"
 youtube: https://www.youtube.com/watch?v=992yzZCfN5U
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,47 +11,25 @@ featured: false
 breaking: false
 draft: false
 source: youtube
+text_from: video
 ---
-Aaj ke mukhya samachar 19 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews
-  
-Aaj ke mukhya samachar 19 October 2026, aaj ka taaja khabar, Today Breaking news, Mausam ki jankari  
-din bhar ki khabar | news of the day, hindi news india | Rahul Bharat jodo nyay yatra News
-  
-Aaj ke mukhya samachar | aaj ka taaja khabar | आज के मुख्य समाचार |samachar |  
-Aaj Ka Mausam  
-aaj ka Mausam samachar  
-Election Results 2026 LIVE Update; UP Rajasthan Maharashtra | MP Haryana Karnataka West Bengal Bihar Delhi BJP Congress JDU RJD SP AAP Winner Candidate List  
-India Vs Sri Lanka 1919st T1919 LIVE Score Update; Suryakumar Yadav Shubman Gill | Rinku Singh
-  
-aadhar news 19:19  
-Rahul Gandhi Gyanesh Kumar | INDIA Bloc Protest LIVE Photos Update SP TMC Congress Supreme Court March | Delhi Police  
-पहली बार विपक्ष का सुप्रीम कोर्ट तक मार्च:SIR और ज्ञानेश कुमार के खिलाफ याचिका लगाई, राहुल ने कल विपक्षी सांसदों को चाय पर बुलाया  
-Google Gemini Buy Button: Agentic Shopping With Walmart
-  
-aaj ke taaja khabar | समाचार | aaj ke taaja samachar , आज की ताजा खबर , aaj ka taaja khabar news 2026 | aaj ka samachara  
-आज का ताजा समाचार , mukhya samachar  
-aaj ka taaja samachar | aaj ke samachar  
-aaj ka mukhya samachar , मुख्य समाचार |  
-आज का मुख्य समाचार | aaj ka taaja khabar samachar , 191900 | aaj ka news taaja khabar  
-aaj ki taaja khabar , aaj ke taaja khabar news | pm kisan | आज के ताजा समाचार | आज का ताजा खबर #मुख्य_समाचार  
-aaj ka taaja news | news aaj ka taaja khabar,  
-aaj ke taaja khabar samachar | aaj ki taaja samachar | aaj ka taaja news khabar , samachar aaj ka taaja khabar  
-pm kisan yojna ka paisa kab aayega  
-pm kisan yojana
-  
-news, breaking news, hindi news, news portal, politics, db live, current affairs, news live, news today, news1919, news india, news aaj tak, hindi newspaper, dblive, db news, hindi news live, hindi news bulletin, latest news, todays news bulletin, db live rajiv, db live ki report, news of the day, rahul gandhi, bjp news, bihar news, supreme court, congress bharat jodo yatra, rahul in america, priyanka gandhi in jabalpur, madhya pradesh election, live, nitish kumar, us visit
-  
-Today Breaking News 19 October 2026 आज के मुख्य समाचार बड़ी खबरें भारत Omicron Delta+ Weather News,  
-Today Breaking News, आज 19 अक्टूबर  2026 के मुख्य समाचार, ताजा खबरें, taja khabre, taja samachar, sarkari khabre, किसान बिल, PM Modi news, GST, sbi, petrol, gas, Jio, 19 October 2026, aaj ki news, मुख्य समाचार, बडी़ खबरें, kisan andolan live, आज के मुख्य समाचार, आज का मौसम, Today_breaking_news, kisan khabar, भारत बंद, News Headlines, आज की ताजा ख़बरें, Nonstop News, बड़ी खबरें, Weather News, trending news, aaj tak live, modi, Rajasthan election 2026, IPL 2026, BageshwarDham
-  
-19 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार 19 October 2026 taza khabre PM #Modi  
-news, breaking news, hindi news, politics, current affairs, news live, news india, hindi newspaper, hindi news video, hindi news live, hindi news bulletin, latest news, todays news bulletin, mamata banerjee, hindi news india, din bhar ki badi khabar, latest news in hindi
-  
-nonstop news #nonstop_news kisan andolan live #kisan_andolan  
-Nonstop News ! आज 19 अक्टूबर  2026  के मुख्य #समाचार, PM Modi news, #Today_Breaking_News, Headlines #sarkaraibabu #lockdownnewsdelhi
-  
-Today Breaking News ! आज 19 अक्टूबर  2026  के मुख्य समाचार, PM #Modi_news, GST, sbi, petrol, gas, Jio, Today Breaking News ! आज 19 अक्टूबर  2026 के मुख्य समाचार, PM Modi news, GST, sbi, petrol, gas, Jio, #Today_Breaking_News 19 अक्टूबर  2026  #मुख्य_समाचार  
-PM meeting news
-  
-19 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार | 19 October 2026 taza khabre PM #Modi  
-Nonstop News| आज की ताजा खबरें | News Headlines | | mausam vibhag aaj weather news,  Nonstop News | आज की ताजा खबरें  || News Headlines 19 अक्टूबर  2026 | today news | Fatafat khabren | News in hindi | govnews 19 अक्टूबर  2026  | #Today_Breaking_News | #मुख्य_समाचार | #Today_News_headlines | 19 अक्टूबर  2026  #modi #video #watch #मौसम #विभाग #weather आज 19 अक
+## कैंसर की 137 दवाओं पर मुनाफा 30% तय
+राष्ट्रीय औषधि मूल्य निर्धारण प्राधिकरण (NPPA) ने 137 गैर-अनुसूचित कैंसर दवाओं पर व्यापार मार्जिन 30 फीसदी तय कर दिया है। यह फैसला 9 नवंबर से लागू होगा। इससे जीवन रक्षक दवाओं की खुदरा कीमतें 70 फीसदी तक घट सकती हैं, जिससे मरीजों को सालाना लगभग 2,500 करोड़ रुपये की बचत होने की संभावना है।
+
+## कोलकाता के दुर्गा पंडाल में भगदड़
+कोलकाता के चोरबागान दुर्गा पूजा पंडाल में भारी बारिश के दौरान अचानक मची भगदड़ में 19 लोगों की मौत हो गई और 25 लोग घायल हो गए, जिनमें से 5 मरीज आईसीयू में भर्ती हैं। इस घटना को लेकर पुलिस ने दुर्गा पूजा समिति के सचिव और उपाध्यक्ष समेत सात लोगों को गिरफ्तार किया है और गैर-इरादतन हत्या का मामला दर्ज किया है।
+
+## इंटरनेट और बच्चों की सुरक्षा पर सुप्रीम कोर्ट का आदेश
+सुप्रीम कोर्ट ने कहा है कि इंटरनेट का इस्तेमाल हर नागरिक और बच्चों का भी बुनियादी अधिकार है। अदालत ने स्पष्ट किया कि गलत सामग्री के कारण बच्चों को इंटरनेट से पूरी तरह दूर रखना व्यावहारिक नहीं है। इसके साथ ही कोर्ट ने केंद्र सरकार को बाल यौन शोषण सामग्री की रोकथाम और उसे हटाने के लिए एक नेशनल डेटाबेस तैयार करने का निर्देश दिया।
+
+## देश में मौसम का मिजाज: बारिश और बर्फबारी का अलर्ट
+उत्तराखंड के केदारनाथ में बर्फबारी के साथ तापमान माइनस 6 डिग्री सेल्सियस दर्ज किया गया। इसके अलावा राजस्थान, महाराष्ट्र, आंध्र प्रदेश, तेलंगाना, तमिलनाडु, केरल, गोवा और पुडुचेरी समेत आठ राज्यों में बारिश का अलर्ट जारी किया गया है। उत्तर प्रदेश के सीतापुर और लखनऊ में जलभराव तथा बाढ़ की स्थिति बनी हुई है, जबकि चेन्नई में तेज बारिश से जनजीवन प्रभावित हुआ है।
+
+## सोना और चांदी के दामों में गिरावट
+त्योहारी सीजन के दौरान सर्राफा बाजार में सोने और चांदी की कीमतों में बड़ी गिरावट दर्ज की गई। 24 कैरेट सोने का भाव 3,004 रुपये घटकर 1,46,426 रुपये प्रति 10 ग्राम पर आ गया। वहीं चांदी की कीमत में 10,191 रुपये प्रति किलोग्राम की कमी दर्ज की गई और यह 2,10,918 रुपये प्रति किलोग्राम पर पहुंच गई।
+
+## भारत और न्यूजीलैंड के बीच टी20 सीरीज
+भारतीय क्रिकेट टीम न्यूजीलैंड के खिलाफ 5 मैचों की टी20 सीरीज खेलने के लिए तैयार है। यह सीरीज 22 अक्टूबर से शुरू होगी, जिसके शुरुआती दो मुकाबले क्राइस्टचर्च में खेले जाएंगे।
+
+## टाटा समूह खोलेगा 50 बड़े अस्पताल
+टाटा ट्रस्ट ने 2026 से 2031 के लिए अपनी स्वास्थ्य रणनीति पेश की है। इसके तहत ट्रस्ट देशभर में 40 से 50 गैर-लाभकारी अस्पताल शुरू करेगा। नोएल टाटा ने बताया कि इन अस्पतालों में सक्षम मरीजों से ली जाने वाली फीस के जरिए गरीब मरीजों का इलाज सुनिश्चित किया जाएगा।
