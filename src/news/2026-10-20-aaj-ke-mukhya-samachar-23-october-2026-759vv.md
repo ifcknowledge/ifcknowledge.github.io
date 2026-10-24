@@ -1,9 +1,9 @@
 ---
-title: "Aaj ke mukhya samachar 23 October 2026 | aaj ka taaja khabar | Today Breaking news UP, Bihar, Delhi"
+title: "आज के मुख्य समाचार: देश-विदेश, अर्थव्यवस्था, मौसम और खेल जगत की प्रमुख खबरें"
 slug: aaj-ke-mukhya-samachar-23-october-2026-759vv
 date: 2026-10-19T22:38:05+00:00
 category: top-news
-summary: "Aaj ke mukhya samachar 20 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews"
+summary: "टाइगर श्रॉफ पर हमले के आरोपी कोटा से पकड़े गए, यूरोप में महंगाई पर हिंसक प्रदर्शन, शेयर बाजार में गिरावट के साथ सोने-चांदी के भाव में तेजी और भारत की जिम्बाब्वे पर जीत।"
 youtube: https://www.youtube.com/watch?v=759vVKDEAVg
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,47 +11,28 @@ featured: false
 breaking: false
 draft: false
 source: youtube
+text_from: video
 ---
-Aaj ke mukhya samachar 20 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews
-  
-Aaj ke mukhya samachar 20 October 2026, aaj ka taaja khabar, Today Breaking news, Mausam ki jankari  
-din bhar ki khabar | news of the day, hindi news india | Rahul Bharat jodo nyay yatra News
-  
-Aaj ke mukhya samachar | aaj ka taaja khabar | आज के मुख्य समाचार |samachar |  
-Aaj Ka Mausam  
-aaj ka Mausam samachar  
-Election Results 2026 LIVE Update; UP Rajasthan Maharashtra | MP Haryana Karnataka West Bengal Bihar Delhi BJP Congress JDU RJD SP AAP Winner Candidate List  
-India Vs Sri Lanka 2020st T2020 LIVE Score Update; Suryakumar Yadav Shubman Gill | Rinku Singh
-  
-aadhar news 20:20  
-Rahul Gandhi Gyanesh Kumar | INDIA Bloc Protest LIVE Photos Update SP TMC Congress Supreme Court March | Delhi Police  
-पहली बार विपक्ष का सुप्रीम कोर्ट तक मार्च:SIR और ज्ञानेश कुमार के खिलाफ याचिका लगाई, राहुल ने कल विपक्षी सांसदों को चाय पर बुलाया  
-Google Gemini Buy Button: Agentic Shopping With Walmart
-  
-aaj ke taaja khabar | समाचार | aaj ke taaja samachar , आज की ताजा खबर , aaj ka taaja khabar news 2026 | aaj ka samachara  
-आज का ताजा समाचार , mukhya samachar  
-aaj ka taaja samachar | aaj ke samachar  
-aaj ka mukhya samachar , मुख्य समाचार |  
-आज का मुख्य समाचार | aaj ka taaja khabar samachar , 202000 | aaj ka news taaja khabar  
-aaj ki taaja khabar , aaj ke taaja khabar news | pm kisan | आज के ताजा समाचार | आज का ताजा खबर #मुख्य_समाचार  
-aaj ka taaja news | news aaj ka taaja khabar,  
-aaj ke taaja khabar samachar | aaj ki taaja samachar | aaj ka taaja news khabar , samachar aaj ka taaja khabar  
-pm kisan yojna ka paisa kab aayega  
-pm kisan yojana
-  
-news, breaking news, hindi news, news portal, politics, db live, current affairs, news live, news today, news2020, news india, news aaj tak, hindi newspaper, dblive, db news, hindi news live, hindi news bulletin, latest news, todays news bulletin, db live rajiv, db live ki report, news of the day, rahul gandhi, bjp news, bihar news, supreme court, congress bharat jodo yatra, rahul in america, priyanka gandhi in jabalpur, madhya pradesh election, live, nitish kumar, us visit
-  
-Today Breaking News 20 October 2026 आज के मुख्य समाचार बड़ी खबरें भारत Omicron Delta+ Weather News,  
-Today Breaking News, आज 20 अक्टूबर  2026 के मुख्य समाचार, ताजा खबरें, taja khabre, taja samachar, sarkari khabre, किसान बिल, PM Modi news, GST, sbi, petrol, gas, Jio, 20 October 2026, aaj ki news, मुख्य समाचार, बडी़ खबरें, kisan andolan live, आज के मुख्य समाचार, आज का मौसम, Today_breaking_news, kisan khabar, भारत बंद, News Headlines, आज की ताजा ख़बरें, Nonstop News, बड़ी खबरें, Weather News, trending news, aaj tak live, modi, Rajasthan election 2026, IPL 2026, BageshwarDham
-  
-20 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार 20 October 2026 taza khabre PM #Modi  
-news, breaking news, hindi news, politics, current affairs, news live, news india, hindi newspaper, hindi news video, hindi news live, hindi news bulletin, latest news, todays news bulletin, mamata banerjee, hindi news india, din bhar ki badi khabar, latest news in hindi
-  
-nonstop news #nonstop_news kisan andolan live #kisan_andolan  
-Nonstop News ! आज 20 अक्टूबर  2026  के मुख्य #समाचार, PM Modi news, #Today_Breaking_News, Headlines #sarkaraibabu #lockdownnewsdelhi
-  
-Today Breaking News ! आज 20 अक्टूबर  2026  के मुख्य समाचार, PM #Modi_news, GST, sbi, petrol, gas, Jio, Today Breaking News ! आज 20 अक्टूबर  2026 के मुख्य समाचार, PM Modi news, GST, sbi, petrol, gas, Jio, #Today_Breaking_News 20 अक्टूबर  2026  #मुख्य_समाचार  
-PM meeting news
-  
-20 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार | 20 October 2026 taza khabre PM #Modi  
-Nonstop News| आज की ताजा खबरें | News Headlines | | mausam vibhag aaj weather news,  Nonstop News | आज की ताजा खबरें  || News Headlines 20 अक्टूबर  2026 | today news | Fatafat khabren | News in hindi | govnews 20 अक्टूबर  2026  | #Today_Breaking_News | #मुख्य_समाचार | #Today_News_headlines | 20 अक्टूबर  2026  #modi #video #watch #मौसम #विभाग #weather आज 20 अक
+## टाइगर श्रॉफ फायरिंग केस में कोटा से तीन गिरफ्तार
+मुंबई में अभिनेता टाइगर श्रॉफ की कार पर फायरिंग करने वाले तीन हमलावरों को राजस्थान के कोटा रेलवे स्टेशन से पकड़ा गया है। इनमें एक आरोपी बिहार और दो हरियाणा के रहने वाले हैं। पुलिस के अनुसार, लॉरेंस गैंग के अनिल पंडित ने हमले का कॉन्ट्रैक्ट दिया था।
+
+## शशि थरूर का केंद्र सरकार पर पलटवार
+कांग्रेस सांसद शशि थरूर ने केंद्रीय मंत्री किरेन रिजिजू के आरोपों पर जवाब देते हुए कहा कि भारत की तुलना न तो बांग्लादेश से की जा सकती है और न ही फ्रांस से। उन्होंने स्पष्ट किया कि विपक्ष का लक्ष्य सरकार गिराना या सत्ता परिवर्तन की साजिश रचना नहीं है, बल्कि वे केवल शांतिपूर्ण प्रदर्शन का समर्थन करते हैं।
+
+## अमेरिकी बच्चों को स्पेसएक्स का शेयर देंगे एलन मस्क
+कारोबारी एलन मस्क ने घोषणा की है कि वे अगले साल अमेरिका के प्रत्येक बच्चे को अपनी रॉकेट कंपनी स्पेसएक्स का एक शेयर उपहार में देंगे। अमेरिका में लगभग 7.2 करोड़ बच्चे हैं और बांटे जाने वाले इन शेयरों का कुल मूल्य करीब 1 लाख करोड़ रुपये होगा।
+
+## भड़काऊ कंटेंट पर सरकार ने मेटा को दिए निर्देश
+इलेक्ट्रॉनिक्स और सूचना प्रौद्योगिकी मंत्रालय ने मेटा को इंस्टाग्राम और फेसबुक के एल्गोरिदम की समीक्षा करने के निर्देश जारी किए हैं। मंत्रालय ने सार्वजनिक व्यवस्था बिगाड़ने और हिंसा भड़काने वाले एकतरफा कंटेंट की रोकथाम के लिए निगरानी मजबूत करने को कहा है।
+
+## रणजी ट्रॉफी में चिन्मय सुतार का ऐतिहासिक नाबाद चौहरा शतक
+मिजोरम के बल्लेबाज चिन्मय सुतार ने नागालैंड के खिलाफ नाबाद 400 रनों की ऐतिहासिक पारी खेली। वह प्रथम श्रेणी क्रिकेट में यह उपलब्धि हासिल करने वाले दूसरे भारतीय बन गए हैं। इस पारी में उन्होंने 46 चौके और 7 छक्के लगाए।
+
+## शेयर बाजार में गिरावट, सोने और चांदी की कीमतों में उछाल
+शेयर बाजार में सेंसेक्स 876 अंक गिरकर 73,853 पर और निफ्टी 257 अंक टूटकर 22,889 पर बंद हुआ। दूसरी ओर सर्राफा बाजार में तेजी देखने को मिली; चांदी का भाव बढ़कर 2,12,595 रुपये प्रति किलोग्राम और सोना उछलकर 1,48,397 रुपये प्रति 10 ग्राम पर पहुंच गया।
+
+## मौसम अपडेट: कई राज्यों में बारिश और तापमान में गिरावट
+राजस्थान के जयपुर और अजमेर में भारी बारिश के साथ ओले गिरे, जबकि मध्य प्रदेश के इंदौर और उज्जैन सहित 11 जिलों में बारिश दर्ज की गई। उत्तराखंड के केदारनाथ और बद्रीनाथ में तापमान शून्य से नीचे चला गया है, वहीं तमिलनाडु के चेन्नई और कोयंबटूर में जलभराव की स्थिति बनी।
+
+## भारतीय महिला क्रिकेट टीम ने जिम्बाब्वे को हराया
+स्मृति मंधाना की कप्तानी में भारतीय महिला टीम ने दूसरे टी20 मैच में जिम्बाब्वे को 9 विकेट से करारी शिकस्त दी। शेफाली वर्मा ने 25 गेंदों पर 55 रनों की तेज पारी खेली, जबकि स्मृति मंधाना ने नाबाद 47 रन बनाए।
