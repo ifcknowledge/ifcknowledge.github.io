@@ -1,9 +1,9 @@
 ---
-title: "4 दिन बाद फिर एक्शन में होगी indian cricket team | ind vs nz t20 series"
+title: "भारत और न्यूजीलैंड के बीच 5 मैचों की टी20 सीरीज 22 अक्टूबर से, श्रेयस अय्यर संभालेंगे कप्तानी"
 slug: 4-din-bad-phir-ekshan-men-hogi-iiqva
 date: 2026-10-18T13:48:26+00:00
 category: cricket
-summary: "India vs New Zealand T20: भारतीय टीम के सामने अगली चुनौती न्यूजीलैंड की है. सिर्फ चार दिन बाद श्रेयस अय्यर की कप्तानी वाली टीम इंडिया एक बार फिर एक्शन में दिखेगी."
+summary: "वेस्टइंडीज से सीरीज 2-2 से ड्रॉ रहने के बाद भारतीय टीम न्यूजीलैंड दौरे पर 5 टी20 मैचों की सीरीज खेलेगी, जिसका पहला मुकाबला 22 अक्टूबर को होगा।"
 youtube: https://www.youtube.com/watch?v=IiqVAwJB-nw
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,26 +11,21 @@ featured: false
 breaking: false
 draft: false
 source: youtube
+text_from: video
 ---
-India vs New Zealand T20: भारतीय टीम के सामने अगली चुनौती न्यूजीलैंड की है. सिर्फ चार दिन बाद श्रेयस अय्यर की कप्तानी वाली टीम इंडिया एक बार फिर एक्शन में दिखेगी.
-  
-India will tour New Zealand from October 22 to December 1, 2026, playing five T20Is, five ODIs and two Tests.
-  
-Sony Sports Network has named a 10-member Extraaa Innings panel led by Ravi Shastri, Sunil Gavaskar and Harsha Bhogle.
-  
-Sky Sport will broadcast the series in New Zealand and will offer Hindi commentary for the whole tour.
-  
-List of venues for the IND vs NZ 2026 series  
-Here are the venues for the India vs New Zealand 2026 series (12 matches):
-  
-Hagley Oval, Christchurch (first and second T20Is and second Test)
-  
-Hnry Stadium, Wellington (third T20I and second ODI)
-  
-Eden Park, Auckland (fourth T20I and first ODI)
-  
-Seddon Park, Hamilton (fifth T20I and third ODI)
-  
-Bay Oval, Tauranga (fourth and fifth ODIs)
-  
-Basin Reserve, Wellington (first Test)
+वेस्टइंडीज के खिलाफ टी20 सीरीज 2-2 से बराबर रहने के बाद भारतीय क्रिकेट टीम अब न्यूजीलैंड के खिलाफ एक्शन में नजर आने वाली है। भारत और न्यूजीलैंड के बीच 5 मैचों की टी20 सीरीज खेली जाएगी। इस सीरीज में भारतीय टीम की कप्तानी श्रेयस अय्यर को सौंपी गई है, जबकि तिलक वर्मा उपकप्तान की भूमिका में होंगे।
+
+## टी20 सीरीज का पूरा शेड्यूल
+दोनों देशों के बीच खेले जाने वाले सभी मुकाबले न्यूजीलैंड के मैदानों पर आयोजित होंगे। भारतीय समयानुसार ये सभी मैच दोपहर 12:30 बजे से शुरू होंगे:
+- **पहला टी20:** 22 अक्टूबर (क्राइस्टचर्च)
+- **दूसरा टी20:** 24 अक्टूबर (क्राइस्टचर्च)
+- **तीसरा टी20:** वेलिंगटन
+- **चौथा टी20:** 30 अक्टूबर (ऑकलैंड)
+- **पांचवां टी20:** 1 नवंबर (हैमिल्टन)
+
+## न्यूजीलैंड में भारत का शानदार रिकॉर्ड
+साल 2019 से लेकर अब तक भारत ने न्यूजीलैंड को लगातार 5 बार टी20 सीरीज में शिकस्त दी है। न्यूजीलैंड की टीम अपने घरेलू मैदानों पर खेलने के बावजूद 2019 से अब तक टी20 में भारत को नहीं हरा पाई है। इससे पहले साल 2022 में भी जब भारतीय टीम न्यूजीलैंड दौरे पर गई थी, तब भारत ने 1-0 से सीरीज जीती थी।
+
+## सीरीज के लिए भारतीय टीम स्क्वाड
+सीनियर तेज गेंदबाज भुवनेश्वर कुमार की लंबे समय बाद टी20 टीम में वापसी हुई है। घोषित स्क्वाड इस प्रकार है:
+श्रेयस अय्यर (कप्तान), तिलक वर्मा (उपकप्तान), अभिषेक शर्मा, संजू सैमसन (विकेटकीपर), वैभव सूर्यवंशी, ईशान किशन, अक्षर पटेल, शिवम दुबे, नितीश कुमार रेड्डी, नमन धीर, प्रिंस यादव, मयंक यादव, अर्शदीप सिंह, भुवनेश्वर कुमार, वरुण चक्रवर्ती और कुलदीप यादव।

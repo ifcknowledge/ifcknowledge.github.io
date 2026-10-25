@@ -1,9 +1,9 @@
 ---
-title: "Aaj ke mukhya samachar 22 October 2026 | aaj ka taaja khabar | Today Breaking news UP, Bihar, Delhi"
+title: "आज के मुख्य समाचार: देश और दुनिया से जुड़ी दिनभर की तमाम बड़ी खबरें और मुख्य अपडेट्स"
 slug: aaj-ke-mukhya-samachar-22-october-2026-wctdw
 date: 2026-10-17T22:38:36+00:00
 category: top-news
-summary: "Aaj ke mukhya samachar 18 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews"
+summary: "देश-विदेश के प्रमुख घटनाक्रमों में राजनीतिक बयानबाजी, शिमला और बलूचिस्तान में भूकंप, सोना-चांदी के दामों में गिरावट और विभिन्न राष्ट्रीय-अंतरराष्ट्रीय समाचारों के ताजा अपडेट्स।"
 youtube: https://www.youtube.com/watch?v=wCtDwZ05q-E
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,47 +11,25 @@ featured: false
 breaking: false
 draft: false
 source: youtube
+text_from: video
 ---
-Aaj ke mukhya samachar 18 October 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews
-  
-Aaj ke mukhya samachar 18 October 2026, aaj ka taaja khabar, Today Breaking news, Mausam ki jankari  
-din bhar ki khabar | news of the day, hindi news india | Rahul Bharat jodo nyay yatra News
-  
-Aaj ke mukhya samachar | aaj ka taaja khabar | आज के मुख्य समाचार |samachar |  
-Aaj Ka Mausam  
-aaj ka Mausam samachar  
-Election Results 2026 LIVE Update; UP Rajasthan Maharashtra | MP Haryana Karnataka West Bengal Bihar Delhi BJP Congress JDU RJD SP AAP Winner Candidate List  
-India Vs Sri Lanka 1818st T1818 LIVE Score Update; Suryakumar Yadav Shubman Gill | Rinku Singh
-  
-aadhar news 18:18  
-Rahul Gandhi Gyanesh Kumar | INDIA Bloc Protest LIVE Photos Update SP TMC Congress Supreme Court March | Delhi Police  
-पहली बार विपक्ष का सुप्रीम कोर्ट तक मार्च:SIR और ज्ञानेश कुमार के खिलाफ याचिका लगाई, राहुल ने कल विपक्षी सांसदों को चाय पर बुलाया  
-Google Gemini Buy Button: Agentic Shopping With Walmart
-  
-aaj ke taaja khabar | समाचार | aaj ke taaja samachar , आज की ताजा खबर , aaj ka taaja khabar news 2026 | aaj ka samachara  
-आज का ताजा समाचार , mukhya samachar  
-aaj ka taaja samachar | aaj ke samachar  
-aaj ka mukhya samachar , मुख्य समाचार |  
-आज का मुख्य समाचार | aaj ka taaja khabar samachar , 181800 | aaj ka news taaja khabar  
-aaj ki taaja khabar , aaj ke taaja khabar news | pm kisan | आज के ताजा समाचार | आज का ताजा खबर #मुख्य_समाचार  
-aaj ka taaja news | news aaj ka taaja khabar,  
-aaj ke taaja khabar samachar | aaj ki taaja samachar | aaj ka taaja news khabar , samachar aaj ka taaja khabar  
-pm kisan yojna ka paisa kab aayega  
-pm kisan yojana
-  
-news, breaking news, hindi news, news portal, politics, db live, current affairs, news live, news today, news1818, news india, news aaj tak, hindi newspaper, dblive, db news, hindi news live, hindi news bulletin, latest news, todays news bulletin, db live rajiv, db live ki report, news of the day, rahul gandhi, bjp news, bihar news, supreme court, congress bharat jodo yatra, rahul in america, priyanka gandhi in jabalpur, madhya pradesh election, live, nitish kumar, us visit
-  
-Today Breaking News 18 October 2026 आज के मुख्य समाचार बड़ी खबरें भारत Omicron Delta+ Weather News,  
-Today Breaking News, आज 18 अक्टूबर  2026 के मुख्य समाचार, ताजा खबरें, taja khabre, taja samachar, sarkari khabre, किसान बिल, PM Modi news, GST, sbi, petrol, gas, Jio, 18 October 2026, aaj ki news, मुख्य समाचार, बडी़ खबरें, kisan andolan live, आज के मुख्य समाचार, आज का मौसम, Today_breaking_news, kisan khabar, भारत बंद, News Headlines, आज की ताजा ख़बरें, Nonstop News, बड़ी खबरें, Weather News, trending news, aaj tak live, modi, Rajasthan election 2026, IPL 2026, BageshwarDham
-  
-18 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार 18 October 2026 taza khabre PM #Modi  
-news, breaking news, hindi news, politics, current affairs, news live, news india, hindi newspaper, hindi news video, hindi news live, hindi news bulletin, latest news, todays news bulletin, mamata banerjee, hindi news india, din bhar ki badi khabar, latest news in hindi
-  
-nonstop news #nonstop_news kisan andolan live #kisan_andolan  
-Nonstop News ! आज 18 अक्टूबर  2026  के मुख्य #समाचार, PM Modi news, #Today_Breaking_News, Headlines #sarkaraibabu #lockdownnewsdelhi
-  
-Today Breaking News ! आज 18 अक्टूबर  2026  के मुख्य समाचार, PM #Modi_news, GST, sbi, petrol, gas, Jio, Today Breaking News ! आज 18 अक्टूबर  2026 के मुख्य समाचार, PM Modi news, GST, sbi, petrol, gas, Jio, #Today_Breaking_News 18 अक्टूबर  2026  #मुख्य_समाचार  
-PM meeting news
-  
-18 अक्टूबर  2026 आज की बड़ी खबरें | देश के मुख्य समाचार | 18 October 2026 taza khabre PM #Modi  
-Nonstop News| आज की ताजा खबरें | News Headlines | | mausam vibhag aaj weather news,  Nonstop News | आज की ताजा खबरें  || News Headlines 18 अक्टूबर  2026 | today news | Fatafat khabren | News in hindi | govnews 18 अक्टूबर  2026  | #Today_Breaking_News | #मुख्य_समाचार | #Today_News_headlines | 18 अक्टूबर  2026  #modi #video #watch #मौसम #विभाग #weather आज 18 अक
+## प्रदर्शनकारी छात्रों और महिलाओं पर बर्बरता को लेकर राहुल गांधी का बयान
+कांग्रेस नेता राहुल गांधी ने सोशल मीडिया पर वीडियो साझा कर दिल्ली में प्रदर्शन के दौरान छात्रों और महिलाओं के साथ पुलिस के व्यवहार पर सवाल उठाए। उन्होंने आरोप लगाया कि असहमति की आवाजों को दबाने और लोगों को डराने की कोशिश की जा रही है।
+
+## शांति भंग के आरोप में गिरफ्तार अभिजीत दीपके को मिली जमानत
+खोखरो जनता पार्टी के संस्थापक अभिजीत दीपके को शुक्रवार रात हिरासत में लेने के बाद शनिवार को जमानत मिल गई। वहीं एसआईआर के विरोध में कांग्रेस को दिल्ली के रामलीला मैदान में 1 नवंबर को रैली आयोजित करने के लिए पुलिस से एनओसी मिल गई है।
+
+## विज्ञापनों के जरिए जासूसी की कोशिश का खुलासा
+टोरंटो यूनिवर्सिटी की सिटीजन लैब की जांच में सामने आया है कि एक इजराइली कंपनी के विज्ञापनों के जरिए बिना क्लिक किए डिवाइस में मालवेयर पहुंचाने का प्रयास हुआ। यह मालवेयर संयुक्त राष्ट्र और नाटो के नेटवर्क तक भी पहुंचा है।
+
+## ट्रंप ने भारत पर 100 प्रतिशत टैरिफ लगाने वाला कानून रोका
+अमेरिका के राष्ट्रपति डोनाल्ड ट्रंप ने रूस पर सख्त प्रतिबंध लगाने वाले उस कानून को रोक दिया है, जिसके तहत रूस से तेल और गैस खरीदने वाले देशों पर 100 फीसदी तक टैरिफ लगाया जा सकता था।
+
+## शिमला में महसूस किए गए भूकंप के झटके
+हिमाचल प्रदेश के शिमला में शनिवार तड़के रिक्टर स्केल पर 4.1 तीव्रता का भूकंप दर्ज किया गया। राष्ट्रीय भूकंप विज्ञान केंद्र के अनुसार इसका केंद्र जमीन से 10 किलोमीटर नीचे स्थित था।
+
+## सोने और चांदी के भाव में आई गिरावट
+इस सप्ताह भारतीय सर्राफा बाजार में सोने और चांदी के दामों में नरमी देखी गई। 24 कैरेट सोने की कीमत 3,004 रुपये की गिरावट के साथ 1.46 लाख रुपये प्रति 10 ग्राम पर आ गई, जबकि चांदी 10,191 रुपये घटकर 2.11 लाख रुपये प्रति किलो दर्ज की गई।
+
+## गुजरात के भरूच की फैक्ट्री में ब्लास्ट, 5 की मौत
+गुजरात के भरूच में एक दवा फैक्ट्री के रिएक्टर में विस्फोट होने से 5 मजदूरों की जान चली गई और 6 अन्य घायल हो गए। हादसे के बाद जहरीली गैस के रिसाव के चलते इलाके में अफरा-तफरी मच गई।
