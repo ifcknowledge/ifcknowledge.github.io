@@ -1,9 +1,9 @@
 ---
-title: "एपल के ₹3 लाख के Foldable Phone की स्क्रीन क्रैक! कंपनी देगी नया मोबाइल Apple IPhone Duo screen"
+title: "एपल के फोल्डेबल फोन आईफोन डुओ की स्क्रीन क्रैक होने की समस्या, कंपनी देगी नया मोबाइल"
 slug: epal-ke-3-lakh-ke-foldable-phone-syiu5
 date: 2026-11-03T15:17:57+00:00
 category: tech
-summary: "Apple के 3 लाख के फोन की Display हो रही क्रैक, कंपनी बोली- नया मोबाइल देंगे Apple IPhone Duo"
+summary: "एपल के पहले फोल्डेबल फोन आईफोन डुओ की स्क्रीन क्रैक होने की शिकायतें सामने आ रही हैं। कंपनी ने समस्याओं की पुष्टि करते हुए यूजर्स को नया फोन देने की बात कही है।"
 youtube: https://www.youtube.com/watch?v=sYiu5H9vDNM
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,11 +11,20 @@ featured: false
 breaking: false
 draft: false
 source: youtube
-text_from: description
+text_from: video
 ---
-Apple के 3 लाख के फोन की Display हो रही क्रैक, कंपनी बोली- नया मोबाइल देंगे Apple IPhone Duo
-  
-Apple IPhone Duo Foldable Screen Crack Issue | Free Replacement Policy  
-एपल के पहले फोल्डेबल फोन की स्क्रीन क्रैक हो रही:कंपनी बोली- नया मोबाइल देंगे; पिछले महीने ही लॉन्च हुआ, कीमत ₹3 लाख से शुरू
-  
-apple foldable iphone, apple foldable phone, apple foldable iphone screen crack, apple foldable phone screen problem, apple iphone fold screen issue, apple foldable iphone latest news, apple new foldable phone, apple foldable mobile, iphone foldable display, foldable iphone crack, apple phone screen damage, apple replacement policy, apple new iphone launch, apple iphone 2026, apple latest news hindi, apple news today, iphone news hindi, apple mobile news, foldable smartphone, foldable phone problem, iphone screen crack news, apple phone price 3 lakh, 3 lakh ka iphone, technology news hindi, tech news today, mobile news hindi, gadget news hindi, apple company news, आज की टेक न्यूज़, एप्पल फोल्डेबल फोन, आईफोन की स्क्रीन क्रैक
+## एपल के फोल्डेबल फोन में स्क्रीन क्रैक की समस्या
+
+एपल ने हाल ही में अपना पहला फोल्डेबल फोन आईफोन डुओ लॉन्च किया था। लॉन्च होने के कुछ ही समय बाद इस फोन की स्क्रीन क्रैक होने और टूटने की शिकायतें सामने आ रही हैं। फोन की शुरुआती कीमत लगभग तीन लाख रुपये से साढ़े चार लाख रुपये तक है।
+
+## अधिकांश समस्याएं बीच के हिस्से में
+
+आईफोन डुओ में यह डैमेज ज्यादातर उसी जगह पर हो रहा है जहां से फोन बीच में मुड़ता है। कई यूजर्स का कहना है कि फोन को पहली बार खोलने और इस्तेमाल करने के कुछ ही समय बाद स्क्रीन अपने आप खराब हो गई। 
+
+## एपल का बयान और रिप्लेसमेंट पॉलिसी
+
+एपल ने इस मामले पर कहा है कि उसे आईफोन डुओ की कुछ यूनिट्स की इनर डिस्प्ले में आ रही समस्याओं की जानकारी है। यह खराबी कुछ ही फोन्स में आई है और कंपनी इन्हें रिप्लेस करके यूजर को नया फोन देगी। कंपनी ने ग्राहकों को सलाह दी है कि यदि वे अपने आईफोन डुओ की स्क्रीन में कोई समस्या देखते हैं तो वे तुरंत रिप्लेसमेंट के लिए एपल केयर से संपर्क कर सकते हैं।
+
+## आईफोन डुओ के फीचर्स
+
+एपल ने नौ सितंबर को अपना पहला फोल्डेबल फोन आईफोन डुओ लॉन्च किया था। इस फोन में पांच पॉइंट चार इंच का कवर डिस्प्ले और अंदर सात पॉइंट छह इंच की मेन स्क्रीन दी गई है, जो अब तक के किसी भी आईफोन का सबसे बड़ा डिस्प्ले है। यह एपल का अब तक का सबसे महंगा आईफोन भी है।

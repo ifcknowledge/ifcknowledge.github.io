@@ -1,9 +1,9 @@
 ---
-title: "Aaj ke mukhya samachar 04 November 2026 | aaj ka taaja khabar |Today Breaking news UP, Bihar, Delhi"
+title: "राहुल गांधी ने पीएम मोदी को दी खुली बहस की चुनौती"
 slug: aaj-ke-mukhya-samachar-04-november-2026-1ueoa
 date: 2026-11-02T22:58:20+00:00
 category: top-news
-summary: "Aaj ke mukhya samachar 03 November 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews"
+summary: "कांग्रेस नेता राहुल गांधी ने प्रधानमंत्री नरेंद्र मोदी पर विदेशी मदद से सत्ता में बने रहने का आरोप लगाते हुए खुली बहस की चुनौती दी है।"
 youtube: https://www.youtube.com/watch?v=1uEOaMFvYH8
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,49 +11,16 @@ featured: false
 breaking: false
 draft: false
 source: youtube
-text_from: description
+text_from: video
 ---
-Aaj ke mukhya samachar 03 November 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews
-  
-Aaj ke mukhya samachar 03 November 2026, aaj ka taaja khabar, Today Breaking news, Mausam ki jankari  
-din bhar ki khabar | news of the day, hindi news india | Rahul Bharat jodo nyay yatra News
-  
-Aaj ke mukhya samachar | aaj ka taaja khabar | आज के मुख्य समाचार |samachar |  
-Aaj Ka Mausam  
-aaj ka Mausam samachar  
-Election Results 2026 LIVE Update; UP Rajasthan Maharashtra | MP Haryana Karnataka West Bengal Bihar Delhi BJP Congress JDU RJD SP AAP Winner Candidate List  
-India Vs Sri Lanka 0303st T0303 LIVE Score Update; Suryakumar Yadav Shubman Gill | Rinku Singh
-  
-aadhar news 03:03  
-राहुल बोले- 2024 लोकसभा चुनाव अवैध:विपक्ष की संसद 3.23 घंटे चली, ज्ञानेश कुमार के खिलाफ जन-महाभियोग पास; 19 विपक्षी दलों के 215 सांसद मौजूद रहे
-  
-aaj ke taaja khabar | समाचार | aaj ke taaja samachar , आज की ताजा खबर , aaj ka taaja khabar news 2026 | aaj ka samachara  
-आज का ताजा समाचार , mukhya samachar  
-aaj ka taaja samachar | aaj ke samachar  
-aaj ka mukhya samachar , मुख्य समाचार |  
-आज का मुख्य समाचार | aaj ka taaja khabar samachar , 030300 | aaj ka news taaja khabar  
-aaj ki taaja khabar , aaj ke taaja khabar news | pm kisan | आज के ताजा समाचार | आज का ताजा खबर #मुख्य_समाचार  
-aaj ka taaja news | news aaj ka taaja khabar,  
-aaj ke taaja khabar samachar | aaj ki taaja samachar | aaj ka taaja news khabar , samachar aaj ka taaja khabar  
-pm kisan yojna ka paisa kab aayega  
-pm kisan yojana
-  
-news, breaking news, hindi news, news portal, politics, db live, current affairs, news live, news today, news0303, news india, news aaj tak, hindi newspaper, dblive, db news, hindi news live, hindi news bulletin, latest news, todays news bulletin, db live rajiv, db live ki report, news of the day, rahul gandhi, bjp news, bihar news, supreme court, congress bharat jodo yatra, rahul in america, priyanka gandhi in jabalpur, madhya pradesh election, live, nitish kumar, us visit
-  
-Today Breaking News 03 November 2026 आज के मुख्य समाचार बड़ी खबरें भारत Omicron Delta+ Weather News,  
-Today Breaking News, आज 03 नवंबर 2026 के मुख्य समाचार, ताजा खबरें, taja khabre, taja samachar, sarkari khabre, किसान बिल, PM Modi news, GST, sbi, petrol, gas, Jio, 03 November 2026, aaj ki news, मुख्य समाचार, बडी़ खबरें, kisan andolan live, आज के मुख्य समाचार, आज का मौसम, Today_breaking_news, kisan khabar, भारत बंद, News Headlines, आज की ताजा ख़बरें, Nonstop News, बड़ी खबरें, Weather News, trending news, aaj tak live, modi, Rajasthan election 2026, IPL 2026, BageshwarDham
-  
-03 नवंबर 2026 आज की बड़ी खबरें | देश के मुख्य समाचार 03 November 2026 taza khabre PM #Modi  
-news, breaking news, hindi news, politics, current affairs, news live, news india, hindi newspaper, hindi news video, hindi news live, hindi news bulletin, latest news, todays news bulletin, mamata banerjee, hindi news india, din bhar ki badi khabar, latest news in hindi
-  
-nonstop news #nonstop_news kisan andolan live #kisan_andolan  
-Nonstop News ! आज 03 नवंबर 2026  के मुख्य #समाचार, PM Modi news, #Today_Breaking_News, Headlines #sarkaraibabu #lockdownnewsdelhi
-  
-Today Breaking News ! आज 03 नवंबर 2026  के मुख्य समाचार, PM #Modi_news, GST, sbi, petrol, gas, Jio, Today Breaking News ! आज 03 नवंबर 2026 के मुख्य समाचार, PM Modi news, GST, sbi, petrol, gas, Jio, #Today_Breaking_News 03 नवंबर 2026  #मुख्य_समाचार  
-PM meeting news
-  
-03 नवंबर 2026 आज की बड़ी खबरें | देश के मुख्य समाचार | 03 November 2026 taza khabre PM #Modi  
-Nonstop News| आज की ताजा खबरें | News Headlines | | mausam vibhag aaj weather news,  Nonstop News | आज की ताजा खबरें  || News Headlines 03 नवंबर 2026 | today news | Fatafat khabren | News in hindi | govnews 03 नवंबर 2026  | #Today_Breaking_News | #मुख्य_समाचार | #Today_News_headlines | 03 नवंबर 2026  #modi #video #watch #मौसम #विभाग #weather आज 03 नवंबर 2026  का मौसम  
-Aaj ke mukhya samachar
-  
-Today Breaking News, आज 03 नवंबर 2026  के मुख्य समाचार, बड़ी खबरें, PM Modi, SBI, weather, Bank, CAB, Jharkhand Election, result live, Nonstop
+## राहुल गांधी का पीएम मोदी पर बड़ा आरोप
+कांग्रेस नेता और लोकसभा में नेता प्रतिपक्ष राहुल गांधी ने प्रधानमंत्री नरेंद्र मोदी पर विदेशी मदद से सत्ता में बने रहने का आरोप लगाया है। उन्होंने सोशल मीडिया प्लेटफॉर्म एक्स पर पोस्ट कर प्रधानमंत्री मोदी को इस मुद्दे पर खुली बहस की चुनौती दी है। राहुल गांधी ने लिखा कि प्रधानमंत्री इस देश से झूठ बोलना बंद करें और विदेशी मदद से प्रधानमंत्री बने हुए हैं। उन्होंने देश की अर्थव्यवस्था पर भी सवाल उठाते हुए कहा कि पूरी अर्थव्यवस्था विदेशियों के नियंत्रण और समर्थन से चल रही है। उन्होंने दावा किया कि प्रधानमंत्री इस बहस के लिए कभी सामने नहीं आएंगे।
+
+## अमित शाह का राहुल गांधी पर हमला
+केंद्रीय गृह मंत्री अमित शाह ने हैदराबाद में एक जनसभा को संबोधित करते हुए राहुल गांधी पर जमकर निशाना साधा। उन्होंने कहा कि राहुल गांधी ने दिल्ली में नकली संसद लगाई और अगर वह प्रधानमंत्री बन जाते तो सोनिया गांधी के दिल को शांति मिल जाती, लेकिन असली संसद में वह कभी प्रधानमंत्री नहीं बनेंगे। भाजपा देश भर में लोकतंत्र बचाओ, अराजकता हटाओ अभियान चला रही है, जिसका पहला चरण 22 अक्टूबर से 5 नवंबर 2026 तक चलेगा।
+
+## सुप्रीम कोर्ट का पटाखों पर निर्देश
+सुप्रीम कोर्ट ने लगातार दूसरे साल दिल्ली-एनसीआर में दीपावली पर केवल ग्रीन पटाखे जलाने की अनुमति दी है। पटाखे केवल सुबह 6 से 7 बजे और रात 8 से 10 बजे तक ही जलाए जा सकेंगे। कोर्ट ने अस्पताल, नर्सिंग होम, प्राथमिक एवं जिला स्वास्थ्य केंद्रों, वृद्धाश्रमों और अधिसूचित साइलेंस जोन के 300 मीटर के दायरे में पटाखे जलाने पर रोक लगा दी है। इसके साथ ही शैक्षणिक संस्थानों के आसपास के क्षेत्र को भी नो-क्रैकर जोन घोषित करने के निर्देश दिए गए हैं।
+
+## AAP के तीन विधायक बीजेपी में शामिल
+पंजाब में आम आदमी पार्टी को बड़ा झटका लगा है, जहां तीन विधायक बीजेपी में शामिल हो गए हैं। इनमें अमृतसर उत्तर से कुंवर विजय प्रताप सिंह, समाना से चैतन्य सिंह चौड़ामाजरा और सनौर से हरमीत सिंह पठानमाजरा शामिल हैं। विधायकों ने कहा कि पंजाब में फिरौती इंडस्ट्री चल रही है और राज्य में गैंगस्टर सरकार का हिस्सा बन चुके हैं, जिसके चलते उन्होंने पार्टी से इस्तीफा दिया।
