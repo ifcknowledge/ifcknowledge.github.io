@@ -1,9 +1,9 @@
 ---
-title: "Aaj ke mukhya samachar 5 November 2026 | aaj ka taaja khabar |Today Breaking news UP, Bihar, Delhi"
+title: "देश और दुनिया की प्रमुख बड़ी खबरें: पुणे मेट्रो का उद्घाटन, दिल्ली में प्रदूषण और शेयर बाजार में उछाल"
 slug: aaj-ke-mukhya-samachar-5-november-2026-dmhqz
 date: 2026-11-03T22:38:36+00:00
 category: top-news
-summary: "Aaj ke mukhya samachar 04 November 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews"
+summary: "प्रधानमंत्री मोदी ने पुणे में 21,800 करोड़ रुपये की मेट्रो परियोजना का उद्घाटन किया। वहीं दिल्ली में वायु गुणवत्ता बेहद खराब स्तर पर पहुंची और शेयर बाजार में सेंसेक्स 1,225 अंक उछलकर बंद हुआ।"
 youtube: https://www.youtube.com/watch?v=_dMhqZpeqyE
 author: "IFC knowledge डेस्क"
 lang: hi
@@ -11,49 +11,25 @@ featured: false
 breaking: false
 draft: false
 source: youtube
-text_from: description
+text_from: video
 ---
-Aaj ke mukhya samachar 04 November 2026 | aaj ka taaja khabar | Today Breaking news, UP, Bihar, Delhi #ifcnews #breakingnews
-  
-Aaj ke mukhya samachar 04 November 2026, aaj ka taaja khabar, Today Breaking news, Mausam ki jankari  
-din bhar ki khabar | news of the day, hindi news india | Rahul Bharat jodo nyay yatra News
-  
-Aaj ke mukhya samachar | aaj ka taaja khabar | आज के मुख्य समाचार |samachar |  
-Aaj Ka Mausam  
-aaj ka Mausam samachar  
-Election Results 2026 LIVE Update; UP Rajasthan Maharashtra | MP Haryana Karnataka West Bengal Bihar Delhi BJP Congress JDU RJD SP AAP Winner Candidate List  
-India Vs Sri Lanka 0404st T0404 LIVE Score Update; Suryakumar Yadav Shubman Gill | Rinku Singh
-  
-aadhar news 04:04  
-राहुल बोले- 2024 लोकसभा चुनाव अवैध:विपक्ष की संसद 3.23 घंटे चली, ज्ञानेश कुमार के खिलाफ जन-महाभियोग पास; 19 विपक्षी दलों के 215 सांसद मौजूद रहे
-  
-aaj ke taaja khabar | समाचार | aaj ke taaja samachar , आज की ताजा खबर , aaj ka taaja khabar news 2026 | aaj ka samachara  
-आज का ताजा समाचार , mukhya samachar  
-aaj ka taaja samachar | aaj ke samachar  
-aaj ka mukhya samachar , मुख्य समाचार |  
-आज का मुख्य समाचार | aaj ka taaja khabar samachar , 040400 | aaj ka news taaja khabar  
-aaj ki taaja khabar , aaj ke taaja khabar news | pm kisan | आज के ताजा समाचार | आज का ताजा खबर #मुख्य_समाचार  
-aaj ka taaja news | news aaj ka taaja khabar,  
-aaj ke taaja khabar samachar | aaj ki taaja samachar | aaj ka taaja news khabar , samachar aaj ka taaja khabar  
-pm kisan yojna ka paisa kab aayega  
-pm kisan yojana
-  
-news, breaking news, hindi news, news portal, politics, db live, current affairs, news live, news today, news0404, news india, news aaj tak, hindi newspaper, dblive, db news, hindi news live, hindi news bulletin, latest news, todays news bulletin, db live rajiv, db live ki report, news of the day, rahul gandhi, bjp news, bihar news, supreme court, congress bharat jodo yatra, rahul in america, priyanka gandhi in jabalpur, madhya pradesh election, live, nitish kumar, us visit
-  
-Today Breaking News 04 November 2026 आज के मुख्य समाचार बड़ी खबरें भारत Omicron Delta+ Weather News,  
-Today Breaking News, आज 04 नवंबर 2026 के मुख्य समाचार, ताजा खबरें, taja khabre, taja samachar, sarkari khabre, किसान बिल, PM Modi news, GST, sbi, petrol, gas, Jio, 04 November 2026, aaj ki news, मुख्य समाचार, बडी़ खबरें, kisan andolan live, आज के मुख्य समाचार, आज का मौसम, Today_breaking_news, kisan khabar, भारत बंद, News Headlines, आज की ताजा ख़बरें, Nonstop News, बड़ी खबरें, Weather News, trending news, aaj tak live, modi, Rajasthan election 2026, IPL 2026, BageshwarDham
-  
-04 नवंबर 2026 आज की बड़ी खबरें | देश के मुख्य समाचार 04 November 2026 taza khabre PM #Modi  
-news, breaking news, hindi news, politics, current affairs, news live, news india, hindi newspaper, hindi news video, hindi news live, hindi news bulletin, latest news, todays news bulletin, mamata banerjee, hindi news india, din bhar ki badi khabar, latest news in hindi
-  
-nonstop news #nonstop_news kisan andolan live #kisan_andolan  
-Nonstop News ! आज 04 नवंबर 2026  के मुख्य #समाचार, PM Modi news, #Today_Breaking_News, Headlines #sarkaraibabu #lockdownnewsdelhi
-  
-Today Breaking News ! आज 04 नवंबर 2026  के मुख्य समाचार, PM #Modi_news, GST, sbi, petrol, gas, Jio, Today Breaking News ! आज 04 नवंबर 2026 के मुख्य समाचार, PM Modi news, GST, sbi, petrol, gas, Jio, #Today_Breaking_News 04 नवंबर 2026  #मुख्य_समाचार  
-PM meeting news
-  
-04 नवंबर 2026 आज की बड़ी खबरें | देश के मुख्य समाचार | 04 November 2026 taza khabre PM #Modi  
-Nonstop News| आज की ताजा खबरें | News Headlines | | mausam vibhag aaj weather news,  Nonstop News | आज की ताजा खबरें  || News Headlines 04 नवंबर 2026 | today news | Fatafat khabren | News in hindi | govnews 04 नवंबर 2026  | #Today_Breaking_News | #मुख्य_समाचार | #Today_News_headlines | 04 नवंबर 2026  #modi #video #watch #मौसम #विभाग #weather आज 04 नवंबर 2026  का मौसम  
-Aaj ke mukhya samachar
-  
-Today Breaking News, आज 04 नवंबर 2026  के मुख्य समाचार, बड़ी खबरें, PM Modi, SBI, weather, Bank, CAB, Jharkhand Election, result live, Nonstop
+## पुणे मेट्रो परियोजना का उद्घाटन
+प्रधानमंत्री नरेंद्र मोदी ने वीडियो कॉन्फ्रेंसिंग के माध्यम से पुणे मेट्रो की लगभग 21,800 करोड़ रुपये की परियोजनाओं का उद्घाटन और शिलान्यास किया। उन्होंने कहा कि पहले गरीबी हटाने के सिर्फ वादे और नारे होते थे, लेकिन अब इसे खत्म करने के लिए जमीनी स्तर पर काम किया जा रहा है।
+
+## धरने पर सुप्रीम कोर्ट की टिप्पणी
+सुप्रीम कोर्ट ने स्पष्ट किया कि कोई भी संगठन विरोध प्रदर्शन के लिए किसी सार्वजनिक स्थान पर अनिश्चितकाल तक कब्जा नहीं कर सकता। कोर्ट ने कहा कि प्रदर्शन का अधिकार सभी को है, लेकिन आम जनता के कामकाज और कारोबार का ध्यान रखना भी जरूरी है।
+
+## दिल्ली में हवा हुई जहरीली
+दीपावली से पहले दिल्ली में वायु प्रदूषण गंभीर स्थिति में पहुंच गया है। राजधानी में एयर क्वालिटी इंडेक्स (AQI) 350 के पार दर्ज किया गया, जबकि जहांगीरपुरी में यह 462 तक पहुंच गया। 57 मॉनिटरिंग स्टेशनों में से कई जगहों पर हवा की गुणवत्ता गंभीर और बेहद खराब श्रेणी में दर्ज हुई।
+
+## आंध्र प्रदेश में तूफान मुरासू का असर
+चक्रवाती तूफान मुरासू आंध्र प्रदेश के तट से टकराने के बाद तेलंगाना की ओर बढ़ा। तूफान के चलते तेज हवाओं और भारी बारिश से सैकड़ों पेड़ और बिजली के खंभे गिर गए तथा सड़कों पर जलभराव हो गया। मौसम विभाग ने तटीय इलाकों में अलर्ट जारी किया है।
+
+## शेयर बाजार में जबरदस्त तेजी
+शेयर बाजार में जोरदार बढ़त देखने को मिली। सेंसेक्स 1,225 अंक चढ़कर 76,918 पर और निफ्टी 370 अंक बढ़कर 23,811 के स्तर पर बंद हुआ। ऑटो, एफएमसीजी और रियल्टी शेयरों में सबसे अधिक खरीदारी दर्ज की गई।
+
+## सोना-चांदी के नए दाम
+घरेलू बाजार में 24 कैरेट सोना 594 रुपये बढ़कर 1.38 लाख रुपये प्रति 10 ग्राम के पार पहुंच गया। वहीं चांदी की कीमत में 2,672 रुपये की गिरावट दर्ज की गई और यह 1.77 लाख रुपये प्रति किलोग्राम पर आ गई।
+
+## भारत ने प्रलय मिसाइल का किया सफल परीक्षण
+डीआरडीओ ने ओडिशा के चांदीपुर से प्रलय मिसाइल का सफल परीक्षण किया। इस परीक्षण में पहली बार एक ही लॉन्चर से 500 किलोमीटर की रेंज में दो मिसाइलें दागकर दो अलग-अलग लक्ष्यों को तबाह किया गया।
